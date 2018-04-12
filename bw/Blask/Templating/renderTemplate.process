@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="www.tibco.com/plugin/java/xmlSchema/blask.templating.TemplateContext" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="www.tibco.com/plugin/java/JavaMethodActivityInput" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="www.tibco.com/plugin/java/XmlToJavaActivityInput" xmlns:ns1="www.tibco.com/plugin/java/XmlToJavaActivityOutput" xmlns:ns3="www.tibco.com/plugin/java/JavaMethodActivityOutput">
+    <pd:name>Blask/Templating/renderTemplate.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="input">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="template" type="xsd:string"/>
+                    <xsd:element name="error" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings>
+        <output>
+            <renderedTemplate>
+                <xsl:value-of select="$Render-Template/ns3:JavaMethodActivityOutput/MethodReturnValue"/>
+            </renderedTemplate>
+        </output>
+    </pd:returnBindings>
+    <pd:endName>End</pd:endName>
+    <pd:endType>
+        <xsd:element name="output">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="renderedTemplate" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:endType>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1522416535520</pd:targetNamespace>
+    <pd:activity name="Render Template">
+        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+        <pd:x>383</pd:x>
+        <pd:y>226</pd:y>
+        <config>
+            <ConstructDeclaredClass>false</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+            <InvokeCleanupMethod>false</InvokeCleanupMethod>
+            <JavaGlobalInstance>/Blask/Templating/TemplateEngineInstance.serviceagent</JavaGlobalInstance>
+            <MethodInfo>
+                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                <className>blask.templating.TemplateEngine</className>
+                <methodName>renderTemplate</methodName>
+                <methodReturn>java.lang.String</methodReturn>
+                <methodParameter>java.lang.String</methodParameter>
+                <methodParameter>java.lang.Object</methodParameter>
+            </MethodInfo>
+        </config>
+        <pd:inputBindings>
+            <ns:JavaMethodActivityInput>
+                <MethodParameters>
+                    <Parameter1>
+                        <xsl:value-of select="$Start/input/template"/>
+                    </Parameter1>
+                    <Parameter2>
+                        <xsl:value-of select="$Create-Context/ns1:XmlToJavaActivityOutput/ns1:blask.templating.TemplateContext"/>
+                    </Parameter2>
+                </MethodParameters>
+            </ns:JavaMethodActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Create Context">
+        <pd:type>com.tibco.plugin.java.XmlToJavaActivity</pd:type>
+        <pd:resourceType>ae.activities.XmlToJavaActivity</pd:resourceType>
+        <pd:x>254</pd:x>
+        <pd:y>223</pd:y>
+        <config>
+            <Repeatable>false</Repeatable>
+            <UseJavaSchema>false</UseJavaSchema>
+            <SelectorClassName>
+                <classLocation>/home/javier/IdeaProjects/blask/out/artifacts/blask_jar/blask.jar</classLocation>
+                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                <className>blask.templating.TemplateContext</className>
+            </SelectorClassName>
+        </config>
+        <pd:inputBindings>
+            <ns2:XmlToJavaActivityInput>
+                <pfx:TemplateContext/>
+            </ns2:XmlToJavaActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Create Context</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Render Template</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Create Context</pd:from>
+        <pd:to>Render Template</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>
