@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://jvier.com/Blask/Schemas/Routes.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="www.tibco.com/plugin/java/JavaMethodActivityInput" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.tibco.com/pe/GenerateErrorActivity/InputSchema" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions">
+    <xsd:import namespace="http://jvier.com/Blask/Schemas/Routes.xsd" schemaLocation="/Blask/Schemas/Routes.xsd"/>
+    <pd:name>Blask/Routing/addDefaultRoute.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType ref="pfx:processRoute"/>
+    <pd:startX>85</pd:startX>
+    <pd:startY>217</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>1471</pd:endX>
+    <pd:endY>224</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1522359386111</pd:targetNamespace>
+    <pd:activity name="Add default route">
+        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+        <pd:x>1234</pd:x>
+        <pd:y>148</pd:y>
+        <config>
+            <ConstructDeclaredClass>false</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+            <InvokeCleanupMethod>false</InvokeCleanupMethod>
+            <JavaGlobalInstance>/Blask/Routing/RouterJavaInstance.serviceagent</JavaGlobalInstance>
+            <MethodInfo>
+                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                <className>blask.routing.Router</className>
+                <methodName>addDefaultRoute</methodName>
+                <methodReturn>void</methodReturn>
+                <methodParameter>java.lang.String</methodParameter>
+            </MethodInfo>
+        </config>
+        <pd:inputBindings>
+            <ns:JavaMethodActivityInput>
+                <MethodParameters>
+                    <Parameter1>
+                        <xsl:value-of select="$Start/routes/defaultRoute/key"/>
+                    </Parameter1>
+                </MethodParameters>
+            </ns:JavaMethodActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Add Default View">
+        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+        <pd:x>1362</pd:x>
+        <pd:y>147</pd:y>
+        <config>
+            <ConstructDeclaredClass>false</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+            <InvokeCleanupMethod>false</InvokeCleanupMethod>
+            <JavaGlobalInstance>/Blask/Routing/RouteViewsInstance.serviceagent</JavaGlobalInstance>
+            <MethodInfo>
+                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                <className>blask.routing.RouteViews</className>
+                <methodName>addView</methodName>
+                <methodReturn>void</methodReturn>
+                <methodParameter>java.lang.String</methodParameter>
+                <methodParameter>java.lang.String</methodParameter>
+            </MethodInfo>
+        </config>
+        <pd:inputBindings>
+            <ns:JavaMethodActivityInput>
+                <MethodParameters>
+                    <Parameter1>
+                        <xsl:value-of select="$Start/routes/defaultRoute/key"/>
+                    </Parameter1>
+                    <Parameter2>
+                        <xsl:value-of select="$Start/routes/defaultRoute/process"/>
+                    </Parameter2>
+                </MethodParameters>
+            </ns:JavaMethodActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Set Routes">
+        <pd:type>com.tibco.pe.core.SetSharedVariableActivity</pd:type>
+        <pd:resourceType>ae.activities.setSharedVariable</pd:resourceType>
+        <pd:x>473</pd:x>
+        <pd:y>151</pd:y>
+        <config>
+            <variableConfig>/Blask/Routing/routes.sharedvariable</variableConfig>
+        </config>
+        <pd:inputBindings>
+            <routes>
+                <xsl:copy-of select="$Get-Routes/routes/pfx:route"/>
+                <pfx:route>
+                    <pfx:uriPattern>
+                        <xsl:value-of select="$Start/pfx:processRoute/pfx:uriPattern"/>
+                    </pfx:uriPattern>
+                    <xsl:for-each select="$Start/pfx:processRoute/pfx:method">
+                        <pfx:method>
+                            <xsl:value-of select="."/>
+                        </pfx:method>
+                    </xsl:for-each>
+                    <pfx:key>
+                        <xsl:value-of select="$Start/pfx:processRoute/pfx:key"/>
+                    </pfx:key>
+                    <pfx:target>
+                        <xsl:value-of select="$Start/pfx:processRoute/pfx:process"/>
+                    </pfx:target>
+                    <pfx:isStaticTarget>
+                        <xsl:value-of select="false()"/>
+                    </pfx:isStaticTarget>
+                    <xsl:if test="$Start/pfx:processRoute/pfx:cacheTimeoutSeconds">
+                        <pfx:cacheTimeoutSeconds>
+                            <xsl:value-of select="$Start/pfx:processRoute/pfx:cacheTimeoutSeconds"/>
+                        </pfx:cacheTimeoutSeconds>
+                    </xsl:if>
+                    <xsl:if test="$Start/pfx:processRoute/pfx:loginRequired">
+                        <pfx:loginRequired>
+                            <xsl:value-of select="$Start/pfx:processRoute/pfx:loginRequired"/>
+                        </pfx:loginRequired>
+                    </xsl:if>
+                </pfx:route>
+            </routes>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Get Routes">
+        <pd:type>com.tibco.pe.core.GetSharedVariableActivity</pd:type>
+        <pd:resourceType>ae.activities.getSharedVariable</pd:resourceType>
+        <pd:x>334</pd:x>
+        <pd:y>150</pd:y>
+        <config>
+            <variableConfig>/Blask/Routing/routes.sharedvariable</variableConfig>
+        </config>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:activity name="Generate Error">
+        <pd:type>com.tibco.pe.core.GenerateErrorActivity</pd:type>
+        <pd:resourceType>ae.activities.throw</pd:resourceType>
+        <pd:x>406</pd:x>
+        <pd:y>278</pd:y>
+        <config>
+            <faultName/>
+        </config>
+        <pd:inputBindings>
+            <ns0:ActivityInput>
+                <message>
+                    <xsl:value-of select="concat(&quot;Duplicated route key: &quot;, $current_route/route/key)"/>
+                </message>
+            </ns0:ActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:group name="Group">
+        <pd:type>com.tibco.pe.core.LoopGroup</pd:type>
+        <pd:resourceType>ae.process.group</pd:resourceType>
+        <pd:x>737</pd:x>
+        <pd:y>133</pd:y>
+        <pd:width>329</pd:width>
+        <pd:height>174</pd:height>
+        <pd:collapsedWidth>57</pd:collapsedWidth>
+        <pd:collapsedHeight>70</pd:collapsedHeight>
+        <pd:groupVariables/>
+        <pd:joinToggle>inherit</pd:joinToggle>
+        <config>
+            <pd:groupType>inputLoop</pd:groupType>
+            <pd:serializable>false</pd:serializable>
+            <pd:over>$Start/pfx:processRoute/pfx:method</pd:over>
+            <pd:iterationElementSlot>currentRouteMethod</pd:iterationElementSlot>
+            <pd:indexSlot>m</pd:indexSlot>
+            <pd:activityOutputName/>
+            <pd:accumulateOutput>false</pd:accumulateOutput>
+        </config>
+        <pd:inputBindings/>
+        <pd:expanded>true</pd:expanded>
+        <pd:transition>
+            <pd:from>start</pd:from>
+            <pd:to>Add route</pd:to>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>always</pd:conditionType>
+        </pd:transition>
+        <pd:transition>
+            <pd:from>Add View</pd:from>
+            <pd:to>end</pd:to>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>always</pd:conditionType>
+        </pd:transition>
+        <pd:transition>
+            <pd:from>Add route</pd:from>
+            <pd:to>Add View</pd:to>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>always</pd:conditionType>
+        </pd:transition>
+        <pd:activity name="Add route">
+            <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+            <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+            <pd:x>824</pd:x>
+            <pd:y>221</pd:y>
+            <config>
+                <ConstructDeclaredClass>false</ConstructDeclaredClass>
+                <CacheConstructedClass>false</CacheConstructedClass>
+                <InvokeCleanupMethod>false</InvokeCleanupMethod>
+                <JavaGlobalInstance>/Blask/Routing/RouterJavaInstance.serviceagent</JavaGlobalInstance>
+                <MethodInfo>
+                    <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                    <className>blask.routing.Router</className>
+                    <methodName>addRoute</methodName>
+                    <methodReturn>void</methodReturn>
+                    <methodParameter>java.lang.String</methodParameter>
+                    <methodParameter>java.lang.String</methodParameter>
+                    <methodParameter>java.lang.String</methodParameter>
+                </MethodInfo>
+            </config>
+            <pd:inputBindings>
+                <ns:JavaMethodActivityInput>
+                    <MethodParameters>
+                        <Parameter1>
+                            <xsl:value-of select="$currentRouteMethod/pfx:method"/>
+                        </Parameter1>
+                        <Parameter2>
+                            <xsl:value-of select="$Start/pfx:processRoute/pfx:uriPattern"/>
+                        </Parameter2>
+                        <Parameter3>
+                            <xsl:value-of select="$Start/pfx:processRoute/pfx:key"/>
+                        </Parameter3>
+                    </MethodParameters>
+                </ns:JavaMethodActivityInput>
+            </pd:inputBindings>
+        </pd:activity>
+        <pd:activity name="Add View">
+            <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+            <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+            <pd:x>972</pd:x>
+            <pd:y>222</pd:y>
+            <config>
+                <ConstructDeclaredClass>false</ConstructDeclaredClass>
+                <CacheConstructedClass>false</CacheConstructedClass>
+                <InvokeCleanupMethod>false</InvokeCleanupMethod>
+                <JavaGlobalInstance>/Blask/Routing/RouteViewsInstance.serviceagent</JavaGlobalInstance>
+                <MethodInfo>
+                    <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                    <className>blask.routing.RouteViews</className>
+                    <methodName>addView</methodName>
+                    <methodReturn>void</methodReturn>
+                    <methodParameter>java.lang.String</methodParameter>
+                    <methodParameter>java.lang.String</methodParameter>
+                </MethodInfo>
+            </config>
+            <pd:inputBindings>
+                <ns:JavaMethodActivityInput>
+                    <MethodParameters>
+                        <Parameter1>
+                            <xsl:value-of select="$Start/pfx:processRoute/pfx:key"/>
+                        </Parameter1>
+                        <Parameter2>
+                            <xsl:value-of select="$Start/pfx:processRoute/pfx:process"/>
+                        </Parameter2>
+                    </MethodParameters>
+                </ns:JavaMethodActivityInput>
+            </pd:inputBindings>
+        </pd:activity>
+    </pd:group>
+    <pd:transition>
+        <pd:from>Get Routes</pd:from>
+        <pd:to>Set Routes</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>otherwise</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Get Routes</pd:from>
+        <pd:to>Generate Error</pd:to>
+        <pd:xpathDescription>Duplicated Key</pd:xpathDescription>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>xpath</pd:conditionType>
+        <pd:xpath>exists($Get-Routes/routes/pfx:route[pfx:key=$Start/pfx:processRoute/pfx:key])</pd:xpath>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Add default route</pd:from>
+        <pd:to>Add Default View</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Add Default View</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Group</pd:from>
+        <pd:to>Add default route</pd:to>
+        <pd:xpathDescription>Default route</pd:xpathDescription>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>xpath</pd:conditionType>
+        <pd:xpath>exists($Start/routes/defaultRoute)</pd:xpath>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Group</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>otherwise</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Get Routes</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Set Routes</pd:from>
+        <pd:to>Group</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

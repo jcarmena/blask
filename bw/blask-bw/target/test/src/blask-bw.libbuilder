@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository:repository xmlns:Repository="http://www.tibco.com/xmlns/repo/types/2002">
+    <name name="blask-bw">
+        <version>1</version>
+        <author/>
+        <fileLocation>C:\temp\ProjectLibrary.projlib</fileLocation>
+        <resources>/Blask/BlaskLibraries.aliaslib,/Blask/Dev/devServer.process,/Blask/Dev/devServerConnection.sharedhttp,/Blask/Response/MimeTypes.xsd,/Blask/Response/createErrorResponse.process,/Blask/Response/getMimeType.process,/Blask/Response/makeResponse.process,/Blask/Response/mimeTypes.sharedvariable,/Blask/Response/mimeTypesXml.xml,/Blask/Response/response.jobsharedvariable,/Blask/Response/serveStaticFile.process,/Blask/Routing/Process Definition.process,/Blask/Routing/RouterJavaInstance.serviceagent,/Blask/Routing/addDefaultRoute.process,/Blask/Routing/addRoute_.process,/Blask/Routing/addRoutes.process,/Blask/Routing/defaultView.process,/Blask/Routing/getStaticFolder.process,/Blask/Routing/redirect.process,/Blask/Routing/route.process,/Blask/Routing/urlFor.process,/Blask/Schemas/Routes.xsd,/Blask/Schemas/math.xsd,/Blask/Schemas/svg.xsd,/Blask/Schemas/xhtml5.xsd,/Blask/Schemas/xhtml5_with_microdata.xsd,/Blask/Schemas/xml.xsd,/Blask/Templating/TemplateEngineInstance.serviceagent,/Blask/Templating/initializeEngine.process,/Blask/Templating/renderTemplate.process,/Blask/appContext.sharedvariable,/Blask/configure.process,/Blask/dispatchRequest.process,/Blask/requestContext.jobsharedvariable</resources>
+    </name>
+</Repository:repository>

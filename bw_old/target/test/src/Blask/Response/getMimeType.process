@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/schemas/bw/Blask/Schema.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://www.tibco.com/schemas/bw/Blask/MimeTypes.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="http://www.tibco.com/schemas/bw/Blask/Schema.xsd" schemaLocation="/Blask/Response/MimeTypes.xsd"/>
+    <pd:name>Blask/Response/getMimeType.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="input">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="extension" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
+    <pd:startX>137</pd:startX>
+    <pd:startY>164</pd:startY>
+    <pd:returnBindings>
+        <output>
+            <mimeType>
+                <xsl:value-of select="$Get-MimeTypes/ns:mimeTypes/ns:mimeType[@extension=$Start/input/extension]"/>
+            </mimeType>
+        </output>
+    </pd:returnBindings>
+    <pd:endName>End</pd:endName>
+    <pd:endType>
+        <xsd:element name="output">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="mimeType" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:endType>
+    <pd:endX>537</pd:endX>
+    <pd:endY>185</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1522610114471</pd:targetNamespace>
+    <pd:activity name="Get MimeTypes">
+        <pd:type>com.tibco.pe.core.GetSharedVariableActivity</pd:type>
+        <pd:resourceType>ae.activities.getSharedVariable</pd:resourceType>
+        <pd:x>276</pd:x>
+        <pd:y>160</pd:y>
+        <config>
+            <variableConfig>/Blask/Response/mimeTypes.sharedvariable</variableConfig>
+        </config>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Get MimeTypes</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Get MimeTypes</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

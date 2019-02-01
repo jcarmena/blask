@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://jvier.com/Blask/Schemas/Routes.xsd"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 targetNamespace="http://jvier.com/Blask/Schemas/Routes.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:element name="routes">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="processRoute" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="staticRoute" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="defaultRoute" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="route">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="uriPattern" type="xsd:string"/>
+				<xsd:element name="method" type="xsd:string" default="GET" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="key" type="xsd:string"/>
+				<xsd:element name="target" type="xsd:string"/>
+				<xsd:element name="isStaticTarget" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="cacheTimeoutSeconds" type="xsd:int" default="0" minOccurs="0"/>
+				<xsd:element name="loginRequired" type="xsd:boolean" default="false" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="processRoute">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="uriPattern" type="xsd:string"/>
+				<xsd:element name="method" type="xsd:string" maxOccurs="unbounded"/>
+				<xsd:element name="key" type="xsd:string"/>
+				<xsd:element name="process" type="xsd:string"/>
+				<xsd:element name="cacheTimeoutSeconds" type="xsd:int" default="0" minOccurs="0"/>
+				<xsd:element name="loginRequired" type="xsd:boolean" default="false" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="staticRoute">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="uriPattern" type="xsd:string"/>
+				<xsd:element name="key" type="xsd:string"/>
+				<xsd:element name="filesystemPath" type="xsd:string"/>
+				<xsd:element name="cacheTimeoutSeconds" type="xsd:int" default="0" minOccurs="0"/>
+				<xsd:element name="loginRequired" type="xsd:boolean" default="false" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="defaultRoute">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="key" type="xsd:string"/>
+				<xsd:element name="process" type="xsd:string"/>
+				<xsd:element name="cacheTimeoutSeconds" type="xsd:int" default="0" minOccurs="0"/>
+				<xsd:element name="loginRequired" type="xsd:boolean" default="false" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ref="http://www.tibco.com/tnt/utilitySchema" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="www.tibco.com/plugin/java/JavaMethodActivityInput" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <pd:name>Blask/Util/HashMap/putString.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="group">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="hashMap" type="ref:nativeJavaObjectKey"/>
+                    <xsd:element name="key" type="xsd:string"/>
+                    <xsd:element name="value" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1548283898581</pd:targetNamespace>
+    <pd:activity name="put">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>357</pd:x>
+        <pd:y>183</pd:y>
+        <config>
+            <processName>/Blask/Util/HashMap/put.process</processName>
+        </config>
+        <pd:inputBindings>
+            <group>
+                <hashMap>
+                    <xsl:value-of select="$Start/group/hashMap"/>
+                </hashMap>
+                <key>
+                    <xsl:value-of select="$Start/group/key"/>
+                </key>
+                <value>
+                    <xsl:value-of select="$Java-Code/javaCodeActivityOutput/object"/>
+                </value>
+            </group>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Java Code">
+        <pd:type>com.tibco.plugin.java.JavaActivity</pd:type>
+        <pd:resourceType>ae.javapalette.javaActivity</pd:resourceType>
+        <pd:x>187</pd:x>
+        <pd:y>184</pd:y>
+        <config>
+            <fileName>putStringJavaCode</fileName>
+            <packageName>Blask.Util.HashMap.putString</packageName>
+            <fullsource>package Blask.Util.HashMap.putString;
+import java.util.*;
+import java.io.*;
+public class putStringJavaCode{
+/****** START SET/GET METHOD, DO NOT MODIFY *****/
+	protected String string = "";
+	protected Object object = null;
+	public String getstring() {
+		return string;
+	}
+	public void setstring(String val) {
+		string = val;
+	}
+	public Object getobject() {
+		return object;
+	}
+	public void setobject(Object val) {
+		object = val;
+	}
+/****** END SET/GET METHOD, DO NOT MODIFY *****/
+	public putStringJavaCode() {
+	}
+	public void invoke() throws Exception {
+/* Available Variables: DO NOT MODIFY
+	In  : String string
+	Out : Object object
+* Available Variables: DO NOT MODIFY *****/
+
+this.setobject(string);}
+}
+</fullsource>
+            <inputData>
+                <row>
+                    <fieldName>string</fieldName>
+                    <fieldType>string</fieldType>
+                    <fieldRequired>required</fieldRequired>
+                </row>
+            </inputData>
+            <outputData>
+                <row>
+                    <fieldName>object</fieldName>
+                    <fieldType>ObjectReference</fieldType>
+                    <fieldRequired>required</fieldRequired>
+                </row>
+            </outputData>
+            <byteCode>
+                <class>
+                    <name>putStringJavaCode</name>
+                    <byteCode>yv66vgAAADQAJQkABgAdCQAGAB4KAAcAHwgAIAoABgAhBwAiBwAjAQAGc3RyaW5nAQASTGphdmEvbGFuZy9TdHJpbmc7AQAGb2JqZWN0AQASTGphdmEvbGFuZy9PYmplY3Q7AQAJZ2V0c3RyaW5nAQAUKClMamF2YS9sYW5nL1N0cmluZzsBAARDb2RlAQAPTGluZU51bWJlclRhYmxlAQAJc2V0c3RyaW5nAQAVKExqYXZhL2xhbmcvU3RyaW5nOylWAQAJZ2V0b2JqZWN0AQAUKClMamF2YS9sYW5nL09iamVjdDsBAAlzZXRvYmplY3QBABUoTGphdmEvbGFuZy9PYmplY3Q7KVYBAAY8aW5pdD4BAAMoKVYBAAZpbnZva2UBAApFeGNlcHRpb25zBwAkAQAKU291cmNlRmlsZQEAFnB1dFN0cmluZ0phdmFDb2RlLmphdmEMAAgACQwACgALDAAWABcBAAAMABQAFQEALkJsYXNrL1V0aWwvSGFzaE1hcC9wdXRTdHJpbmcvcHV0U3RyaW5nSmF2YUNvZGUBABBqYXZhL2xhbmcvT2JqZWN0AQATamF2YS9sYW5nL0V4Y2VwdGlvbgAhAAYABwAAAAIABAAIAAkAAAAEAAoACwAAAAYAAQAMAA0AAQAOAAAAHQABAAEAAAAFKrQAAbAAAAABAA8AAAAGAAEAAAAJAAEAEAARAAEADgAAACIAAgACAAAABiortQABsQAAAAEADwAAAAoAAgAAAAwABQANAAEAEgATAAEADgAAAB0AAQABAAAABSq0AAKwAAAAAQAPAAAABgABAAAADwABABQAFQABAA4AAAAiAAIAAgAAAAYqK7UAArEAAAABAA8AAAAKAAIAAAASAAUAEwABABYAFwABAA4AAAA0AAIAAQAAABAqtwADKhIEtQABKgG1AAKxAAAAAQAPAAAAEgAEAAAAFQAEAAYACgAHAA8AFgABABgAFwACAA4AAAAhAAIAAQAAAAkqKrQAAbYABbEAAAABAA8AAAAGAAEAAAAdABkAAAAEAAEAGgABABsAAAACABw=</byteCode>
+                </class>
+            </byteCode>
+        </config>
+        <pd:inputBindings>
+            <javaCodeActivityInput>
+                <string>
+                    <xsl:value-of select="$Start/group/value"/>
+                </string>
+            </javaCodeActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>put</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Java Code</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Java Code</pd:from>
+        <pd:to>put</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

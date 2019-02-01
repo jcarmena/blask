@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/pe/WriteToLogActivitySchema" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://www.tibco.com/pe/SignalInActivitySchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" xmlns:ns2="http://xmlns.tibco.com/encodings/mime" xmlns:ns1="http://xmlns.tibco.com/bw/plugin-api/messages/context">
+    <pd:name>Blask/Dev/devServer.process</pd:name>
+    <pd:startName>HTTP Receiver</pd:startName>
+    <pd:startX>0</pd:startX>
+    <pd:startY>0</pd:startY>
+    <pd:returnBindings/>
+    <pd:starter name="HTTP Receiver">
+        <pd:type>com.tibco.plugin.http.HTTPEventSource</pd:type>
+        <pd:resourceType>httppalette.httpEventSource</pd:resourceType>
+        <pd:x>96</pd:x>
+        <pd:y>159</pd:y>
+        <config>
+            <outputMode>String</outputMode>
+            <defaultEncoding>UTF8</defaultEncoding>
+            <inputOutputVersion>5.3.0</inputOutputVersion>
+            <newMimeSupport>true</newMimeSupport>
+            <parsePostData>false</parsePostData>
+            <sharedChannel>/Blask/Dev/devServerConnection.sharedhttp</sharedChannel>
+            <Headers>
+                <xsd:element name="root">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Accept" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Accept-Charset" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Accept-Encoding" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Content-Type" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Content-Length" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Connection" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Cookie" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Pragma" type="xsd:string" minOccurs="0"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </Headers>
+        </config>
+        <pd:inputBindings/>
+    </pd:starter>
+    <pd:endName>End</pd:endName>
+    <pd:endX>1128</pd:endX>
+    <pd:endY>163</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1522418933826</pd:targetNamespace>
+    <pd:activity name="Dispatch Request">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>382</pd:x>
+        <pd:y>160</pd:y>
+        <config>
+            <processName>/Blask/dispatchRequest.process</processName>
+        </config>
+        <pd:inputBindings>
+            <request>
+                <protocol>
+                    <xsl:value-of select="$HTTP-Receiver/ProcessStarterOutput/Protocol"/>
+                </protocol>
+                <port>
+                    <xsl:value-of select="$HTTP-Receiver/ProcessStarterOutput/Port"/>
+                </port>
+                <HTTPVersion>
+                    <xsl:value-of select="$HTTP-Receiver/ProcessStarterOutput/HTTPVersion"/>
+                </HTTPVersion>
+                <method>
+                    <xsl:value-of select="$HTTP-Receiver/ProcessStarterOutput/Method"/>
+                </method>
+                <requestURI>
+                    <xsl:value-of select="$HTTP-Receiver/ProcessStarterOutput/RequestURI"/>
+                </requestURI>
+                <command>
+                    <xsl:value-of select="$HTTP-Receiver/ProcessStarterOutput/Command"/>
+                </command>
+                <query>
+                    <xsl:value-of select="$HTTP-Receiver/ProcessStarterOutput/QueryString"/>
+                </query>
+                <postData>
+                    <xsl:value-of select="$HTTP-Receiver/ProcessStarterOutput/PostData"/>
+                </postData>
+            </request>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Send HTTP Response">
+        <pd:type>com.tibco.plugin.http.HTTPResponseActivity</pd:type>
+        <pd:resourceType>httppalette.httpWebResponse</pd:resourceType>
+        <pd:x>833</pd:x>
+        <pd:y>163</pd:y>
+        <config>
+            <closeConnection>true</closeConnection>
+            <eventSource>HTTP Receiver</eventSource>
+            <flushResponse>true</flushResponse>
+            <Headers>
+                <xsd:element name="root">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="StatusLine" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Content-Type" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Set-Cookie" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Pragma" type="xsd:string" minOccurs="0"/>
+                            <xsd:element name="Location" type="xsd:string" minOccurs="0"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </Headers>
+        </config>
+        <pd:inputBindings>
+            <ResponseActivityInput>
+                <asciiContent>
+                    <xsl:value-of select="$Get-Response/response/content/content"/>
+                </asciiContent>
+                <Headers>
+                    <StatusLine>
+                        <xsl:value-of select="$Map-Response/response/statusLine"/>
+                    </StatusLine>
+                    <xsl:if test="$Get-Response/response/content/contentType">
+                        <Content-Type>
+                            <xsl:value-of select="$Get-Response/response/content/contentType"/>
+                        </Content-Type>
+                    </xsl:if>
+                </Headers>
+            </ResponseActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Get Response">
+        <pd:type>com.tibco.pe.core.GetSharedVariableActivity</pd:type>
+        <pd:resourceType>ae.activities.getSharedVariable</pd:resourceType>
+        <pd:x>537</pd:x>
+        <pd:y>161</pd:y>
+        <config>
+            <variableConfig>/Blask/Response/response.jobsharedvariable</variableConfig>
+        </config>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:activity name="Log Response">
+        <pd:type>com.tibco.pe.core.WriteToLogActivity</pd:type>
+        <pd:resourceType>ae.activities.log</pd:resourceType>
+        <pd:x>998</pd:x>
+        <pd:y>163</pd:y>
+        <config>
+            <role>INFO</role>
+            <suppressHeader>true</suppressHeader>
+        </config>
+        <pd:inputBindings>
+            <pfx:ActivityInput>
+                <message>
+                    <xsl:value-of select="concat($HTTP-Receiver/ProcessStarterOutput/ns1:Context/RemoteAddress,&quot; - [&quot;,tib:format-dateTime( &quot;dd/MM/yyyy HH:mm:ss&quot;,current-dateTime()), &quot;] &quot;,$HTTP-Receiver/ProcessStarterOutput/Method,&quot; &quot;,$HTTP-Receiver/ProcessStarterOutput/RequestURI,&quot; &quot;,$HTTP-Receiver/ProcessStarterOutput/HTTPVersion, &quot; - &quot;, $Get-Response/response/statusCode)"/>
+                </message>
+            </pfx:ActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Map Response">
+        <pd:type>com.tibco.plugin.mapper.MapperActivity</pd:type>
+        <pd:resourceType>ae.activities.MapperActivity</pd:resourceType>
+        <pd:x>682</pd:x>
+        <pd:y>161</pd:y>
+        <config>
+            <element>
+                <xsd:element name="response">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="statusLine" type="xsd:string"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </element>
+        </config>
+        <pd:inputBindings>
+            <response>
+                <xsl:choose>
+                    <xsl:when test="exists($HTTP-Receiver/ProcessStarterOutput/HTTPVersion)">
+                        <statusLine>
+                            <xsl:value-of select="concat($HTTP-Receiver/ProcessStarterOutput/HTTPVersion, &quot; &quot;, $Get-Response/response/statusCode)"/>
+                        </statusLine>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <statusLine>
+                            <xsl:value-of select="concat(&quot;HTTP/1.1 &quot;, $Get-Response/response/statusCode)"/>
+                        </statusLine>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </response>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>HTTP Receiver</pd:from>
+        <pd:to>Dispatch Request</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Dispatch Request</pd:from>
+        <pd:to>Get Response</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Send HTTP Response</pd:from>
+        <pd:to>Log Response</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Get Response</pd:from>
+        <pd:to>Map Response</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Log Response</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Map Response</pd:from>
+        <pd:to>Send HTTP Response</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BWSharedResource>
+    <name>TemplateEngineInstance</name>
+    <resourceType>ae.shared.JavaGlobalServiceAgent</resourceType>
+    <config>
+        <InvokeCleanupMethod>false</InvokeCleanupMethod>
+        <class>com.tibco.plugin.java.JavaGlobalServiceAgent</class>
+        <ConstructorInfo>
+            <classLocation>/home/javier/IdeaProjects/blask/out/artifacts/blask_jar/blask.jar</classLocation>
+            <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+            <className>blask.templating.TemplateEngine</className>
+            <isConstructor>true</isConstructor>
+        </ConstructorInfo>
+        <ConstructorParameters/>
+    </config>
+</BWSharedResource>

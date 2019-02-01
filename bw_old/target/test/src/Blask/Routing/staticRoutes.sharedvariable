@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BWSharedResource xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <name>staticRoutes</name>
+    <resourceType>ae.shared.sharedVariable</resourceType>
+    <config xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <persistent>false</persistent>
+        <multi-engine>false</multi-engine>
+        <initialValue>none</initialValue>
+        <xsdString>
+            <xsd:element name="routes">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="route" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="key" type="xsd:string"/>
+                                    <xsd:element name="folderPath" type="xsd:string"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsdString>
+    </config>
+</BWSharedResource>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BWSharedResource xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <name>requestContext</name>
+    <resourceType>ae.shared.jobSharedVariable</resourceType>
+    <config xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <initialValue>none</initialValue>
+        <xsdString>
+            <xsd:element name="requestContext">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="method" type="xsd:string"/>
+                        <xsd:element name="command" type="xsd:string"/>
+                        <xsd:element name="parameter" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="name" type="xsd:string"/>
+                                    <xsd:element name="value" type="xsd:string"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="args" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="name" type="xsd:string"/>
+                                    <xsd:element name="value" type="xsd:string"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="referrer" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="form" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="key" type="xsd:string"/>
+                                    <xsd:element name="value" type="xsd:string"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="cookie" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="name" type="xsd:string"/>
+                                    <xsd:element name="value" type="xsd:string"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="file" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="param" type="xsd:string"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="routeKey" type="xsd:string" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsdString>
+    </config>
+</BWSharedResource>

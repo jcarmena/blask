@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="www.tibco.com/plugin/java/JavaMethodActivityOutput" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="www.tibco.com/plugin/java/JavaMethodActivityInput" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.tibco.com/pe/GenerateErrorActivity/InputSchema">
+    <pd:name>Blask/Routing/getView.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="root">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="viewId" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
+    <pd:startX>124</pd:startX>
+    <pd:startY>188</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>719</pd:endX>
+    <pd:endY>181</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1548290159691</pd:targetNamespace>
+    <pd:activity name="Java Code">
+        <pd:type>com.tibco.plugin.java.JavaActivity</pd:type>
+        <pd:resourceType>ae.javapalette.javaActivity</pd:resourceType>
+        <pd:x>580</pd:x>
+        <pd:y>89</pd:y>
+        <config/>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:activity name="exists View">
+        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+        <pd:x>232</pd:x>
+        <pd:y>92</pd:y>
+        <config>
+            <ConstructDeclaredClass>false</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+            <InvokeCleanupMethod>false</InvokeCleanupMethod>
+            <JavaGlobalInstance>/Blask/Routing/RouterJavaInstance.serviceagent</JavaGlobalInstance>
+            <MethodInfo>
+                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                <className>blask.routing.Router</className>
+                <methodName>existsView</methodName>
+                <methodReturn>boolean</methodReturn>
+                <methodParameter>java.lang.String</methodParameter>
+            </MethodInfo>
+        </config>
+        <pd:inputBindings>
+            <ns:JavaMethodActivityInput>
+                <MethodParameters>
+                    <Parameter1>
+                        <xsl:value-of select="$Start/root/viewId"/>
+                    </Parameter1>
+                </MethodParameters>
+            </ns:JavaMethodActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Generate Error">
+        <pd:type>com.tibco.pe.core.GenerateErrorActivity</pd:type>
+        <pd:resourceType>ae.activities.throw</pd:resourceType>
+        <pd:x>252</pd:x>
+        <pd:y>327</pd:y>
+        <config>
+            <faultName/>
+        </config>
+        <pd:inputBindings>
+            <ns1:ActivityInput>
+                <message>
+                    <xsl:value-of select="concat(&quot;Duplicated route key: &quot;, $Start/root/viewId)"/>
+                </message>
+            </ns1:ActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Java Method">
+        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+        <pd:x>413</pd:x>
+        <pd:y>179</pd:y>
+        <config>
+            <ConstructDeclaredClass>false</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+            <InvokeCleanupMethod>false</InvokeCleanupMethod>
+            <JavaGlobalInstance>/Blask/Routing/RouterJavaInstance.serviceagent</JavaGlobalInstance>
+            <MethodInfo>
+                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                <className>blask.routing.Router</className>
+                <methodName>addView</methodName>
+                <methodReturn>void</methodReturn>
+                <methodParameter>blask.routing.View</methodParameter>
+            </MethodInfo>
+        </config>
+        <pd:inputBindings>
+            <ns:JavaMethodActivityInput/>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>exists View</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Java Code</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>exists View</pd:from>
+        <pd:to>Java Method</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>exists View</pd:from>
+        <pd:to>Generate Error</pd:to>
+        <pd:xpathDescription>Duplicated viewId</pd:xpathDescription>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>xpath</pd:conditionType>
+        <pd:xpath>$exists-View/pfx:JavaMethodActivityOutput/MethodReturnValue="false"</pd:xpath>
+    </pd:transition>
+</pd:ProcessDefinition>

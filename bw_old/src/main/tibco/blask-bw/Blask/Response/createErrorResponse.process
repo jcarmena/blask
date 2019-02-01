@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.w3.org/1999/xhtml" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://www.tibco.com/pe/EngineTypes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions">
+    <xsd:import namespace="http://www.w3.org/1999/xhtml" schemaLocation="/Blask/Schemas/xhtml5_with_microdata.xsd"/>
+    <pd:name>Blask/Response/createErrorResponse.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="input">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="ErrorReport" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="StackTrace" type="xsd:string"/>
+                                <xsd:element name="Msg" type="xsd:string"/>
+                                <xsd:element name="FullClass" type="xsd:string"/>
+                                <xsd:element name="Class" type="xsd:string"/>
+                                <xsd:element name="ProcessStack" type="xsd:string"/>
+                                <xsd:element name="MsgCode" type="xsd:string" minOccurs="0"/>
+                                <xsd:element name="Data" minOccurs="0">
+                                    <xsd:complexType>
+                                        <xsd:sequence>
+                                            <xsd:any/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>831</pd:endX>
+    <pd:endY>63</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1522586063729</pd:targetNamespace>
+    <pd:activity name="Map Data">
+        <pd:type>com.tibco.plugin.mapper.MapperActivity</pd:type>
+        <pd:resourceType>ae.activities.MapperActivity</pd:resourceType>
+        <pd:x>561</pd:x>
+        <pd:y>64</pd:y>
+        <config>
+            <element ref="pfx:html"/>
+        </config>
+        <pd:inputBindings>
+            <pfx:html>
+                <pfx:head>
+                    <pfx:title>
+                        <xsl:value-of select="&quot;Error&quot;"/>
+                    </pfx:title>
+                </pfx:head>
+                <pfx:body>
+                    <pfx:h1>
+                        <xsl:value-of select="concat($Start/input/ErrorReport/MsgCode, &quot; - &quot;, $Start/input/ErrorReport/Class)"/>
+                    </pfx:h1>
+                    <pfx:p>
+                        <xsl:value-of select="$Start/input/ErrorReport/Msg"/>
+                    </pfx:p>
+                    <pfx:h2>
+                        <xsl:value-of select="&quot;StackTrace&quot;"/>
+                    </pfx:h2>
+                    <pfx:pre>
+                        <xsl:value-of select="tib:render-xml($Start/input/ErrorReport/StackTrace, true(), true())"/>
+                    </pfx:pre>
+                    <pfx:h2>
+                        <xsl:value-of select="&quot;ProcessStack&quot;"/>
+                    </pfx:h2>
+                    <pfx:pre>
+                        <xsl:value-of select="tib:render-xml($Start/input/ErrorReport/ProcessStack, true(), true())"/>
+                    </pfx:pre>
+                    <pfx:h2>
+                        <xsl:value-of select="&quot;App context&quot;"/>
+                    </pfx:h2>
+                    <pfx:pre>
+                        <xsl:value-of select="tib:render-xml($Get-App-Context/appContext, true(), true())"/>
+                    </pfx:pre>
+                    <pfx:h2>
+                        <xsl:value-of select="&quot;Request context&quot;"/>
+                    </pfx:h2>
+                    <pfx:pre>
+                        <xsl:value-of select="tib:render-xml($Get-Request-Context/requestContext, true(), true())"/>
+                    </pfx:pre>
+                </pfx:body>
+            </pfx:html>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Set Response">
+        <pd:type>com.tibco.pe.core.SetSharedVariableActivity</pd:type>
+        <pd:resourceType>ae.activities.setSharedVariable</pd:resourceType>
+        <pd:x>684</pd:x>
+        <pd:y>64</pd:y>
+        <config>
+            <variableConfig>/Blask/Response/response.jobsharedvariable</variableConfig>
+        </config>
+        <pd:inputBindings>
+            <response>
+                <statusCode>
+                    <xsl:value-of select="500"/>
+                </statusCode>
+                <xsl:if test="$Get-App-Context/appContext/debug=&quot;true&quot;">
+                    <content>
+                        <content>
+                            <xsl:value-of select="tib:render-xml($Map-Data/pfx:html, false(), true())"/>
+                        </content>
+                        <contentType>
+                            <xsl:value-of select="&quot;application/xhtml+xml&quot;"/>
+                        </contentType>
+                    </content>
+                </xsl:if>
+            </response>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Get App Context">
+        <pd:type>com.tibco.pe.core.GetSharedVariableActivity</pd:type>
+        <pd:resourceType>ae.activities.getSharedVariable</pd:resourceType>
+        <pd:x>286</pd:x>
+        <pd:y>65</pd:y>
+        <config>
+            <variableConfig>/Blask/appContext.sharedvariable</variableConfig>
+        </config>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:activity name="Get Request Context">
+        <pd:type>com.tibco.pe.core.GetSharedVariableActivity</pd:type>
+        <pd:resourceType>ae.activities.getSharedVariable</pd:resourceType>
+        <pd:x>432</pd:x>
+        <pd:y>72</pd:y>
+        <config>
+            <variableConfig>/Blask/requestContext.jobsharedvariable</variableConfig>
+        </config>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Get App Context</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Map Data</pd:from>
+        <pd:to>Set Response</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Set Response</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Get App Context</pd:from>
+        <pd:to>Get Request Context</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Get Request Context</pd:from>
+        <pd:to>Map Data</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

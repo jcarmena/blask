@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <pd:name>Blask/Response/makeResponse.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="response">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="content">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="contentType" type="xsd:string"/>
+                                <xsd:element name="content" type="xsd:string"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="statusCode" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1522591065535</pd:targetNamespace>
+    <pd:activity name="Set Response">
+        <pd:type>com.tibco.pe.core.SetSharedVariableActivity</pd:type>
+        <pd:resourceType>ae.activities.setSharedVariable</pd:resourceType>
+        <pd:x>293</pd:x>
+        <pd:y>119</pd:y>
+        <config>
+            <variableConfig>/Blask/Response/response.jobsharedvariable</variableConfig>
+        </config>
+        <pd:inputBindings>
+            <response>
+                <xsl:choose>
+                    <xsl:when test="exists($Start/response/statusCode)">
+                        <statusCode>
+                            <xsl:value-of select="$Start/response/statusCode"/>
+                        </statusCode>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <statusCode>
+                            <xsl:value-of select="200"/>
+                        </statusCode>
+                    </xsl:otherwise>
+                </xsl:choose>
+                <content>
+                    <content>
+                        <xsl:value-of select="$Start/response/content/content"/>
+                    </content>
+                    <contentType>
+                        <xsl:value-of select="$Start/response/content/contentType"/>
+                    </contentType>
+                </content>
+            </response>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Set Response</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Set Response</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

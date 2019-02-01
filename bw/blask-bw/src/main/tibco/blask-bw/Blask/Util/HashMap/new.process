@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ref="http://www.tibco.com/tnt/utilitySchema" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <pd:name>Blask/Util/HashMap/new.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings>
+        <newHashMap>
+            <xsl:value-of select="$Java-Code/javaCodeActivityOutput/parametersHashMap"/>
+        </newHashMap>
+    </pd:returnBindings>
+    <pd:endName>End</pd:endName>
+    <pd:endType>
+        <xsd:element name="newHashMap" type="ref:nativeJavaObjectKey"/>
+    </pd:endType>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1548283272842</pd:targetNamespace>
+    <pd:activity name="Java Code">
+        <pd:type>com.tibco.plugin.java.JavaActivity</pd:type>
+        <pd:resourceType>ae.javapalette.javaActivity</pd:resourceType>
+        <pd:x>290</pd:x>
+        <pd:y>197</pd:y>
+        <config>
+            <javaArchive/>
+            <fileName>createHashMapJavaCode</fileName>
+            <packageName>Blask.Routing.createHashMap</packageName>
+            <fullsource>package Blask.Routing.createHashMap;
+import java.util.*;
+import java.io.*;
+public class createHashMapJavaCode{
+/****** START SET/GET METHOD, DO NOT MODIFY *****/
+	protected Object parametersHashMap = null;
+	public Object getparametersHashMap() {
+		return parametersHashMap;
+	}
+	public void setparametersHashMap(Object val) {
+		parametersHashMap = val;
+	}
+/****** END SET/GET METHOD, DO NOT MODIFY *****/
+	public createHashMapJavaCode() {
+	}
+	public void invoke() throws Exception {
+/* Available Variables: DO NOT MODIFY
+	Out : Object parametersHashMap
+* Available Variables: DO NOT MODIFY *****/
+
+Map&lt;String, Object&gt; hashmap = new HashMap&lt;String, Object&gt;();
+this.setparametersHashMap(hashmap);}
+}
+</fullsource>
+            <outputData>
+                <row>
+                    <fieldName>parametersHashMap</fieldName>
+                    <fieldType>ObjectReference</fieldType>
+                    <fieldRequired>required</fieldRequired>
+                </row>
+            </outputData>
+            <inputData/>
+            <byteCode>
+                <class>
+                    <name>createHashMapJavaCode</name>
+                    <byteCode>yv66vgAAADQAHgkABgAXCgAHABgHABkKAAMAGAoABgAaBwAbBwAcAQARcGFyYW1ldGVyc0hhc2hNYXABABJMamF2YS9sYW5nL09iamVjdDsBABRnZXRwYXJhbWV0ZXJzSGFzaE1hcAEAFCgpTGphdmEvbGFuZy9PYmplY3Q7AQAEQ29kZQEAD0xpbmVOdW1iZXJUYWJsZQEAFHNldHBhcmFtZXRlcnNIYXNoTWFwAQAVKExqYXZhL2xhbmcvT2JqZWN0OylWAQAGPGluaXQ+AQADKClWAQAGaW52b2tlAQAKRXhjZXB0aW9ucwcAHQEAClNvdXJjZUZpbGUBABpjcmVhdGVIYXNoTWFwSmF2YUNvZGUuamF2YQwACAAJDAAQABEBABFqYXZhL3V0aWwvSGFzaE1hcAwADgAPAQAxQmxhc2svUm91dGluZy9jcmVhdGVIYXNoTWFwL2NyZWF0ZUhhc2hNYXBKYXZhQ29kZQEAEGphdmEvbGFuZy9PYmplY3QBABNqYXZhL2xhbmcvRXhjZXB0aW9uACEABgAHAAAAAQAEAAgACQAAAAQAAQAKAAsAAQAMAAAAHQABAAEAAAAFKrQAAbAAAAABAA0AAAAGAAEAAAAIAAEADgAPAAEADAAAACIAAgACAAAABiortQABsQAAAAEADQAAAAoAAgAAAAsABQAMAAEAEAARAAEADAAAACoAAgABAAAACiq3AAIqAbUAAbEAAAABAA0AAAAOAAMAAAAOAAQABgAJAA8AAQASABEAAgAMAAAAKgACAAIAAAAOuwADWbcABEwqK7YABbEAAAABAA0AAAAKAAIAAAAVAAgAFgATAAAABAABABQAAQAVAAAAAgAW</byteCode>
+                </class>
+            </byteCode>
+        </config>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Java Code</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Java Code</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

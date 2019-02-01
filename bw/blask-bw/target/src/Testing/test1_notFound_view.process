@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.w3.org/1999/xhtml" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="http://www.w3.org/1999/xhtml" schemaLocation="/Blask/Schemas/xhtml5_with_microdata.xsd"/>
+    <pd:name>Testing/test1_notFound_view.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType/>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings>
+        <response>
+            <content>
+                <xsl:value-of select="$renderTemplate/output/renderedTemplate"/>
+            </content>
+        </response>
+    </pd:returnBindings>
+    <pd:endName>End</pd:endName>
+    <pd:endX>643</pd:endX>
+    <pd:endY>77</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1522537640440</pd:targetNamespace>
+    <pd:activity name="renderTemplate">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>290</pd:x>
+        <pd:y>192</pd:y>
+        <config>
+            <processName>/Blask/Templating/renderTemplate.process</processName>
+        </config>
+        <pd:inputBindings>
+            <input>
+                <template>
+                    <xsl:value-of select="&quot;not_found&quot;"/>
+                </template>
+                <error>
+                    <xsl:value-of select="&quot;&quot;"/>
+                </error>
+            </input>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="makeResponse">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>530</pd:x>
+        <pd:y>194</pd:y>
+        <config>
+            <processName>/Blask/Response/makeResponse.process</processName>
+        </config>
+        <pd:inputBindings>
+            <response>
+                <content>
+                    <contentType>
+                        <xsl:value-of select="&quot;text/html&quot;"/>
+                    </contentType>
+                    <content>
+                        <xsl:value-of select="$renderTemplate/output/renderedTemplate"/>
+                    </content>
+                </content>
+                <statusCode>
+                    <xsl:value-of select="404"/>
+                </statusCode>
+            </response>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>renderTemplate</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>renderTemplate</pd:from>
+        <pd:to>makeResponse</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>makeResponse</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

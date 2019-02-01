@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="www.tibco.com/plugin/java/xmlSchema/blask.routing.RouteResult" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:pfx2="www.tibco.com/plugin/java/JavaToXmlActivityOutput" xmlns:ns="www.tibco.com/plugin/java/JavaMethodActivityInput" xmlns:pfx3="http://jvier.com/Blask/Schemas/Routes.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="www.tibco.com/plugin/java/JavaToXmlActivityInput" xmlns:ns1="www.tibco.com/plugin/java/JavaMethodActivityOutput">
+    <xsd:import namespace="http://jvier.com/Blask/Schemas/Routes.xsd" schemaLocation="/Blask/Schemas/Routes.xsd"/>
+    <pd:name>Blask/Routing/route_new.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="root">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="method" type="xsd:string"/>
+                    <xsd:element name="path" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
+    <pd:startX>93</pd:startX>
+    <pd:startY>200</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endType>
+        <xsd:element name="root">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="matched" type="xsd:boolean"/>
+                    <xsd:element name="isStatic" type="xsd:boolean"/>
+                    <xsd:element name="target" type="xsd:string"/>
+                    <xsd:element name="urlParameter" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="nombre" type="xsd:string"/>
+                                <xsd:element name="value" type="xsd:string"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="_" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="name" type="xsd:string"/>
+                                <xsd:element name="value" type="xsd:string"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:endType>
+    <pd:endX>808</pd:endX>
+    <pd:endY>295</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1548362661133</pd:targetNamespace>
+    <pd:activity name="route">
+        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+        <pd:x>243</pd:x>
+        <pd:y>201</pd:y>
+        <config>
+            <ConstructDeclaredClass>false</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+            <InvokeCleanupMethod>false</InvokeCleanupMethod>
+            <JavaGlobalInstance>/Blask/Routing/RouterJavaInstance.serviceagent</JavaGlobalInstance>
+            <MethodInfo>
+                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                <className>blask.routing.Router</className>
+                <methodName>route</methodName>
+                <methodReturn>blask.routing.RouteResult</methodReturn>
+                <methodParameter>java.lang.String</methodParameter>
+                <methodParameter>java.lang.String</methodParameter>
+            </MethodInfo>
+        </config>
+        <pd:inputBindings>
+            <ns:JavaMethodActivityInput>
+                <MethodParameters>
+                    <Parameter1>
+                        <xsl:value-of select="$Start/root/method"/>
+                    </Parameter1>
+                    <Parameter2>
+                        <xsl:value-of select="$Start/root/path"/>
+                    </Parameter2>
+                </MethodParameters>
+            </ns:JavaMethodActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="ResultToXml">
+        <pd:type>com.tibco.plugin.java.JavaToXmlActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaToXmlActivity</pd:resourceType>
+        <pd:x>393</pd:x>
+        <pd:y>202</pd:y>
+        <config>
+            <Repeatable>false</Repeatable>
+            <UseJavaSchema>false</UseJavaSchema>
+            <ConstructDeclaredClass>false</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+            <SelectorClassName>
+                <classLocation>/home/javier/lab/blask/bw/blask-bw/target/test/lib/routing-1.0.0-SNAPSHOT.jar</classLocation>
+                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                <className>blask.routing.RouteResult</className>
+            </SelectorClassName>
+        </config>
+        <pd:inputBindings>
+            <ns2:JavaToXmlActivityInput>
+                <ns2:blask.routing.RouteResult>
+                    <xsl:value-of select="$route/ns1:JavaMethodActivityOutput/MethodReturnValue"/>
+                </ns2:blask.routing.RouteResult>
+            </ns2:JavaToXmlActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Java To XML">
+        <pd:type>com.tibco.plugin.java.JavaToXmlActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaToXmlActivity</pd:resourceType>
+        <pd:x>561</pd:x>
+        <pd:y>295</pd:y>
+        <config>
+            <Repeatable>false</Repeatable>
+            <UseJavaSchema>false</UseJavaSchema>
+            <ConstructDeclaredClass>false</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+        </config>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:activity name="Get Parameters">
+        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+        <pd:x>558</pd:x>
+        <pd:y>90</pd:y>
+        <config>
+            <ConstructDeclaredClass>false</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+            <InvokeCleanupMethod>false</InvokeCleanupMethod>
+            <MethodInfo>
+                <classLocation>/home/javier/lab/blask/bw/blask-bw/target/test/lib/routing-1.0.0-SNAPSHOT.jar</classLocation>
+                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                <className>blask.routing.RouteResult</className>
+                <methodName>getParametersList</methodName>
+                <methodReturn>java.util.List</methodReturn>
+            </MethodInfo>
+        </config>
+        <pd:inputBindings>
+            <ns:JavaMethodActivityInput>
+                <blask.routing.RouteResult>
+                    <xsl:value-of select="$route/ns1:JavaMethodActivityOutput/MethodReturnValue"/>
+                </blask.routing.RouteResult>
+            </ns:JavaMethodActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="toArray">
+        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+        <pd:x>714</pd:x>
+        <pd:y>90</pd:y>
+        <config>
+            <ConstructDeclaredClass>false</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+            <InvokeCleanupMethod>false</InvokeCleanupMethod>
+            <MethodInfo>
+                <className>java.util.Collection</className>
+                <methodName>toArray</methodName>
+                <methodReturn>[Ljava.lang.Object;</methodReturn>
+            </MethodInfo>
+        </config>
+        <pd:inputBindings>
+            <ns:JavaMethodActivityInput>
+                <java.util.Collection>
+                    <xsl:value-of select="$Get-Parameters/ns1:JavaMethodActivityOutput/MethodReturnValue"/>
+                </java.util.Collection>
+            </ns:JavaMethodActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:group name="Group">
+        <pd:type>com.tibco.pe.core.LoopGroup</pd:type>
+        <pd:resourceType>ae.process.group</pd:resourceType>
+        <pd:x>1013</pd:x>
+        <pd:y>90</pd:y>
+        <pd:width>278</pd:width>
+        <pd:height>169</pd:height>
+        <pd:collapsedWidth>57</pd:collapsedWidth>
+        <pd:collapsedHeight>70</pd:collapsedHeight>
+        <pd:groupVariables/>
+        <pd:joinToggle>inherit</pd:joinToggle>
+        <config>
+            <pd:groupType>inputLoop</pd:groupType>
+            <pd:serializable>false</pd:serializable>
+            <pd:over>$toArray/ns1:JavaMethodActivityOutput/MethodReturnValue</pd:over>
+            <pd:iterationElementSlot>param</pd:iterationElementSlot>
+            <pd:indexSlot>i</pd:indexSlot>
+            <pd:outSlot>parameters</pd:outSlot>
+            <pd:activityOutputName>Parse Parameters</pd:activityOutputName>
+            <pd:accumulateOutput>true</pd:accumulateOutput>
+        </config>
+        <pd:inputBindings/>
+        <pd:expanded>true</pd:expanded>
+        <pd:transition>
+            <pd:from>start</pd:from>
+            <pd:to>Parse Parameters</pd:to>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>always</pd:conditionType>
+        </pd:transition>
+        <pd:transition>
+            <pd:from>Parse Parameters</pd:from>
+            <pd:to>end</pd:to>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>always</pd:conditionType>
+        </pd:transition>
+        <pd:activity name="Parse Parameters">
+            <pd:type>com.tibco.plugin.java.JavaToXmlActivity</pd:type>
+            <pd:resourceType>ae.activities.JavaToXmlActivity</pd:resourceType>
+            <pd:x>1164</pd:x>
+            <pd:y>183</pd:y>
+            <config>
+                <Repeatable>false</Repeatable>
+                <UseJavaSchema>false</UseJavaSchema>
+                <ConstructDeclaredClass>false</ConstructDeclaredClass>
+                <CacheConstructedClass>false</CacheConstructedClass>
+                <SelectorClassName>
+                    <classLocation>/home/javier/lab/blask/bw/blask-bw/target/test/lib/routing-1.0.0-SNAPSHOT.jar</classLocation>
+                    <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                    <className>blask.routing.RouteResultParameter</className>
+                </SelectorClassName>
+            </config>
+            <pd:inputBindings>
+                <ns2:JavaToXmlActivityInput>
+                    <ns2:blask.routing.RouteResultParameter>
+                        <xsl:value-of select="$param/MethodReturnValue"/>
+                    </ns2:blask.routing.RouteResultParameter>
+                </ns2:JavaToXmlActivityInput>
+            </pd:inputBindings>
+        </pd:activity>
+    </pd:group>
+    <pd:activity name="Get Process">
+        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+        <pd:x>866</pd:x>
+        <pd:y>90</pd:y>
+        <config>
+            <ConstructDeclaredClass>false</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+            <InvokeCleanupMethod>false</InvokeCleanupMethod>
+            <MethodInfo>
+                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                <className>blask.routing.RouteViews</className>
+                <methodName>getView</methodName>
+                <methodReturn>java.lang.String</methodReturn>
+                <methodParameter>java.lang.String</methodParameter>
+            </MethodInfo>
+        </config>
+        <pd:inputBindings>
+            <ns1:JavaMethodActivityInput xmlns:ns1="www.tibco.com/plugin/java/JavaMethodActivityInput">
+                <MethodParameters>
+                    <Parameter1>
+                        <xsl:value-of xmlns:xsl="http://www.w3.org/1999/XSL/Transform" select="$Parse-Route-Result/ns3:JavaToXmlActivityOutput/ns5:RouteResult/ns5:Key"/>
+                    </Parameter1>
+                </MethodParameters>
+            </ns1:JavaMethodActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>route</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>route</pd:from>
+        <pd:to>ResultToXml</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>ResultToXml</pd:from>
+        <pd:to>Java To XML</pd:to>
+        <pd:xpathDescription>result</pd:xpathDescription>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>xpath</pd:conditionType>
+        <pd:xpath>exists($route/ns1:JavaMethodActivityOutput/MethodReturnValue)</pd:xpath>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Java To XML</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>ResultToXml</pd:from>
+        <pd:to>Get Parameters</pd:to>
+        <pd:xpathDescription>matched</pd:xpathDescription>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>xpath</pd:conditionType>
+        <pd:xpath>$ResultToXml/pfx2:JavaToXmlActivityOutput/pfx:RouteResult/pfx:Matched="true"</pd:xpath>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Get Parameters</pd:from>
+        <pd:to>toArray</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>toArray</pd:from>
+        <pd:to>Get Process</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Get Process</pd:from>
+        <pd:to>Group</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Group</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

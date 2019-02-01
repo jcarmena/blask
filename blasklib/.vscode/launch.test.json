@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "routing",
+                "projectName": "routing",
+                "workingDirectory": "/home/javier/lab/blask/blasklib/routing",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "routing",
+                "projectName": "routing",
+                "workingDirectory": "/home/javier/lab/blask/blasklib/routing",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}

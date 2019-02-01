@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://jvier.com/Blask/Schemas/Routes.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:pfx2="www.tibco.com/plugin/java/xmlSchema/blask.routing.View" xmlns:ns="www.tibco.com/plugin/java/JavaMethodActivityInput" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.tibco.com/pe/GenerateErrorActivity/InputSchema" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" xmlns:ns2="www.tibco.com/plugin/java/XmlToJavaActivityInput" xmlns:ns1="www.tibco.com/plugin/java/JavaMethodActivityOutput">
+    <xsd:import namespace="http://jvier.com/Blask/Schemas/Routes.xsd" schemaLocation="/Blask/Schemas/Routes.xsd"/>
+    <pd:name>Blask/Routing/addRoute.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="group">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element ref="pfx:route"/>
+                    <xsd:element name="param" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="name" type="xsd:string"/>
+                                <xsd:element name="value" type="xsd:string"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
+    <pd:startX>67</pd:startX>
+    <pd:startY>249</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>822</pd:endX>
+    <pd:endY>223</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1522359386111</pd:targetNamespace>
+    <pd:activity name="addView">
+        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+        <pd:x>759</pd:x>
+        <pd:y>132</pd:y>
+        <config>
+            <ConstructDeclaredClass>false</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+            <InvokeCleanupMethod>false</InvokeCleanupMethod>
+            <JavaGlobalInstance>/Blask/Routing/RouterJavaInstance.serviceagent</JavaGlobalInstance>
+            <MethodInfo>
+                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                <className>blask.routing.Router</className>
+                <methodName>addView</methodName>
+                <methodReturn>void</methodReturn>
+                <methodParameter>blask.routing.View</methodParameter>
+            </MethodInfo>
+        </config>
+        <pd:inputBindings>
+            <ns:JavaMethodActivityInput>
+                <MethodParameters>
+                    <Parameter1>
+                        <xsl:value-of select="$new-View/ns1:JavaMethodActivityOutput/MethodReturnValue"/>
+                    </Parameter1>
+                </MethodParameters>
+            </ns:JavaMethodActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="new View">
+        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+        <pd:x>616</pd:x>
+        <pd:y>116</pd:y>
+        <config>
+            <ConstructDeclaredClass>true</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+            <InvokeCleanupMethod>false</InvokeCleanupMethod>
+            <MethodInfo>
+                <classLocation>/home/javier/lab/blask/bw/blask-bw/target/test/lib/routing-1.0.0-SNAPSHOT.jar</classLocation>
+                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                <className>blask.routing.View</className>
+                <isConstructor>true</isConstructor>
+                <methodParameter>java.lang.String</methodParameter>
+                <methodParameter>java.lang.String</methodParameter>
+                <methodParameter>java.lang.String</methodParameter>
+                <methodParameter>boolean</methodParameter>
+                <methodParameter>java.lang.String</methodParameter>
+                <methodParameter>java.util.Map</methodParameter>
+            </MethodInfo>
+        </config>
+        <pd:inputBindings>
+            <ns:JavaMethodActivityInput>
+                <MethodParameters>
+                    <Parameter1>
+                        <xsl:value-of select="$Start/group/pfx:route/pfx:method"/>
+                    </Parameter1>
+                    <Parameter2>
+                        <xsl:value-of select="$Start/group/pfx:route/pfx:uriPattern"/>
+                    </Parameter2>
+                    <Parameter3>
+                        <xsl:value-of select="$Start/group/pfx:route/pfx:viewId"/>
+                    </Parameter3>
+                    <Parameter4>
+                        <xsl:value-of select="$Start/group/pfx:route/pfx:isStaticTarget"/>
+                    </Parameter4>
+                    <Parameter5>
+                        <xsl:value-of select="$Start/group/pfx:route/pfx:target"/>
+                    </Parameter5>
+                    <Parameter6>
+                        <xsl:value-of select="$createHashMap/newHashMap"/>
+                    </Parameter6>
+                </MethodParameters>
+            </ns:JavaMethodActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="createHashMap">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>204</pd:x>
+        <pd:y>129</pd:y>
+        <config>
+            <processName>/Blask/Util/HashMap/new.process</processName>
+        </config>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:group name="Group">
+        <pd:type>com.tibco.pe.core.LoopGroup</pd:type>
+        <pd:resourceType>ae.process.group</pd:resourceType>
+        <pd:x>304</pd:x>
+        <pd:y>59</pd:y>
+        <pd:width>211</pd:width>
+        <pd:height>192</pd:height>
+        <pd:collapsedWidth>57</pd:collapsedWidth>
+        <pd:collapsedHeight>70</pd:collapsedHeight>
+        <pd:groupVariables/>
+        <pd:joinToggle>inherit</pd:joinToggle>
+        <config>
+            <pd:groupType>inputLoop</pd:groupType>
+            <pd:serializable>false</pd:serializable>
+            <pd:over>$Start/group/param</pd:over>
+            <pd:iterationElementSlot>param</pd:iterationElementSlot>
+            <pd:indexSlot>i</pd:indexSlot>
+            <pd:activityOutputName/>
+            <pd:accumulateOutput>false</pd:accumulateOutput>
+        </config>
+        <pd:inputBindings/>
+        <pd:expanded>true</pd:expanded>
+        <pd:transition>
+            <pd:from>start</pd:from>
+            <pd:to>put</pd:to>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>always</pd:conditionType>
+        </pd:transition>
+        <pd:transition>
+            <pd:from>put</pd:from>
+            <pd:to>end</pd:to>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>always</pd:conditionType>
+        </pd:transition>
+        <pd:activity name="put">
+            <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+            <pd:resourceType>ae.process.subprocess</pd:resourceType>
+            <pd:x>406</pd:x>
+            <pd:y>157</pd:y>
+            <config>
+                <processName>/Blask/Util/HashMap/putString.process</processName>
+            </config>
+            <pd:inputBindings>
+                <group>
+                    <hashMap>
+                        <xsl:value-of select="$createHashMap/newHashMap"/>
+                    </hashMap>
+                    <key>
+                        <xsl:value-of select="$param/param/name"/>
+                    </key>
+                    <value>
+                        <xsl:value-of select="$param/param/value"/>
+                    </value>
+                </group>
+            </pd:inputBindings>
+        </pd:activity>
+    </pd:group>
+    <pd:activity name="Generate Error">
+        <pd:type>com.tibco.pe.core.GenerateErrorActivity</pd:type>
+        <pd:resourceType>ae.activities.throw</pd:resourceType>
+        <pd:x>235</pd:x>
+        <pd:y>366</pd:y>
+        <config>
+            <faultName/>
+        </config>
+        <pd:inputBindings>
+            <ns0:ActivityInput>
+                <message>
+                    <xsl:value-of select="concat(&quot;Duplicated view ID: &quot;, $Start/group/pfx:route/pfx:viewId)"/>
+                </message>
+            </ns0:ActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="exists View">
+        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+        <pd:x>220</pd:x>
+        <pd:y>238</pd:y>
+        <config>
+            <ConstructDeclaredClass>false</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+            <InvokeCleanupMethod>false</InvokeCleanupMethod>
+            <JavaGlobalInstance>/Blask/Routing/RouterJavaInstance.serviceagent</JavaGlobalInstance>
+            <MethodInfo>
+                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                <className>blask.routing.Router</className>
+                <methodName>existsView</methodName>
+                <methodReturn>boolean</methodReturn>
+                <methodParameter>java.lang.String</methodParameter>
+            </MethodInfo>
+        </config>
+        <pd:inputBindings>
+            <ns:JavaMethodActivityInput>
+                <MethodParameters>
+                    <Parameter1>
+                        <xsl:value-of select="$Start/group/pfx:route/pfx:viewId"/>
+                    </Parameter1>
+                </MethodParameters>
+            </ns:JavaMethodActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>addView</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>new View</pd:from>
+        <pd:to>addView</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>createHashMap</pd:from>
+        <pd:to>Group</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Group</pd:from>
+        <pd:to>new View</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>exists View</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>exists View</pd:from>
+        <pd:to>Generate Error</pd:to>
+        <pd:xpathDescription>Duplicated view ID</pd:xpathDescription>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>xpath</pd:conditionType>
+        <pd:xpath>$exists-View/ns1:JavaMethodActivityOutput/MethodReturnValue="false"</pd:xpath>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>exists View</pd:from>
+        <pd:to>createHashMap</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>otherwise</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

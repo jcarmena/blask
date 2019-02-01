@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/pe/WriteToLogActivitySchema" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/file" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" xmlns:ns2="http://www.tibco.com/namespaces/tnt/plugins/file/v2" xmlns:ns1="http://www.tibco.com/pe/DeployedVarsType">
+    <pd:name>Blask/Response/serveStaticFile.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startX>137</pd:startX>
+    <pd:startY>112</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>1244</pd:endX>
+    <pd:endY>119</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1522606058065</pd:targetNamespace>
+    <pd:activity name="makeResponse">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>1091</pd:x>
+        <pd:y>117</pd:y>
+        <config>
+            <processName>/Blask/Response/makeResponse.process</processName>
+        </config>
+        <pd:inputBindings>
+            <response>
+                <content>
+                    <xsl:choose>
+                        <xsl:when test="string-length(tib:trim($Read-File/ns:ReadActivityOutputTextClass/fileContent/encoding)) > 0">
+                            <contentType>
+                                <xsl:value-of select="concat($getMimeType/output/mimeType, &quot;; charset=&quot;, $Read-File/ns:ReadActivityOutputTextClass/fileContent/encoding)"/>
+                            </contentType>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <contentType>
+                                <xsl:value-of select="$getMimeType/output/mimeType"/>
+                            </contentType>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <content>
+                        <xsl:value-of select="$Read-File/ns:ReadActivityOutputTextClass/fileContent/textContent"/>
+                    </content>
+                </content>
+                <statusCode>
+                    <xsl:value-of select="200"/>
+                </statusCode>
+            </response>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="getMimeType">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>951</pd:x>
+        <pd:y>115</pd:y>
+        <config>
+            <processName>/Blask/Response/getMimeType.process</processName>
+        </config>
+        <pd:inputBindings>
+            <input>
+                <extension>
+                    <xsl:value-of select="tib:substring-after-last($Get-Request-Context/requestContext/command, &quot;.&quot;)"/>
+                </extension>
+            </input>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Get Request Context">
+        <pd:type>com.tibco.pe.core.GetSharedVariableActivity</pd:type>
+        <pd:resourceType>ae.activities.getSharedVariable</pd:resourceType>
+        <pd:x>279</pd:x>
+        <pd:y>119</pd:y>
+        <config>
+            <variableConfig>/Blask/requestContext.jobsharedvariable</variableConfig>
+        </config>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:activity name="Read File">
+        <pd:type>com.tibco.plugin.file.FileReadActivity</pd:type>
+        <pd:resourceType>ae.activities.FileReadActivity</pd:resourceType>
+        <pd:x>812</pd:x>
+        <pd:y>114</pd:y>
+        <config>
+            <encoding>text</encoding>
+        </config>
+        <pd:inputBindings>
+            <ns2:ReadActivityInputClass>
+                <fileName>
+                    <xsl:value-of select="$Map-Filepath/filePath"/>
+                </fileName>
+            </ns2:ReadActivityInputClass>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Get Static filepaths">
+        <pd:type>com.tibco.pe.core.GetSharedVariableActivity</pd:type>
+        <pd:resourceType>ae.activities.getSharedVariable</pd:resourceType>
+        <pd:x>427</pd:x>
+        <pd:y>119</pd:y>
+        <config/>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:activity name="Map Filepath">
+        <pd:type>com.tibco.plugin.mapper.MapperActivity</pd:type>
+        <pd:resourceType>ae.activities.MapperActivity</pd:resourceType>
+        <pd:x>559</pd:x>
+        <pd:y>113</pd:y>
+        <config>
+            <element>
+                <xsd:element name="filePath" type="xsd:string"/>
+            </element>
+        </config>
+        <pd:inputBindings>
+            <filePath>
+                <xsl:value-of select="concat($Get-Static-filepaths/routes/route[key=$Get-Request-Context/requestContext/routeKey]/folderPath, &#xA;&quot;/&quot;,&#xA;$Get-Request-Context/requestContext/parameter[name=$_globalVariables/ns1:GlobalVariables/Blask/Routing/staticResourceParameterName]/value)"/>
+            </filePath>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Log">
+        <pd:type>com.tibco.pe.core.WriteToLogActivity</pd:type>
+        <pd:resourceType>ae.activities.log</pd:resourceType>
+        <pd:x>675</pd:x>
+        <pd:y>114</pd:y>
+        <config>
+            <role>INFO</role>
+            <suppressHeader>true</suppressHeader>
+        </config>
+        <pd:inputBindings>
+            <pfx:ActivityInput>
+                <message>
+                    <xsl:value-of select="concat(&quot;Serving static file: &quot;, $Map-Filepath/filePath)"/>
+                </message>
+            </pfx:ActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Get Request Context</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Get Request Context</pd:from>
+        <pd:to>Get Static filepaths</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>getMimeType</pd:from>
+        <pd:to>makeResponse</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>makeResponse</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Read File</pd:from>
+        <pd:to>getMimeType</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Get Static filepaths</pd:from>
+        <pd:to>Map Filepath</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Map Filepath</pd:from>
+        <pd:to>Log</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Log</pd:from>
+        <pd:to>Read File</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

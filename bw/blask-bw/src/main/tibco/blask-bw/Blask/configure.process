@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/schemas/bw/Blask/Schema.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:pfx2="http://www.tibco.com/schemas/bw/Blask/MimeTypes.xsd" xmlns:ns="http://www.tibco.com/pe/DeployedVarsType" xmlns:pfx3="http://jvier.com/Blask/Schemas/Routes.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions">
+    <xsd:import namespace="http://www.tibco.com/schemas/bw/Blask/MimeTypes.xsd" schemaLocation="/Blask/Response/MimeTypes.xsd"/>
+    <xsd:import namespace="http://jvier.com/Blask/Schemas/Routes.xsd" schemaLocation="/Blask/Schemas/Routes.xsd"/>
+    <pd:name>Blask/configure.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="configuration">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="debug" type="xsd:boolean" minOccurs="0"/>
+                    <xsd:element name="serverName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element ref="pfx3:processRoute" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element ref="pfx3:staticRoute" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element ref="pfx3:defaultRoute" minOccurs="0"/>
+                    <xsd:element name="templates">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="templatesPath" type="xsd:string"/>
+                                <xsd:element name="templatesExtension" type="xsd:string"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
+    <pd:startX>96</pd:startX>
+    <pd:startY>157</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>778</pd:endX>
+    <pd:endY>159</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1522415112151</pd:targetNamespace>
+    <pd:activity name="Add Routes">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>419</pd:x>
+        <pd:y>156</pd:y>
+        <config>
+            <processName>/Blask/Routing/addRoutes.process</processName>
+        </config>
+        <pd:inputBindings>
+            <routes>
+                <xsl:for-each select="$Start/configuration/routes/route">
+                    <xsl:for-each select="method">
+                        <route>
+                            <method>
+                                <xsl:value-of select="."/>
+                            </method>
+                            <pattern>
+                                <xsl:value-of select="../uriPattern"/>
+                            </pattern>
+                            <key>
+                                <xsl:value-of select="../key"/>
+                            </key>
+                            <process>
+                                <xsl:value-of select="../process"/>
+                            </process>
+                        </route>
+                    </xsl:for-each>
+                </xsl:for-each>
+                <xsl:for-each select="$Start/configuration/routes/static">
+                    <static>
+                        <path>
+                            <xsl:value-of select="uriPattern"/>
+                        </path>
+                        <key>
+                            <xsl:value-of select="key"/>
+                        </key>
+                        <folderPath>
+                            <xsl:value-of select="filesystemPath"/>
+                        </folderPath>
+                    </static>
+                </xsl:for-each>
+                <defaultRoute>
+                    <key>
+                        <xsl:value-of select="$Start/configuration/routes/notFound/key"/>
+                    </key>
+                    <process>
+                        <xsl:value-of select="$Start/configuration/routes/notFound/process"/>
+                    </process>
+                </defaultRoute>
+            </routes>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Initialize Templating Engine">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>590</pd:x>
+        <pd:y>165</pd:y>
+        <config>
+            <processName>/Blask/Templating/initializeEngine.process</processName>
+        </config>
+        <pd:inputBindings>
+            <input>
+                <engineName>
+                    <xsl:value-of select="$_globalVariables/ns:GlobalVariables/Blask/Templating/engineName"/>
+                </engineName>
+                <engineVersion>
+                    <xsl:value-of select="$_globalVariables/ns:GlobalVariables/Blask/Templating/engineVersion"/>
+                </engineVersion>
+                <templatesPath>
+                    <xsl:value-of select="$Start/configuration/templates/templatesPath"/>
+                </templatesPath>
+                <templatesExtension>
+                    <xsl:value-of select="$Start/configuration/templates/templatesExtension"/>
+                </templatesExtension>
+                <debugMode>
+                    <xsl:value-of select="$Start/configuration/debug"/>
+                </debugMode>
+            </input>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Set App Context">
+        <pd:type>com.tibco.pe.core.SetSharedVariableActivity</pd:type>
+        <pd:resourceType>ae.activities.setSharedVariable</pd:resourceType>
+        <pd:x>260</pd:x>
+        <pd:y>157</pd:y>
+        <config>
+            <variableConfig>/Blask/appContext.sharedvariable</variableConfig>
+        </config>
+        <pd:inputBindings>
+            <appContext>
+                <xsl:choose>
+                    <xsl:when test="$Start/configuration/debug">
+                        <debug>
+                            <xsl:value-of select="$Start/configuration/debug"/>
+                        </debug>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <debug>
+                            <xsl:value-of select="false()"/>
+                        </debug>
+                    </xsl:otherwise>
+                </xsl:choose>
+                <xsl:choose>
+                    <xsl:when test="exists($Start/configuration/serverName)">
+                        <serverName>
+                            <xsl:value-of select="$Start/configuration/serverName"/>
+                        </serverName>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <serverName>
+                            <xsl:value-of select="$_globalVariables/ns:GlobalVariables/Blask/DefaultServerName"/>
+                        </serverName>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </appContext>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Set App Context</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Add Routes</pd:from>
+        <pd:to>Initialize Templating Engine</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Initialize Templating Engine</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Set App Context</pd:from>
+        <pd:to>Add Routes</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

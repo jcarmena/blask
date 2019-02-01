@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <pd:name>Blask/Routing/urlFor.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="input">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="endpoint" type="xsd:string"/>
+                    <xsd:element name="parameter" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="argument" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="name" type="xsd:string"/>
+                                <xsd:element name="value" type="xsd:string"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="external" type="xsd:boolean" minOccurs="0"/>
+                    <xsd:element name="scheme" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="anchor" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="method" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
+    <pd:startX>98</pd:startX>
+    <pd:startY>131</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>726</pd:endX>
+    <pd:endY>139</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1522542875854</pd:targetNamespace>
+</pd:ProcessDefinition>

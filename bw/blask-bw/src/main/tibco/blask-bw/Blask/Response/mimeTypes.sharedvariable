@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BWSharedResource xmlns:pfx="http://www.tibco.com/schemas/bw/Blask/MimeTypes.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <import namespace="http://www.tibco.com/schemas/bw/Blask/MimeTypes.xsd" schemaLocation="/Blask/Response/MimeTypes.xsd"/>
+    <name>mimeTypes</name>
+    <resourceType>ae.shared.sharedVariable</resourceType>
+    <config xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <persistent>false</persistent>
+        <multi-engine>false</multi-engine>
+        <initialValue>byRef</initialValue>
+        <initialValueRef>/Blask/Response/mimeTypesXml.xml</initialValueRef>
+        <xsdString ref="pfx:mimeTypes"/>
+    </config>
+</BWSharedResource>
