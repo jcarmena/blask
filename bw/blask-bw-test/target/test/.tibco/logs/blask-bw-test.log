@@ -1,0 +1,516 @@
+2020 Jun 25 17:18:18:073 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 25 17:18:18:074 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 25 17:18:18:077 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 25 17:18:18:077 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 25 17:18:18:077 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 25 17:18:18:345 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 25 17:18:18:412 GMT +0200 BW.blask-bw-test Error [BW-Core] BWENGINE-100011 Error processing plugin agent [Blask/Routing/RouteViewsInstance.serviceagent]
+The Java class [blask.routing.RouteViews] is not found in the classpath.  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.RouteViews
+	at com.tibco.plugin.java.JavaPluginUtil.for(Unknown Source)
+	at com.tibco.plugin.java.JavaGlobalServiceAgent.for(Unknown Source)
+	at com.tibco.plugin.java.JavaGlobalServiceAgent.init(Unknown Source)
+	at com.tibco.pe.core.AgentJobCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.do(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.a(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.if(Unknown Source)
+	at com.tibco.pe.core.JobPool.<init>(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.<init>(Unknown Source)
+	at com.tibco.pe.PEMain.a(Unknown Source)
+	at com.tibco.pe.PEMain.do(Unknown Source)
+	at com.tibco.pe.PEMain.connect(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.doDebug(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.reallyStart(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.tibco.util.Trampoline.invoke(Trampoline.java:136)
+	at com.tibco.ui.BusyWait.run(BusyWait.java:428)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+2020 Jun 25 17:18:18:421 GMT +0200 BW.blask-bw-test Error [BW-Core] BWENGINE-100011 Error processing plugin agent [Blask/Routing/RouterJavaInstance.serviceagent]
+The Java class [blask.routing.Router] is not found in the classpath.  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.Router
+	at com.tibco.plugin.java.JavaPluginUtil.for(Unknown Source)
+	at com.tibco.plugin.java.JavaGlobalServiceAgent.for(Unknown Source)
+	at com.tibco.plugin.java.JavaGlobalServiceAgent.init(Unknown Source)
+	at com.tibco.pe.core.AgentJobCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.do(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.a(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.if(Unknown Source)
+	at com.tibco.pe.core.JobPool.<init>(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.<init>(Unknown Source)
+	at com.tibco.pe.PEMain.a(Unknown Source)
+	at com.tibco.pe.PEMain.do(Unknown Source)
+	at com.tibco.pe.PEMain.connect(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.doDebug(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.reallyStart(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.tibco.util.Trampoline.invoke(Trampoline.java:136)
+	at com.tibco.ui.BusyWait.run(BusyWait.java:428)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+2020 Jun 25 17:18:18:428 GMT +0200 BW.blask-bw-test Error [BW-Core] BWENGINE-100011 Error processing plugin agent [Blask/Templating/TemplateEngineInstance.serviceagent]
+The Java class [blask.templating.TemplateEngine] is not found in the classpath.  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.templating.TemplateEngine
+	at com.tibco.plugin.java.JavaPluginUtil.for(Unknown Source)
+	at com.tibco.plugin.java.JavaGlobalServiceAgent.for(Unknown Source)
+	at com.tibco.plugin.java.JavaGlobalServiceAgent.init(Unknown Source)
+	at com.tibco.pe.core.AgentJobCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.do(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.a(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.if(Unknown Source)
+	at com.tibco.pe.core.JobPool.<init>(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.<init>(Unknown Source)
+	at com.tibco.pe.PEMain.a(Unknown Source)
+	at com.tibco.pe.PEMain.do(Unknown Source)
+	at com.tibco.pe.PEMain.connect(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.doDebug(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.reallyStart(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.tibco.util.Trampoline.invoke(Trampoline.java:136)
+	at com.tibco.ui.BusyWait.run(BusyWait.java:428)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+2020 Jun 25 17:18:19:010 GMT +0200 BW.blask-bw-test Error [BW-Core] BWENGINE-100001 Error in [Blask/Routing/addRoutes.process/Add route]
+BW-JAVA-100029 Unable to obtain information for method [addRoute] from the class [blask.routing.Router].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.Router
+Error in [Blask/Routing/addRoutes.process/Add View]
+BW-JAVA-100029 Unable to obtain information for method [addView] from the class [blask.routing.RouteViews].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.RouteViews
+Error in [Blask/Routing/addRoutes.process/Add Default View]
+BW-JAVA-100029 Unable to obtain information for method [addView] from the class [blask.routing.RouteViews].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.RouteViews
+Error in [Blask/Routing/addRoutes.process/Add static route]
+BW-JAVA-100029 Unable to obtain information for method [addRoute] from the class [blask.routing.Router].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.Router
+Error in [Blask/Routing/addRoutes.process/Add sr view]
+BW-JAVA-100029 Unable to obtain information for method [addView] from the class [blask.routing.RouteViews].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.RouteViews
+Error in [Blask/Routing/addRoutes.process/Add default route]
+BW-JAVA-100029 Unable to obtain information for method [addDefaultRoute] from the class [blask.routing.Router].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.Router
+
+java.lang.Exception: Error in [Blask/Routing/addRoutes.process/Add route]
+BW-JAVA-100029 Unable to obtain information for method [addRoute] from the class [blask.routing.Router].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.Router
+Error in [Blask/Routing/addRoutes.process/Add View]
+BW-JAVA-100029 Unable to obtain information for method [addView] from the class [blask.routing.RouteViews].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.RouteViews
+Error in [Blask/Routing/addRoutes.process/Add Default View]
+BW-JAVA-100029 Unable to obtain information for method [addView] from the class [blask.routing.RouteViews].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.RouteViews
+Error in [Blask/Routing/addRoutes.process/Add static route]
+BW-JAVA-100029 Unable to obtain information for method [addRoute] from the class [blask.routing.Router].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.Router
+Error in [Blask/Routing/addRoutes.process/Add sr view]
+BW-JAVA-100029 Unable to obtain information for method [addView] from the class [blask.routing.RouteViews].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.RouteViews
+Error in [Blask/Routing/addRoutes.process/Add default route]
+BW-JAVA-100029 Unable to obtain information for method [addDefaultRoute] from the class [blask.routing.Router].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.Router
+
+	at com.tibco.pe.core.WorkflowBuilder.build(Unknown Source)
+	at com.tibco.pe.core.WorkflowLoader.setWorkflows(Unknown Source)
+	at com.tibco.pe.core.WorkflowLoader.loadWorkflows(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.a(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.if(Unknown Source)
+	at com.tibco.pe.core.JobPool.<init>(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.<init>(Unknown Source)
+	at com.tibco.pe.PEMain.a(Unknown Source)
+	at com.tibco.pe.PEMain.do(Unknown Source)
+	at com.tibco.pe.PEMain.connect(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.doDebug(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.reallyStart(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.tibco.util.Trampoline.invoke(Trampoline.java:136)
+	at com.tibco.ui.BusyWait.run(BusyWait.java:428)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+2020 Jun 25 17:18:19:019 GMT +0200 BW.blask-bw-test Error [BW-Core] BWENGINE-100001 Error in [Blask/Templating/initializeEngine.process/Java Method]
+BW-JAVA-100029 Unable to obtain information for method [initialize] from the class [blask.templating.TemplateEngine].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.templating.TemplateEngine
+
+java.lang.Exception: Error in [Blask/Templating/initializeEngine.process/Java Method]
+BW-JAVA-100029 Unable to obtain information for method [initialize] from the class [blask.templating.TemplateEngine].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.templating.TemplateEngine
+
+	at com.tibco.pe.core.WorkflowBuilder.build(Unknown Source)
+	at com.tibco.pe.core.WorkflowLoader.setWorkflows(Unknown Source)
+	at com.tibco.pe.core.WorkflowLoader.loadWorkflows(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.a(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.if(Unknown Source)
+	at com.tibco.pe.core.JobPool.<init>(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.<init>(Unknown Source)
+	at com.tibco.pe.PEMain.a(Unknown Source)
+	at com.tibco.pe.PEMain.do(Unknown Source)
+	at com.tibco.pe.PEMain.connect(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.doDebug(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.reallyStart(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.tibco.util.Trampoline.invoke(Trampoline.java:136)
+	at com.tibco.ui.BusyWait.run(BusyWait.java:428)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+2020 Jun 25 17:18:19:027 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300002 Engine blask-bw-test started 
+2020 Jun 25 17:18:19:902 GMT +0200 BW.blask-bw-test Error [BW-Core] BWENGINE-100067 Job-1 Error in [Testing/test1.process/configure]
+Call process input failed validation
+	at com.tibco.pe.core.CallProcessActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+caused by: org.xml.sax.SAXException: validation error: unexpected content "routes"; expected "serverName" or "{http://jvier.com/Blask/Schemas/Routes.xsd}processRoute" or "{http://jvier.com/Blask/Schemas/Routes.xsd}staticRoute" or "{http://jvier.com/Blask/Schemas/Routes.xsd}defaultRoute" or "templates"   ({com.tibco.xml.validation}COMPLEX_E_UNEXPECTED_CONTENT) at /configuration[1]/routes[1]
+com.tibco.xml.validation.exception.UnexpectedElementException: unexpected content "routes"; expected "serverName" or "{http://jvier.com/Blask/Schemas/Routes.xsd}processRoute" or "{http://jvier.com/Blask/Schemas/Routes.xsd}staticRoute" or "{http://jvier.com/Blask/Schemas/Routes.xsd}defaultRoute" or "templates"
+	at com.tibco.xml.validation.state.a.a.a(CMElementValidationState.java:502)
+	at com.tibco.xml.validation.state.a.a.b(CMElementValidationState.java:372)
+	at com.tibco.xml.validation.state.a.a.a(CMElementValidationState.java:142)
+	at com.tibco.xml.validation.state.driver.ValidationJazz.c(ValidationJazz.java:993)
+	at com.tibco.xml.validation.state.driver.ValidationJazz.b(ValidationJazz.java:898)
+	at com.tibco.xml.validation.state.driver.ValidationJazz.endAttributes(ValidationJazz.java:783)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:87)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:92)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:129)
+	at com.tibco.xml.xdata.bind.BindingRunner.validate(Unknown Source)
+	at com.tibco.pe.core.CallProcessActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+validation error: no declaration for element "routes"   ({com.tibco.xml.validation}COMPLEX_E_MISSING_ELEMENT_DECLARATION) at /configuration[1]/routes[1]
+com.tibco.xml.validation.exception.MissingDeclarationException: no declaration for element "routes"
+	at com.tibco.xml.validation.state.driver.ValidationJazz.b(ValidationJazz.java:906)
+	at com.tibco.xml.validation.state.driver.ValidationJazz.endAttributes(ValidationJazz.java:783)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:87)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:92)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:129)
+	at com.tibco.xml.xdata.bind.BindingRunner.validate(Unknown Source)
+	at com.tibco.pe.core.CallProcessActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+
+	at com.tibco.xml.xdata.bind.BindingRemarkHandler.assertNoErrors(Unknown Source)
+	at com.tibco.xml.xdata.bind.BindingRunner.validate(Unknown Source)
+	at com.tibco.pe.core.CallProcessActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Data>
+    <configuration>
+        <debug>true</debug>
+        <routes>
+            <route>
+                <uriPattern>/test1</uriPattern>
+                <method>GET</method>
+                <key>getTest1</key>
+                <process>/Testing/test1_view.process</process>
+            </route>
+            <static>
+                <uriPattern>/static</uriPattern>
+                <key>getStatic</key>
+                <filesystemPath>/home/javier/lab/blask/test/templates</filesystemPath>
+            </static>
+            <notFound>
+                <key>notFound</key>
+                <process>/Testing/test1_notFound_view.process</process>
+            </notFound>
+        </routes>
+        <templates>
+            <templatesPath>/home/javier/lab/blask/test/templates/</templatesPath>
+            <templatesExtension>.html</templatesExtension>
+        </templates>
+    </configuration>
+</Data> 
+2020 Jun 25 17:24:06:990 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300006 Engine blask-bw-test terminating 
+2020 Jun 25 17:26:01:324 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 25 17:26:01:326 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 25 17:26:01:329 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 25 17:26:01:329 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 25 17:26:01:330 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 25 17:26:01:557 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 25 17:26:01:634 GMT +0200 BW.blask-bw-test Error [BW-Core] BWENGINE-100011 Error processing plugin agent [Blask/Routing/RouteViewsInstance.serviceagent]
+The Java class [blask.routing.RouteViews] is not found in the classpath.  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.RouteViews
+	at com.tibco.plugin.java.JavaPluginUtil.for(Unknown Source)
+	at com.tibco.plugin.java.JavaGlobalServiceAgent.for(Unknown Source)
+	at com.tibco.plugin.java.JavaGlobalServiceAgent.init(Unknown Source)
+	at com.tibco.pe.core.AgentJobCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.do(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.a(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.if(Unknown Source)
+	at com.tibco.pe.core.JobPool.<init>(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.<init>(Unknown Source)
+	at com.tibco.pe.PEMain.a(Unknown Source)
+	at com.tibco.pe.PEMain.do(Unknown Source)
+	at com.tibco.pe.PEMain.connect(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.doDebug(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.reallyStart(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.tibco.util.Trampoline.invoke(Trampoline.java:136)
+	at com.tibco.ui.BusyWait.run(BusyWait.java:428)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+2020 Jun 25 17:26:01:642 GMT +0200 BW.blask-bw-test Error [BW-Core] BWENGINE-100011 Error processing plugin agent [Blask/Routing/RouterJavaInstance.serviceagent]
+The Java class [blask.routing.Router] is not found in the classpath.  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.Router
+	at com.tibco.plugin.java.JavaPluginUtil.for(Unknown Source)
+	at com.tibco.plugin.java.JavaGlobalServiceAgent.for(Unknown Source)
+	at com.tibco.plugin.java.JavaGlobalServiceAgent.init(Unknown Source)
+	at com.tibco.pe.core.AgentJobCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.do(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.a(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.if(Unknown Source)
+	at com.tibco.pe.core.JobPool.<init>(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.<init>(Unknown Source)
+	at com.tibco.pe.PEMain.a(Unknown Source)
+	at com.tibco.pe.PEMain.do(Unknown Source)
+	at com.tibco.pe.PEMain.connect(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.doDebug(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.reallyStart(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.tibco.util.Trampoline.invoke(Trampoline.java:136)
+	at com.tibco.ui.BusyWait.run(BusyWait.java:428)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+2020 Jun 25 17:26:01:649 GMT +0200 BW.blask-bw-test Error [BW-Core] BWENGINE-100011 Error processing plugin agent [Blask/Templating/TemplateEngineInstance.serviceagent]
+The Java class [blask.templating.TemplateEngine] is not found in the classpath.  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.templating.TemplateEngine
+	at com.tibco.plugin.java.JavaPluginUtil.for(Unknown Source)
+	at com.tibco.plugin.java.JavaGlobalServiceAgent.for(Unknown Source)
+	at com.tibco.plugin.java.JavaGlobalServiceAgent.init(Unknown Source)
+	at com.tibco.pe.core.AgentJobCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.do(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.a(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.if(Unknown Source)
+	at com.tibco.pe.core.JobPool.<init>(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.<init>(Unknown Source)
+	at com.tibco.pe.PEMain.a(Unknown Source)
+	at com.tibco.pe.PEMain.do(Unknown Source)
+	at com.tibco.pe.PEMain.connect(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.doDebug(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.reallyStart(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.tibco.util.Trampoline.invoke(Trampoline.java:136)
+	at com.tibco.ui.BusyWait.run(BusyWait.java:428)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+2020 Jun 25 17:26:02:004 GMT +0200 BW.blask-bw-test Error [BW-Core] BWENGINE-100001 Error in [Blask/Routing/addRoutes.process/Add route]
+BW-JAVA-100029 Unable to obtain information for method [addRoute] from the class [blask.routing.Router].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.Router
+Error in [Blask/Routing/addRoutes.process/Add View]
+BW-JAVA-100029 Unable to obtain information for method [addView] from the class [blask.routing.RouteViews].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.RouteViews
+Error in [Blask/Routing/addRoutes.process/Add Default View]
+BW-JAVA-100029 Unable to obtain information for method [addView] from the class [blask.routing.RouteViews].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.RouteViews
+Error in [Blask/Routing/addRoutes.process/Add static route]
+BW-JAVA-100029 Unable to obtain information for method [addRoute] from the class [blask.routing.Router].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.Router
+Error in [Blask/Routing/addRoutes.process/Add sr view]
+BW-JAVA-100029 Unable to obtain information for method [addView] from the class [blask.routing.RouteViews].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.RouteViews
+Error in [Blask/Routing/addRoutes.process/Add default route]
+BW-JAVA-100029 Unable to obtain information for method [addDefaultRoute] from the class [blask.routing.Router].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.Router
+
+java.lang.Exception: Error in [Blask/Routing/addRoutes.process/Add route]
+BW-JAVA-100029 Unable to obtain information for method [addRoute] from the class [blask.routing.Router].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.Router
+Error in [Blask/Routing/addRoutes.process/Add View]
+BW-JAVA-100029 Unable to obtain information for method [addView] from the class [blask.routing.RouteViews].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.RouteViews
+Error in [Blask/Routing/addRoutes.process/Add Default View]
+BW-JAVA-100029 Unable to obtain information for method [addView] from the class [blask.routing.RouteViews].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.RouteViews
+Error in [Blask/Routing/addRoutes.process/Add static route]
+BW-JAVA-100029 Unable to obtain information for method [addRoute] from the class [blask.routing.Router].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.Router
+Error in [Blask/Routing/addRoutes.process/Add sr view]
+BW-JAVA-100029 Unable to obtain information for method [addView] from the class [blask.routing.RouteViews].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.RouteViews
+Error in [Blask/Routing/addRoutes.process/Add default route]
+BW-JAVA-100029 Unable to obtain information for method [addDefaultRoute] from the class [blask.routing.Router].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.routing.Router
+
+	at com.tibco.pe.core.WorkflowBuilder.build(Unknown Source)
+	at com.tibco.pe.core.WorkflowLoader.setWorkflows(Unknown Source)
+	at com.tibco.pe.core.WorkflowLoader.loadWorkflows(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.a(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.if(Unknown Source)
+	at com.tibco.pe.core.JobPool.<init>(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.<init>(Unknown Source)
+	at com.tibco.pe.PEMain.a(Unknown Source)
+	at com.tibco.pe.PEMain.do(Unknown Source)
+	at com.tibco.pe.PEMain.connect(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.doDebug(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.reallyStart(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.tibco.util.Trampoline.invoke(Trampoline.java:136)
+	at com.tibco.ui.BusyWait.run(BusyWait.java:428)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+2020 Jun 25 17:26:02:016 GMT +0200 BW.blask-bw-test Error [BW-Core] BWENGINE-100001 Error in [Blask/Templating/initializeEngine.process/Java Method]
+BW-JAVA-100029 Unable to obtain information for method [initialize] from the class [blask.templating.TemplateEngine].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.templating.TemplateEngine
+
+java.lang.Exception: Error in [Blask/Templating/initializeEngine.process/Java Method]
+BW-JAVA-100029 Unable to obtain information for method [initialize] from the class [blask.templating.TemplateEngine].  ClassNotFoundException occurred.  java.lang.ClassNotFoundException: blask.templating.TemplateEngine
+
+	at com.tibco.pe.core.WorkflowBuilder.build(Unknown Source)
+	at com.tibco.pe.core.WorkflowLoader.setWorkflows(Unknown Source)
+	at com.tibco.pe.core.WorkflowLoader.loadWorkflows(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.a(Unknown Source)
+	at com.tibco.pe.core.JobPoolConfigurator.if(Unknown Source)
+	at com.tibco.pe.core.JobPool.<init>(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.init(Unknown Source)
+	at com.tibco.pe.core.JobPoolCreator.<init>(Unknown Source)
+	at com.tibco.pe.PEMain.a(Unknown Source)
+	at com.tibco.pe.PEMain.do(Unknown Source)
+	at com.tibco.pe.PEMain.connect(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.a(Unknown Source)
+	at com.tibco.pe.debug.DebugInfo.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.initEngine(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.doDebug(Unknown Source)
+	at com.tibco.ae.tools.palettes.processpalette.debug.DebugHandler.reallyStart(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.tibco.util.Trampoline.invoke(Trampoline.java:136)
+	at com.tibco.ui.BusyWait.run(BusyWait.java:428)
+	at java.lang.Thread.run(Thread.java:745)
+ 
+2020 Jun 25 17:26:02:027 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300002 Engine blask-bw-test started 
+2020 Jun 25 17:26:02:970 GMT +0200 BW.blask-bw-test Error [BW-Core] BWENGINE-100067 Job-1000 Error in [Testing/test1.process/configure]
+Call process input failed validation
+	at com.tibco.pe.core.CallProcessActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+caused by: org.xml.sax.SAXException: validation error: unexpected content "routes"; expected "serverName" or "{http://jvier.com/Blask/Schemas/Routes.xsd}processRoute" or "{http://jvier.com/Blask/Schemas/Routes.xsd}staticRoute" or "{http://jvier.com/Blask/Schemas/Routes.xsd}defaultRoute" or "templates"   ({com.tibco.xml.validation}COMPLEX_E_UNEXPECTED_CONTENT) at /configuration[1]/routes[1]
+com.tibco.xml.validation.exception.UnexpectedElementException: unexpected content "routes"; expected "serverName" or "{http://jvier.com/Blask/Schemas/Routes.xsd}processRoute" or "{http://jvier.com/Blask/Schemas/Routes.xsd}staticRoute" or "{http://jvier.com/Blask/Schemas/Routes.xsd}defaultRoute" or "templates"
+	at com.tibco.xml.validation.state.a.a.a(CMElementValidationState.java:502)
+	at com.tibco.xml.validation.state.a.a.b(CMElementValidationState.java:372)
+	at com.tibco.xml.validation.state.a.a.a(CMElementValidationState.java:142)
+	at com.tibco.xml.validation.state.driver.ValidationJazz.c(ValidationJazz.java:993)
+	at com.tibco.xml.validation.state.driver.ValidationJazz.b(ValidationJazz.java:898)
+	at com.tibco.xml.validation.state.driver.ValidationJazz.endAttributes(ValidationJazz.java:783)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:87)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:92)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:129)
+	at com.tibco.xml.xdata.bind.BindingRunner.validate(Unknown Source)
+	at com.tibco.pe.core.CallProcessActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+validation error: no declaration for element "routes"   ({com.tibco.xml.validation}COMPLEX_E_MISSING_ELEMENT_DECLARATION) at /configuration[1]/routes[1]
+com.tibco.xml.validation.exception.MissingDeclarationException: no declaration for element "routes"
+	at com.tibco.xml.validation.state.driver.ValidationJazz.b(ValidationJazz.java:906)
+	at com.tibco.xml.validation.state.driver.ValidationJazz.endAttributes(ValidationJazz.java:783)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:87)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:92)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:129)
+	at com.tibco.xml.xdata.bind.BindingRunner.validate(Unknown Source)
+	at com.tibco.pe.core.CallProcessActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+
+	at com.tibco.xml.xdata.bind.BindingRemarkHandler.assertNoErrors(Unknown Source)
+	at com.tibco.xml.xdata.bind.BindingRunner.validate(Unknown Source)
+	at com.tibco.pe.core.CallProcessActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Data>
+    <configuration>
+        <debug>true</debug>
+        <routes>
+            <route>
+                <uriPattern>/test1</uriPattern>
+                <method>GET</method>
+                <key>getTest1</key>
+                <process>/Testing/test1_view.process</process>
+            </route>
+            <static>
+                <uriPattern>/static</uriPattern>
+                <key>getStatic</key>
+                <filesystemPath>/home/javier/lab/blask/test/templates</filesystemPath>
+            </static>
+            <notFound>
+                <key>notFound</key>
+                <process>/Testing/test1_notFound_view.process</process>
+            </notFound>
+        </routes>
+        <templates>
+            <templatesPath>/home/javier/lab/blask/test/templates/</templatesPath>
+            <templatesExtension>.html</templatesExtension>
+        </templates>
+    </configuration>
+</Data> 
+2020 Jun 25 17:26:12:766 GMT +0200 BW.blask-bw-test Info [BW-Core] BWENGINE-300006 Engine blask-bw-test terminating 

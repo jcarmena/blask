@@ -2,6 +2,30 @@
 <repository xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xmlns = "http://www.tibco.com/xmlns/repo/types/2002">
 	<globalVariables>
 		<globalVariable>
+			<name>cacheTimeoutParameterName</name>
+			<value>CACHE_TIMEOUT</value>
+			<deploymentSettable>true</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<modTime>1549103934485</modTime>
+		</globalVariable>
+		<globalVariable>
+			<name>isStaticParameterName</name>
+			<value>IS_STATIC</value>
+			<deploymentSettable>true</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<modTime>1549103934489</modTime>
+		</globalVariable>
+		<globalVariable>
+			<name>loginRequiredParameterName</name>
+			<value>LOGIN_REQUIRED</value>
+			<deploymentSettable>true</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<modTime>1549103934478</modTime>
+		</globalVariable>
+		<globalVariable>
 			<name>staticResourceParameterName</name>
 			<value>*</value>
 			<deploymentSettable>true</deploymentSettable>

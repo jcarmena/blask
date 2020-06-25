@@ -1,36 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/pe/GenerateErrorActivity/InputSchema" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="www.tibco.com/plugin/java/JavaMethodActivityInput" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="www.tibco.com/plugin/java/JavaMethodActivityOutput">
     <pd:name>Blask/Routing/urlFor.process</pd:name>
     <pd:startName>Start</pd:startName>
     <pd:startType>
         <xsd:element name="input">
             <xsd:complexType>
                 <xsd:sequence>
-                    <xsd:element name="endpoint" type="xsd:string"/>
-                    <xsd:element name="parameter" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
-                    <xsd:element name="argument" minOccurs="0" maxOccurs="unbounded">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="name" type="xsd:string"/>
-                                <xsd:element name="value" type="xsd:string"/>
-                            </xsd:sequence>
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="external" type="xsd:boolean" minOccurs="0"/>
-                    <xsd:element name="scheme" type="xsd:string" minOccurs="0"/>
-                    <xsd:element name="anchor" type="xsd:string" minOccurs="0"/>
-                    <xsd:element name="method" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="viewId" type="xsd:string"/>
+                    <xsd:element name="param" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
                 </xsd:sequence>
             </xsd:complexType>
         </xsd:element>
     </pd:startType>
     <pd:startX>98</pd:startX>
     <pd:startY>131</pd:startY>
-    <pd:returnBindings/>
+    <pd:returnBindings>
+        <root>
+            <xsl:value-of select="$getViewPath/ns1:JavaMethodActivityOutput/MethodReturnValue"/>
+        </root>
+    </pd:returnBindings>
     <pd:endName>End</pd:endName>
-    <pd:endX>726</pd:endX>
-    <pd:endY>139</pd:endY>
+    <pd:endType>
+        <xsd:element name="root" type="xsd:string"/>
+    </pd:endType>
+    <pd:endX>478</pd:endX>
+    <pd:endY>132</pd:endY>
     <pd:errorSchemas/>
     <pd:processVariables/>
     <pd:targetNamespace>http://xmlns.example.com/1522542875854</pd:targetNamespace>
+    <pd:activity name="getViewPath">
+        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
+        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
+        <pd:x>297</pd:x>
+        <pd:y>134</pd:y>
+        <config>
+            <ConstructDeclaredClass>false</ConstructDeclaredClass>
+            <CacheConstructedClass>false</CacheConstructedClass>
+            <InvokeCleanupMethod>false</InvokeCleanupMethod>
+            <JavaGlobalInstance>/Blask/Routing/RouterJavaInstance.serviceagent</JavaGlobalInstance>
+            <MethodInfo>
+                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+                <className>blask.routing.Router</className>
+                <methodName>getPathFor</methodName>
+                <methodReturn>java.lang.String</methodReturn>
+                <methodParameter>java.lang.String</methodParameter>
+                <methodParameter>[Ljava.lang.String;</methodParameter>
+            </MethodInfo>
+        </config>
+        <pd:inputBindings>
+            <ns:JavaMethodActivityInput>
+                <MethodParameters>
+                    <Parameter1>
+                        <xsl:value-of select="$Start/input/viewId"/>
+                    </Parameter1>
+                </MethodParameters>
+            </ns:JavaMethodActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Generate Error">
+        <pd:type>com.tibco.pe.core.GenerateErrorActivity</pd:type>
+        <pd:resourceType>ae.activities.throw</pd:resourceType>
+        <pd:x>297</pd:x>
+        <pd:y>306</pd:y>
+        <config>
+            <faultName/>
+        </config>
+        <pd:inputBindings>
+            <pfx:ActivityInput/>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>getViewPath</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>getViewPath</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>otherwise</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>getViewPath</pd:from>
+        <pd:to>Generate Error</pd:to>
+        <pd:xpathDescription>Not found</pd:xpathDescription>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>xpath</pd:conditionType>
+        <pd:xpath>string-length($getViewPath/ns1:JavaMethodActivityOutput/MethodReturnValue)=0</pd:xpath>
+    </pd:transition>
 </pd:ProcessDefinition>

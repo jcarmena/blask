@@ -61,4 +61,15 @@
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
+	<xsd:element name="view">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="id" type="xsd:string"/>
+				<xsd:element name="target" type="xsd:string"/>
+				<xsd:element name="isStaticTarget" type="xsd:boolean" default="false" minOccurs="0"/>
+				<xsd:element name="cacheTimeoutSeconds" type="xsd:int" default="0" minOccurs="0"/>
+				<xsd:element name="loginRequired" type="xsd:boolean" default="false" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
 </xsd:schema>

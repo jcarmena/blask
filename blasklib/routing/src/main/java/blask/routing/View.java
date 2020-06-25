@@ -1,6 +1,7 @@
 package blask.routing;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -17,6 +18,7 @@ public class View implements Serializable {
     private boolean isStatic = false;
     private String target = null;
     private Route route = null;
+    private Map<String, Object> options = new HashMap<String, Object>();
 
 
     public View() {
@@ -31,13 +33,14 @@ public class View implements Serializable {
         this.setTarget(target);
     }
 
-    public View(String method, String uriPattern, String id, boolean isStatic, String target, Map<String, String> params) {
+    public View(String method, String uriPattern, String id, boolean isStatic, String target, Map<String, Object> options) {
         if (method!=null && uriPattern!=null) {
             this.route = new Route(method, uriPattern, id);
         }
         this.setId(id);
         this.setIsStatic(isStatic);
         this.setTarget(target);
+        this.setOptions(options);
     }
 
     public boolean isStatic() {
@@ -64,6 +67,15 @@ public class View implements Serializable {
 
     public View setTarget(String target) {
         this.target = target;
+        return this;
+    }
+
+    public Map<String, Object> getOptions() {
+        return this.options;
+    }
+
+    View setOptions(Map<String, Object> options) {
+        this.options = options;
         return this;
     }
 

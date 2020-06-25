@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://jvier.com/Blask/Schemas/Routes.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:pfx2="www.tibco.com/plugin/java/xmlSchema/blask.routing.View" xmlns:ns="www.tibco.com/plugin/java/JavaMethodActivityInput" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.tibco.com/pe/GenerateErrorActivity/InputSchema" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" xmlns:ns2="www.tibco.com/plugin/java/XmlToJavaActivityInput" xmlns:ns1="www.tibco.com/plugin/java/JavaMethodActivityOutput">
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://jvier.com/Blask/Schemas/Routes.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:pfx2="www.tibco.com/plugin/java/xmlSchema/blask.routing.View" xmlns:ns="www.tibco.com/plugin/java/JavaMethodActivityInput" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://www.tibco.com/pe/GenerateErrorActivity/InputSchema" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" xmlns:ns2="www.tibco.com/plugin/java/XmlToJavaActivityInput" xmlns:ns1="www.tibco.com/plugin/java/JavaMethodActivityOutput" xmlns:ns3="http://www.tibco.com/pe/DeployedVarsType">
     <xsd:import namespace="http://jvier.com/Blask/Schemas/Routes.xsd" schemaLocation="/Blask/Schemas/Routes.xsd"/>
     <pd:name>Blask/Routing/addRoute.process</pd:name>
     <pd:startName>Start</pd:startName>
@@ -8,7 +8,7 @@
             <xsd:complexType>
                 <xsd:sequence>
                     <xsd:element ref="pfx:route"/>
-                    <xsd:element name="param" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:element name="option" minOccurs="0" maxOccurs="unbounded">
                         <xsd:complexType>
                             <xsd:sequence>
                                 <xsd:element name="name" type="xsd:string"/>
@@ -20,20 +20,20 @@
             </xsd:complexType>
         </xsd:element>
     </pd:startType>
-    <pd:startX>67</pd:startX>
-    <pd:startY>249</pd:startY>
+    <pd:startX>66</pd:startX>
+    <pd:startY>237</pd:startY>
     <pd:returnBindings/>
     <pd:endName>End</pd:endName>
-    <pd:endX>822</pd:endX>
-    <pd:endY>223</pd:endY>
+    <pd:endX>1173</pd:endX>
+    <pd:endY>268</pd:endY>
     <pd:errorSchemas/>
     <pd:processVariables/>
     <pd:targetNamespace>http://xmlns.example.com/1522359386111</pd:targetNamespace>
     <pd:activity name="addView">
         <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
         <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
-        <pd:x>759</pd:x>
-        <pd:y>132</pd:y>
+        <pd:x>1108</pd:x>
+        <pd:y>159</pd:y>
         <config>
             <ConstructDeclaredClass>false</ConstructDeclaredClass>
             <CacheConstructedClass>false</CacheConstructedClass>
@@ -60,8 +60,8 @@
     <pd:activity name="new View">
         <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
         <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
-        <pd:x>616</pd:x>
-        <pd:y>116</pd:y>
+        <pd:x>967</pd:x>
+        <pd:y>161</pd:y>
         <config>
             <ConstructDeclaredClass>true</ConstructDeclaredClass>
             <CacheConstructedClass>false</CacheConstructedClass>
@@ -107,8 +107,8 @@
     <pd:activity name="createHashMap">
         <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
         <pd:resourceType>ae.process.subprocess</pd:resourceType>
-        <pd:x>204</pd:x>
-        <pd:y>129</pd:y>
+        <pd:x>238</pd:x>
+        <pd:y>87</pd:y>
         <config>
             <processName>/Blask/Util/HashMap/new.process</processName>
         </config>
@@ -117,8 +117,8 @@
     <pd:group name="Group">
         <pd:type>com.tibco.pe.core.LoopGroup</pd:type>
         <pd:resourceType>ae.process.group</pd:resourceType>
-        <pd:x>304</pd:x>
-        <pd:y>59</pd:y>
+        <pd:x>689</pd:x>
+        <pd:y>28</pd:y>
         <pd:width>211</pd:width>
         <pd:height>192</pd:height>
         <pd:collapsedWidth>57</pd:collapsedWidth>
@@ -128,8 +128,8 @@
         <config>
             <pd:groupType>inputLoop</pd:groupType>
             <pd:serializable>false</pd:serializable>
-            <pd:over>$Start/group/param</pd:over>
-            <pd:iterationElementSlot>param</pd:iterationElementSlot>
+            <pd:over>$Start/group/option</pd:over>
+            <pd:iterationElementSlot>options</pd:iterationElementSlot>
             <pd:indexSlot>i</pd:indexSlot>
             <pd:activityOutputName/>
             <pd:accumulateOutput>false</pd:accumulateOutput>
@@ -153,8 +153,8 @@
         <pd:activity name="put">
             <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
             <pd:resourceType>ae.process.subprocess</pd:resourceType>
-            <pd:x>406</pd:x>
-            <pd:y>157</pd:y>
+            <pd:x>790</pd:x>
+            <pd:y>126</pd:y>
             <config>
                 <processName>/Blask/Util/HashMap/putString.process</processName>
             </config>
@@ -164,10 +164,10 @@
                         <xsl:value-of select="$createHashMap/newHashMap"/>
                     </hashMap>
                     <key>
-                        <xsl:value-of select="$param/param/name"/>
+                        <xsl:value-of select="$options/option/name"/>
                     </key>
                     <value>
-                        <xsl:value-of select="$param/param/value"/>
+                        <xsl:value-of select="$options/option/value"/>
                     </value>
                 </group>
             </pd:inputBindings>
@@ -176,8 +176,8 @@
     <pd:activity name="Generate Error">
         <pd:type>com.tibco.pe.core.GenerateErrorActivity</pd:type>
         <pd:resourceType>ae.activities.throw</pd:resourceType>
-        <pd:x>235</pd:x>
-        <pd:y>366</pd:y>
+        <pd:x>408</pd:x>
+        <pd:y>357</pd:y>
         <config>
             <faultName/>
         </config>
@@ -217,6 +217,72 @@
             </ns:JavaMethodActivityInput>
         </pd:inputBindings>
     </pd:activity>
+    <pd:activity name="put IsStatic">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>367</pd:x>
+        <pd:y>128</pd:y>
+        <config>
+            <processName>/Blask/Util/HashMap/putBool.process</processName>
+        </config>
+        <pd:inputBindings>
+            <group>
+                <hashMap>
+                    <xsl:value-of select="$createHashMap/newHashMap"/>
+                </hashMap>
+                <key>
+                    <xsl:value-of select="$_globalVariables/ns3:GlobalVariables/Blask/Routing/isStaticParameterName"/>
+                </key>
+                <value>
+                    <xsl:value-of select="$Start/group/pfx:route/pfx:isStaticTarget"/>
+                </value>
+            </group>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="put CacheTimeout">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>593</pd:x>
+        <pd:y>125</pd:y>
+        <config>
+            <processName>/Blask/Util/HashMap/putInt.process</processName>
+        </config>
+        <pd:inputBindings>
+            <group>
+                <hashMap>
+                    <xsl:value-of select="$createHashMap/newHashMap"/>
+                </hashMap>
+                <key>
+                    <xsl:value-of select="$_globalVariables/ns3:GlobalVariables/Blask/Routing/cacheTimeoutParameterName"/>
+                </key>
+                <value>
+                    <xsl:value-of select="$Start/group/pfx:route/pfx:cacheTimeoutSeconds"/>
+                </value>
+            </group>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="put LoginRequired">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>480</pd:x>
+        <pd:y>44</pd:y>
+        <config>
+            <processName>/Blask/Util/HashMap/putBool.process</processName>
+        </config>
+        <pd:inputBindings>
+            <group>
+                <hashMap>
+                    <xsl:value-of select="$createHashMap/newHashMap"/>
+                </hashMap>
+                <key>
+                    <xsl:value-of select="$_globalVariables/ns3:GlobalVariables/Blask/Routing/loginRequiredParameterName"/>
+                </key>
+                <value>
+                    <xsl:value-of select="$Start/group/pfx:route/pfx:loginRequired"/>
+                </value>
+            </group>
+        </pd:inputBindings>
+    </pd:activity>
     <pd:transition>
         <pd:from>addView</pd:from>
         <pd:to>End</pd:to>
@@ -233,7 +299,7 @@
     </pd:transition>
     <pd:transition>
         <pd:from>createHashMap</pd:from>
-        <pd:to>Group</pd:to>
+        <pd:to>put IsStatic</pd:to>
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>
         <pd:conditionType>always</pd:conditionType>
@@ -267,5 +333,26 @@
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>
         <pd:conditionType>otherwise</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>put IsStatic</pd:from>
+        <pd:to>put LoginRequired</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>put LoginRequired</pd:from>
+        <pd:to>put CacheTimeout</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>put CacheTimeout</pd:from>
+        <pd:to>Group</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
     </pd:transition>
 </pd:ProcessDefinition>

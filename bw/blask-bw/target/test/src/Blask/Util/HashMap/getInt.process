@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ref="http://www.tibco.com/tnt/utilitySchema" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="www.tibco.com/plugin/java/JavaMethodActivityInput" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <pd:name>Blask/Util/HashMap/getInt.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="group">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="hashMap" type="ref:nativeJavaObjectKey"/>
+                    <xsd:element name="key" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings>
+        <out>
+            <xsl:if test="exists($Java-Code/javaCodeActivityOutput/value)">
+                <value>
+                    <xsl:value-of select="$Java-Code/javaCodeActivityOutput/value"/>
+                </value>
+            </xsl:if>
+        </out>
+    </pd:returnBindings>
+    <pd:endName>End</pd:endName>
+    <pd:endType>
+        <xsd:element name="out">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="value" type="xsd:int" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:endType>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1548283898581</pd:targetNamespace>
+    <pd:activity name="Java Code">
+        <pd:type>com.tibco.plugin.java.JavaActivity</pd:type>
+        <pd:resourceType>ae.javapalette.javaActivity</pd:resourceType>
+        <pd:x>398</pd:x>
+        <pd:y>193</pd:y>
+        <config>
+            <fileName>getIntJavaCode</fileName>
+            <packageName>Blask.Util.HashMap.getInt</packageName>
+            <fullsource>package Blask.Util.HashMap.getInt;
+import java.util.*;
+import java.io.*;
+public class getIntJavaCode{
+/****** START SET/GET METHOD, DO NOT MODIFY *****/
+	protected Object valueObject = null;
+	protected int value = 0;
+	public Object getvalueObject() {
+		return valueObject;
+	}
+	public void setvalueObject(Object val) {
+		valueObject = val;
+	}
+	public int getvalue() {
+		return value;
+	}
+	public void setvalue(int val) {
+		value = val;
+	}
+/****** END SET/GET METHOD, DO NOT MODIFY *****/
+	public getIntJavaCode() {
+	}
+	public void invoke() throws Exception {
+/* Available Variables: DO NOT MODIFY
+	In  : Object valueObject
+	Out : int value
+* Available Variables: DO NOT MODIFY *****/
+this.setvalue((Integer)this.getvalueObject());}
+}
+</fullsource>
+            <inputData>
+                <row>
+                    <fieldName>valueObject</fieldName>
+                    <fieldType>ObjectReference</fieldType>
+                    <fieldRequired>required</fieldRequired>
+                </row>
+            </inputData>
+            <outputData>
+                <row>
+                    <fieldName>value</fieldName>
+                    <fieldType>int</fieldType>
+                    <fieldRequired>optional</fieldRequired>
+                </row>
+            </outputData>
+            <byteCode>
+                <class>
+                    <name>getIntJavaCode</name>
+                    <byteCode>yv66vgAAADQAKgkACAAfCQAIACAKAAkAIQoACAAiBwAjCgAFACQKAAgAJQcAJgcAJwEAC3ZhbHVlT2JqZWN0AQASTGphdmEvbGFuZy9PYmplY3Q7AQAFdmFsdWUBAAFJAQAOZ2V0dmFsdWVPYmplY3QBABQoKUxqYXZhL2xhbmcvT2JqZWN0OwEABENvZGUBAA9MaW5lTnVtYmVyVGFibGUBAA5zZXR2YWx1ZU9iamVjdAEAFShMamF2YS9sYW5nL09iamVjdDspVgEACGdldHZhbHVlAQADKClJAQAIc2V0dmFsdWUBAAQoSSlWAQAGPGluaXQ+AQADKClWAQAGaW52b2tlAQAKRXhjZXB0aW9ucwcAKAEAClNvdXJjZUZpbGUBABNnZXRJbnRKYXZhQ29kZS5qYXZhDAAKAAsMAAwADQwAGAAZDAAOAA8BABFqYXZhL2xhbmcvSW50ZWdlcgwAKQAVDAAWABcBAChCbGFzay9VdGlsL0hhc2hNYXAvZ2V0SW50L2dldEludEphdmFDb2RlAQAQamF2YS9sYW5nL09iamVjdAEAE2phdmEvbGFuZy9FeGNlcHRpb24BAAhpbnRWYWx1ZQAhAAgACQAAAAIABAAKAAsAAAAEAAwADQAAAAYAAQAOAA8AAQAQAAAAHQABAAEAAAAFKrQAAbAAAAABABEAAAAGAAEAAAAJAAEAEgATAAEAEAAAACIAAgACAAAABiortQABsQAAAAEAEQAAAAoAAgAAAAwABQANAAEAFAAVAAEAEAAAAB0AAQABAAAABSq0AAKsAAAAAQARAAAABgABAAAADwABABYAFwABABAAAAAiAAIAAgAAAAYqG7UAArEAAAABABEAAAAKAAIAAAASAAUAEwABABgAGQABABAAAAAzAAIAAQAAAA8qtwADKgG1AAEqA7UAArEAAAABABEAAAASAAQAAAAVAAQABgAJAAcADgAWAAEAGgAZAAIAEAAAACcAAgABAAAADyoqtgAEwAAFtgAGtgAHsQAAAAEAEQAAAAYAAQAAABwAGwAAAAQAAQAcAAEAHQAAAAIAHg==</byteCode>
+                </class>
+            </byteCode>
+        </config>
+        <pd:inputBindings>
+            <javaCodeActivityInput>
+                <valueObject>
+                    <xsl:value-of select="$get/out/value"/>
+                </valueObject>
+            </javaCodeActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="get">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>260</pd:x>
+        <pd:y>193</pd:y>
+        <config>
+            <processName>/Blask/Util/HashMap/get.process</processName>
+        </config>
+        <pd:inputBindings>
+            <group>
+                <hashMap>
+                    <xsl:value-of select="$Start/group/hashMap"/>
+                </hashMap>
+                <key>
+                    <xsl:value-of select="$Start/group/key"/>
+                </key>
+            </group>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>get</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Java Code</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>get</pd:from>
+        <pd:to>Java Code</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>otherwise</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>get</pd:from>
+        <pd:to>End</pd:to>
+        <pd:xpathDescription>not exists</pd:xpathDescription>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>xpath</pd:conditionType>
+        <pd:xpath>not(exists($get/out/value))</pd:xpath>
+    </pd:transition>
+</pd:ProcessDefinition>

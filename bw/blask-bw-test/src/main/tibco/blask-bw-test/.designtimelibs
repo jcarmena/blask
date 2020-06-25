@@ -1,1 +1,4 @@
-0=com.jvier.blask:blask-bw:1.0.0-SNAPSHOT:projlib\=
+#Design time libraries
+#Format: #=File Alias=Description
+#Thu Jun 25 17:29:37 CEST 2020
+0=com.jvier.blask\:blask-bw\:1.0.0-SNAPSHOT\:projlib\=
