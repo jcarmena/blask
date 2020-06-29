@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.w3.org/1999/xhtml" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://www.tibco.com/pe/EngineTypes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions">
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.w3.org/1999/xhtml" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://www.tibco.com/pe/EngineTypes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" xmlns:ns1="http://www.tibco.com/pe/DeployedVarsType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <xsd:import namespace="http://www.w3.org/1999/xhtml" schemaLocation="/Blask/Schemas/xhtml5_with_microdata.xsd"/>
     <pd:name>Blask/Response/createErrorResponse.process</pd:name>
     <pd:startName>Start</pd:startName>
@@ -39,56 +39,6 @@
     <pd:errorSchemas/>
     <pd:processVariables/>
     <pd:targetNamespace>http://xmlns.example.com/1522586063729</pd:targetNamespace>
-    <pd:activity name="Map Data">
-        <pd:type>com.tibco.plugin.mapper.MapperActivity</pd:type>
-        <pd:resourceType>ae.activities.MapperActivity</pd:resourceType>
-        <pd:x>561</pd:x>
-        <pd:y>64</pd:y>
-        <config>
-            <element ref="pfx:html"/>
-        </config>
-        <pd:inputBindings>
-            <pfx:html>
-                <pfx:head>
-                    <pfx:title>
-                        <xsl:value-of select="&quot;Error&quot;"/>
-                    </pfx:title>
-                </pfx:head>
-                <pfx:body>
-                    <pfx:h1>
-                        <xsl:value-of select="concat($Start/input/ErrorReport/MsgCode, &quot; - &quot;, $Start/input/ErrorReport/Class)"/>
-                    </pfx:h1>
-                    <pfx:p>
-                        <xsl:value-of select="$Start/input/ErrorReport/Msg"/>
-                    </pfx:p>
-                    <pfx:h2>
-                        <xsl:value-of select="&quot;StackTrace&quot;"/>
-                    </pfx:h2>
-                    <pfx:pre>
-                        <xsl:value-of select="tib:render-xml($Start/input/ErrorReport/StackTrace, true(), true())"/>
-                    </pfx:pre>
-                    <pfx:h2>
-                        <xsl:value-of select="&quot;ProcessStack&quot;"/>
-                    </pfx:h2>
-                    <pfx:pre>
-                        <xsl:value-of select="tib:render-xml($Start/input/ErrorReport/ProcessStack, true(), true())"/>
-                    </pfx:pre>
-                    <pfx:h2>
-                        <xsl:value-of select="&quot;App context&quot;"/>
-                    </pfx:h2>
-                    <pfx:pre>
-                        <xsl:value-of select="tib:render-xml($Get-App-Context/appContext, true(), true())"/>
-                    </pfx:pre>
-                    <pfx:h2>
-                        <xsl:value-of select="&quot;Request context&quot;"/>
-                    </pfx:h2>
-                    <pfx:pre>
-                        <xsl:value-of select="tib:render-xml($Get-Request-Context/requestContext, true(), true())"/>
-                    </pfx:pre>
-                </pfx:body>
-            </pfx:html>
-        </pd:inputBindings>
-    </pd:activity>
     <pd:activity name="Set Response">
         <pd:type>com.tibco.pe.core.SetSharedVariableActivity</pd:type>
         <pd:resourceType>ae.activities.setSharedVariable</pd:resourceType>
@@ -105,10 +55,10 @@
                 <xsl:if test="$Get-App-Context/appContext/debug=&quot;true&quot;">
                     <content>
                         <content>
-                            <xsl:value-of select="tib:render-xml($Map-Data/pfx:html, false(), true())"/>
+                            <xsl:value-of select="$render-error-template/output/renderedTemplate"/>
                         </content>
                         <contentType>
-                            <xsl:value-of select="&quot;application/xhtml+xml&quot;"/>
+                            <xsl:value-of select="&quot;application/html&quot;"/>
                         </contentType>
                     </content>
                 </xsl:if>
@@ -135,16 +85,111 @@
         </config>
         <pd:inputBindings/>
     </pd:activity>
+    <pd:activity name="render error template">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>561</pd:x>
+        <pd:y>166</pd:y>
+        <config>
+            <processName>/Blask/Templating/renderTemplate.process</processName>
+        </config>
+        <pd:inputBindings>
+            <input>
+                <template>
+                    <xsl:value-of select="&quot;error&quot;"/>
+                </template>
+                <error>
+                    <xsl:value-of select="&quot;&quot;"/>
+                </error>
+                <context>
+                    <item>
+                        <type>
+                            <xsl:value-of select="$_globalVariables/ns1:GlobalVariables/Blask/Util/DataTypes/String"/>
+                        </type>
+                        <name>
+                            <xsl:value-of select="&quot;StackTrace&quot;"/>
+                        </name>
+                        <value xsi:type="xsd:string">
+                            <xsl:value-of select="$Start/input/ErrorReport/StackTrace"/>
+                        </value>
+                    </item>
+                    <item>
+                        <type>
+                            <xsl:value-of select="$_globalVariables/ns1:GlobalVariables/Blask/Util/DataTypes/String"/>
+                        </type>
+                        <name>
+                            <xsl:value-of select="&quot;Msg&quot;"/>
+                        </name>
+                        <value xsi:type="xsd:string">
+                            <xsl:value-of select="$Start/input/ErrorReport/StackTrace"/>
+                        </value>
+                    </item>
+                    <item>
+                        <type>
+                            <xsl:value-of select="$_globalVariables/ns1:GlobalVariables/Blask/Util/DataTypes/String"/>
+                        </type>
+                        <name>
+                            <xsl:value-of select="&quot;FullClass&quot;"/>
+                        </name>
+                        <value xsi:type="xsd:string">
+                            <xsl:value-of select="$Start/input/ErrorReport/StackTrace"/>
+                        </value>
+                    </item>
+                    <item>
+                        <type>
+                            <xsl:value-of select="$_globalVariables/ns1:GlobalVariables/Blask/Util/DataTypes/String"/>
+                        </type>
+                        <name>
+                            <xsl:value-of select="&quot;Class&quot;"/>
+                        </name>
+                        <value xsi:type="xsd:string">
+                            <xsl:value-of select="$Start/input/ErrorReport/StackTrace"/>
+                        </value>
+                    </item>
+                    <item>
+                        <type>
+                            <xsl:value-of select="$_globalVariables/ns1:GlobalVariables/Blask/Util/DataTypes/String"/>
+                        </type>
+                        <name>
+                            <xsl:value-of select="&quot;ProcessStack&quot;"/>
+                        </name>
+                        <value xsi:type="xsd:string">
+                            <xsl:value-of select="$Start/input/ErrorReport/StackTrace"/>
+                        </value>
+                    </item>
+                    <xsl:if test="exists($Start/input/ErrorReport/MsgCode)">
+                        <item>
+                            <type>
+                                <xsl:value-of select="$_globalVariables/ns1:GlobalVariables/Blask/Util/DataTypes/String"/>
+                            </type>
+                            <name>
+                                <xsl:value-of select="&quot;MsgCode&quot;"/>
+                            </name>
+                            <value xsi:type="xsd:string">
+                                <xsl:value-of select="$Start/input/ErrorReport/StackTrace"/>
+                            </value>
+                        </item>
+                    </xsl:if>
+                    <xsl:if test="exists($Start/input/ErrorReport/Data)">
+                        <item>
+                            <type>
+                                <xsl:value-of select="$_globalVariables/ns1:GlobalVariables/Blask/Util/DataTypes/String"/>
+                            </type>
+                            <name>
+                                <xsl:value-of select="&quot;Data&quot;"/>
+                            </name>
+                            <value>
+                                <xsl:value-of select="tib:render-xml($Start/input/ErrorReport/Data/*)"/>
+                            </value>
+                        </item>
+                    </xsl:if>
+                </context>
+            </input>
+        </pd:inputBindings>
+    </pd:activity>
     <pd:transition>
         <pd:from>Start</pd:from>
         <pd:to>Get App Context</pd:to>
-        <pd:lineType>Default</pd:lineType>
-        <pd:lineColor>-16777216</pd:lineColor>
-        <pd:conditionType>always</pd:conditionType>
-    </pd:transition>
-    <pd:transition>
-        <pd:from>Map Data</pd:from>
-        <pd:to>Set Response</pd:to>
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>
         <pd:conditionType>always</pd:conditionType>
@@ -165,9 +210,25 @@
     </pd:transition>
     <pd:transition>
         <pd:from>Get Request Context</pd:from>
-        <pd:to>Map Data</pd:to>
+        <pd:to>render error template</pd:to>
+        <pd:xpathDescription>debug</pd:xpathDescription>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>xpath</pd:conditionType>
+        <pd:xpath>$Get-App-Context/appContext/debug="true" and exists($Start/input/ErrorReport)</pd:xpath>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>render error template</pd:from>
+        <pd:to>Set Response</pd:to>
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>
         <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Get Request Context</pd:from>
+        <pd:to>Set Response</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>otherwise</pd:conditionType>
     </pd:transition>
 </pd:ProcessDefinition>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ref="http://www.tibco.com/tnt/utilitySchema" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <pd:name>Blask/Util/HashMap/new.process</pd:name>
+    <pd:name>Blask/Util/HashMap/newHashMap.process</pd:name>
     <pd:startName>Start</pd:startName>
     <pd:startX>150</pd:startX>
     <pd:startY>64</pd:startY>
@@ -25,12 +25,12 @@
         <pd:y>197</pd:y>
         <config>
             <javaArchive/>
-            <fileName>newJavaCode</fileName>
-            <packageName>Blask.Util.HashMap.new</packageName>
-            <fullsource>package Blask.Util.HashMap.new;
+            <fileName>newHashMapJavaCode</fileName>
+            <packageName>Blask.Util.HashMap.newHashMap</packageName>
+            <fullsource>package Blask.Util.HashMap.newHashMap;
 import java.util.*;
 import java.io.*;
-public class newJavaCode{
+public class newHashMapJavaCode{
 /****** START SET/GET METHOD, DO NOT MODIFY *****/
 	protected Object parametersHashMap = null;
 	public Object getparametersHashMap() {
@@ -40,7 +40,7 @@ public class newJavaCode{
 		parametersHashMap = val;
 	}
 /****** END SET/GET METHOD, DO NOT MODIFY *****/
-	public newJavaCode() {
+	public newHashMapJavaCode() {
 	}
 	public void invoke() throws Exception {
 /* Available Variables: DO NOT MODIFY
@@ -59,9 +59,16 @@ this.setparametersHashMap(hashmap);}
                 </row>
             </outputData>
             <inputData/>
-            <byteCode/>
+            <byteCode>
+                <class>
+                    <name>newHashMapJavaCode</name>
+                    <byteCode>yv66vgAAADQAHgkABgAXCgAHABgHABkKAAMAGAoABgAaBwAbBwAcAQARcGFyYW1ldGVyc0hhc2hNYXABABJMamF2YS9sYW5nL09iamVjdDsBABRnZXRwYXJhbWV0ZXJzSGFzaE1hcAEAFCgpTGphdmEvbGFuZy9PYmplY3Q7AQAEQ29kZQEAD0xpbmVOdW1iZXJUYWJsZQEAFHNldHBhcmFtZXRlcnNIYXNoTWFwAQAVKExqYXZhL2xhbmcvT2JqZWN0OylWAQAGPGluaXQ+AQADKClWAQAGaW52b2tlAQAKRXhjZXB0aW9ucwcAHQEAClNvdXJjZUZpbGUBABduZXdIYXNoTWFwSmF2YUNvZGUuamF2YQwACAAJDAAQABEBABFqYXZhL3V0aWwvSGFzaE1hcAwADgAPAQAwQmxhc2svVXRpbC9IYXNoTWFwL25ld0hhc2hNYXAvbmV3SGFzaE1hcEphdmFDb2RlAQAQamF2YS9sYW5nL09iamVjdAEAE2phdmEvbGFuZy9FeGNlcHRpb24AIQAGAAcAAAABAAQACAAJAAAABAABAAoACwABAAwAAAAdAAEAAQAAAAUqtAABsAAAAAEADQAAAAYAAQAAAAgAAQAOAA8AAQAMAAAAIgACAAIAAAAGKiu1AAGxAAAAAQANAAAACgACAAAACwAFAAwAAQAQABEAAQAMAAAAKgACAAEAAAAKKrcAAioBtQABsQAAAAEADQAAAA4AAwAAAA4ABAAGAAkADwABABIAEQACAAwAAAAqAAIAAgAAAA67AANZtwAETCortgAFsQAAAAEADQAAAAoAAgAAABUACAAWABMAAAAEAAEAFAABABUAAAACABY=</byteCode>
+                </class>
+            </byteCode>
         </config>
-        <pd:inputBindings/>
+        <pd:inputBindings>
+            <javaCodeActivityInput/>
+        </pd:inputBindings>
     </pd:activity>
     <pd:transition>
         <pd:from>Start</pd:from>

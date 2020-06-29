@@ -12,6 +12,7 @@
                     <xsd:sequence>
                         <xsd:element name="debug" type="xsd:boolean"/>
                         <xsd:element name="serverName" type="xsd:string"/>
+                        <xsd:element name="staticPath" type="xsd:string"/>
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>

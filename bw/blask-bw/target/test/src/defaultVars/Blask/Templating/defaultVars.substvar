@@ -3,19 +3,19 @@
 	<globalVariables>
 		<globalVariable>
 			<name>engineName</name>
-			<value>thymeleaf</value>
+			<value>freemarker</value>
 			<deploymentSettable>true</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<modTime>1522535362064</modTime>
+			<modTime>1593456470496</modTime>
 		</globalVariable>
 		<globalVariable>
 			<name>engineVersion</name>
-			<value>3.0.9</value>
+			<value>2.3</value>
 			<deploymentSettable>true</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
-			<modTime>1522535362051</modTime>
+			<modTime>1593456470530</modTime>
 		</globalVariable>
 	</globalVariables>
 </repository>

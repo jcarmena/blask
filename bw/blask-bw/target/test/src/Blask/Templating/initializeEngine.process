@@ -43,7 +43,7 @@
                 <methodParameter>java.lang.String</methodParameter>
                 <methodParameter>java.lang.String</methodParameter>
                 <methodParameter>java.lang.String</methodParameter>
-                <methodParameter>boolean</methodParameter>
+                <methodParameter>java.lang.Boolean</methodParameter>
             </MethodInfo>
         </config>
         <pd:inputBindings>

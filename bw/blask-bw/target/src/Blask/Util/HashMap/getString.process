@@ -16,12 +16,10 @@
     <pd:startY>64</pd:startY>
     <pd:returnBindings>
         <out>
-            <xsl:if test="exists($Java-Code/javaCodeActivityOutput/string)">
-                <xsl:if test="$Java-Code/javaCodeActivityOutput/string">
-                    <value>
-                        <xsl:value-of select="$Java-Code/javaCodeActivityOutput/string"/>
-                    </value>
-                </xsl:if>
+            <xsl:if test="exists($Java-Code/javaCodeActivityOutput/value)">
+                <value>
+                    <xsl:value-of select="$Java-Code/javaCodeActivityOutput/value"/>
+                </value>
             </xsl:if>
         </out>
     </pd:returnBindings>
@@ -53,52 +51,57 @@ import java.util.*;
 import java.io.*;
 public class getStringJavaCode{
 /****** START SET/GET METHOD, DO NOT MODIFY *****/
-	protected Object value = null;
-	protected String string = "";
-	public Object getvalue() {
+	protected Object valueObject = null;
+	protected String value = "";
+	public Object getvalueObject() {
+		return valueObject;
+	}
+	public void setvalueObject(Object val) {
+		valueObject = val;
+	}
+	public String getvalue() {
 		return value;
 	}
-	public void setvalue(Object val) {
+	public void setvalue(String val) {
 		value = val;
-	}
-	public String getstring() {
-		return string;
-	}
-	public void setstring(String val) {
-		string = val;
 	}
 /****** END SET/GET METHOD, DO NOT MODIFY *****/
 	public getStringJavaCode() {
 	}
 	public void invoke() throws Exception {
 /* Available Variables: DO NOT MODIFY
-	In  : Object value
-	Out : String string
+	In  : Object valueObject
+	Out : String value
 * Available Variables: DO NOT MODIFY *****/
-this.sestring(this.getvalue());}
+this.setvalue((String)this.getvalueObject());}
 }
 </fullsource>
             <inputData>
                 <row>
-                    <fieldName>value</fieldName>
+                    <fieldName>valueObject</fieldName>
                     <fieldType>ObjectReference</fieldType>
                     <fieldRequired>required</fieldRequired>
                 </row>
             </inputData>
             <outputData>
                 <row>
-                    <fieldName>string</fieldName>
+                    <fieldName>value</fieldName>
                     <fieldType>string</fieldType>
                     <fieldRequired>optional</fieldRequired>
                 </row>
             </outputData>
-            <byteCode/>
+            <byteCode>
+                <class>
+                    <name>getStringJavaCode</name>
+                    <byteCode>yv66vgAAADQAKQkACAAfCQAIACAKAAkAIQgAIgoACAAjBwAkCgAIACUHACYHACcBAAt2YWx1ZU9iamVjdAEAEkxqYXZhL2xhbmcvT2JqZWN0OwEABXZhbHVlAQASTGphdmEvbGFuZy9TdHJpbmc7AQAOZ2V0dmFsdWVPYmplY3QBABQoKUxqYXZhL2xhbmcvT2JqZWN0OwEABENvZGUBAA9MaW5lTnVtYmVyVGFibGUBAA5zZXR2YWx1ZU9iamVjdAEAFShMamF2YS9sYW5nL09iamVjdDspVgEACGdldHZhbHVlAQAUKClMamF2YS9sYW5nL1N0cmluZzsBAAhzZXR2YWx1ZQEAFShMamF2YS9sYW5nL1N0cmluZzspVgEABjxpbml0PgEAAygpVgEABmludm9rZQEACkV4Y2VwdGlvbnMHACgBAApTb3VyY2VGaWxlAQAWZ2V0U3RyaW5nSmF2YUNvZGUuamF2YQwACgALDAAMAA0MABgAGQEAAAwADgAPAQAQamF2YS9sYW5nL1N0cmluZwwAFgAXAQAuQmxhc2svVXRpbC9IYXNoTWFwL2dldFN0cmluZy9nZXRTdHJpbmdKYXZhQ29kZQEAEGphdmEvbGFuZy9PYmplY3QBABNqYXZhL2xhbmcvRXhjZXB0aW9uACEACAAJAAAAAgAEAAoACwAAAAQADAANAAAABgABAA4ADwABABAAAAAdAAEAAQAAAAUqtAABsAAAAAEAEQAAAAYAAQAAAAkAAQASABMAAQAQAAAAIgACAAIAAAAGKiu1AAGxAAAAAQARAAAACgACAAAADAAFAA0AAQAUABUAAQAQAAAAHQABAAEAAAAFKrQAArAAAAABABEAAAAGAAEAAAAPAAEAFgAXAAEAEAAAACIAAgACAAAABiortQACsQAAAAEAEQAAAAoAAgAAABIABQATAAEAGAAZAAEAEAAAADQAAgABAAAAECq3AAMqAbUAASoSBLUAArEAAAABABEAAAASAAQAAAAVAAQABgAJAAcADwAWAAEAGgAZAAIAEAAAACQAAgABAAAADCoqtgAFwAAGtgAHsQAAAAEAEQAAAAYAAQAAABwAGwAAAAQAAQAcAAEAHQAAAAIAHg==</byteCode>
+                </class>
+            </byteCode>
         </config>
         <pd:inputBindings>
             <javaCodeActivityInput>
-                <value>
+                <valueObject>
                     <xsl:value-of select="$get/out/value"/>
-                </value>
+                </valueObject>
             </javaCodeActivityInput>
         </pd:inputBindings>
     </pd:activity>

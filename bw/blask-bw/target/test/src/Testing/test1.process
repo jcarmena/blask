@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pd="http://xmlns.tibco.com/bw/process/2003">
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://jvier.com/Blask/Schemas/Routes.xsd">
     <pd:name>Testing/test1.process</pd:name>
     <pd:startName>onStartup</pd:startName>
     <pd:startX>0</pd:startX>
@@ -32,49 +32,91 @@
                 <debug>
                     <xsl:value-of select="true()"/>
                 </debug>
-                <routes>
-                    <route>
-                        <uriPattern>
-                            <xsl:value-of select="&quot;/test1&quot;"/>
-                        </uriPattern>
-                        <method>
-                            <xsl:value-of select="&quot;GET&quot;"/>
-                        </method>
-                        <key>
-                            <xsl:value-of select="&quot;getTest1&quot;"/>
-                        </key>
-                        <process>
-                            <xsl:value-of select="&quot;/Testing/test1_view.process&quot;"/>
-                        </process>
-                    </route>
-                    <static>
-                        <uriPattern>
-                            <xsl:value-of select="&quot;/static&quot;"/>
-                        </uriPattern>
-                        <key>
-                            <xsl:value-of select="&quot;getStatic&quot;"/>
-                        </key>
-                        <filesystemPath>
-                            <xsl:value-of select="&quot;/home/javier/lab/blask/test/templates&quot;"/>
-                        </filesystemPath>
-                    </static>
-                    <notFound>
-                        <key>
-                            <xsl:value-of select="&quot;notFound&quot;"/>
-                        </key>
-                        <process>
-                            <xsl:value-of select="&quot;/Testing/test1_notFound_view.process&quot;"/>
-                        </process>
-                    </notFound>
-                </routes>
+                <ns:processRoute>
+                    <ns:uriPattern>
+                        <xsl:value-of select="&quot;/test1&quot;"/>
+                    </ns:uriPattern>
+                    <ns:method>
+                        <xsl:value-of select="&quot;GET&quot;"/>
+                    </ns:method>
+                    <ns:key>
+                        <xsl:value-of select="&quot;getTest1&quot;"/>
+                    </ns:key>
+                    <ns:process>
+                        <xsl:value-of select="&quot;/Testing/test1_view.process&quot;"/>
+                    </ns:process>
+                    <ns:cacheTimeoutSeconds>
+                        <xsl:value-of select="120"/>
+                    </ns:cacheTimeoutSeconds>
+                    <ns:loginRequired>
+                        <xsl:value-of select="false()"/>
+                    </ns:loginRequired>
+                </ns:processRoute>
+                <ns:processRoute>
+                    <ns:uriPattern>
+                        <xsl:value-of select="&quot;/greet/&lt;name>&quot;"/>
+                    </ns:uriPattern>
+                    <ns:method>
+                        <xsl:value-of select="&quot;GET&quot;"/>
+                    </ns:method>
+                    <ns:key>
+                        <xsl:value-of select="&quot;getGreet&quot;"/>
+                    </ns:key>
+                    <ns:process>
+                        <xsl:value-of select="&quot;/Testing/test1_greet.process&quot;"/>
+                    </ns:process>
+                    <ns:cacheTimeoutSeconds>
+                        <xsl:value-of select="120"/>
+                    </ns:cacheTimeoutSeconds>
+                    <ns:loginRequired>
+                        <xsl:value-of select="false()"/>
+                    </ns:loginRequired>
+                </ns:processRoute>
+                <ns:staticRoute>
+                    <ns:uriPattern>
+                        <xsl:value-of select="&quot;/static&quot;"/>
+                    </ns:uriPattern>
+                    <ns:key>
+                        <xsl:value-of select="&quot;getStatic&quot;"/>
+                    </ns:key>
+                    <ns:filesystemPath>
+                        <xsl:value-of select="&quot;/home/javier/lab/blask/test/static&quot;"/>
+                    </ns:filesystemPath>
+                    <ns:cacheTimeoutSeconds>
+                        <xsl:value-of select="120"/>
+                    </ns:cacheTimeoutSeconds>
+                    <ns:loginRequired>
+                        <xsl:value-of select="false()"/>
+                    </ns:loginRequired>
+                </ns:staticRoute>
+                <ns:defaultRoute>
+                    <ns:key>
+                        <xsl:value-of select="&quot;notFound&quot;"/>
+                    </ns:key>
+                    <ns:isStatic>
+                        <xsl:value-of select="false()"/>
+                    </ns:isStatic>
+                    <ns:target>
+                        <xsl:value-of select="&quot;/Testing/test1_notFound_view.process&quot;"/>
+                    </ns:target>
+                    <ns:cacheTimeoutSeconds>
+                        <xsl:value-of select="120"/>
+                    </ns:cacheTimeoutSeconds>
+                    <ns:loginRequired>
+                        <xsl:value-of select="false()"/>
+                    </ns:loginRequired>
+                </ns:defaultRoute>
                 <templates>
                     <templatesPath>
                         <xsl:value-of select="&quot;/home/javier/lab/blask/test/templates/&quot;"/>
                     </templatesPath>
                     <templatesExtension>
-                        <xsl:value-of select="&quot;.html&quot;"/>
+                        <xsl:value-of select="&quot;html&quot;"/>
                     </templatesExtension>
                 </templates>
+                <staticPath>
+                    <xsl:value-of select="&quot;/tmp&quot;"/>
+                </staticPath>
             </configuration>
         </pd:inputBindings>
     </pd:activity>

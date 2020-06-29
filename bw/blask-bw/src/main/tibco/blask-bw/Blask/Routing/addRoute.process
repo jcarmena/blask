@@ -24,16 +24,16 @@
     <pd:startY>237</pd:startY>
     <pd:returnBindings/>
     <pd:endName>End</pd:endName>
-    <pd:endX>1173</pd:endX>
-    <pd:endY>268</pd:endY>
+    <pd:endX>1178</pd:endX>
+    <pd:endY>130</pd:endY>
     <pd:errorSchemas/>
     <pd:processVariables/>
     <pd:targetNamespace>http://xmlns.example.com/1522359386111</pd:targetNamespace>
-    <pd:activity name="addView">
+    <pd:activity name="add new View">
         <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
         <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
-        <pd:x>1108</pd:x>
-        <pd:y>159</pd:y>
+        <pd:x>1030</pd:x>
+        <pd:y>130</pd:y>
         <config>
             <ConstructDeclaredClass>false</ConstructDeclaredClass>
             <CacheConstructedClass>false</CacheConstructedClass>
@@ -43,34 +43,7 @@
                 <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
                 <className>blask.routing.Router</className>
                 <methodName>addView</methodName>
-                <methodReturn>void</methodReturn>
-                <methodParameter>blask.routing.View</methodParameter>
-            </MethodInfo>
-        </config>
-        <pd:inputBindings>
-            <ns:JavaMethodActivityInput>
-                <MethodParameters>
-                    <Parameter1>
-                        <xsl:value-of select="$new-View/ns1:JavaMethodActivityOutput/MethodReturnValue"/>
-                    </Parameter1>
-                </MethodParameters>
-            </ns:JavaMethodActivityInput>
-        </pd:inputBindings>
-    </pd:activity>
-    <pd:activity name="new View">
-        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
-        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
-        <pd:x>967</pd:x>
-        <pd:y>161</pd:y>
-        <config>
-            <ConstructDeclaredClass>true</ConstructDeclaredClass>
-            <CacheConstructedClass>false</CacheConstructedClass>
-            <InvokeCleanupMethod>false</InvokeCleanupMethod>
-            <MethodInfo>
-                <classLocation>/home/javier/lab/blask/bw/blask-bw/target/test/lib/routing-1.0.0-SNAPSHOT.jar</classLocation>
-                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
-                <className>blask.routing.View</className>
-                <isConstructor>true</isConstructor>
+                <methodReturn>blask.routing.View</methodReturn>
                 <methodParameter>java.lang.String</methodParameter>
                 <methodParameter>java.lang.String</methodParameter>
                 <methodParameter>java.lang.String</methodParameter>
@@ -110,7 +83,7 @@
         <pd:x>238</pd:x>
         <pd:y>87</pd:y>
         <config>
-            <processName>/Blask/Util/HashMap/new.process</processName>
+            <processName>/Blask/Util/HashMap/newHashMap.process</processName>
         </config>
         <pd:inputBindings/>
     </pd:activity>
@@ -264,8 +237,8 @@
     <pd:activity name="put LoginRequired">
         <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
         <pd:resourceType>ae.process.subprocess</pd:resourceType>
-        <pd:x>480</pd:x>
-        <pd:y>44</pd:y>
+        <pd:x>469</pd:x>
+        <pd:y>55</pd:y>
         <config>
             <processName>/Blask/Util/HashMap/putBool.process</processName>
         </config>
@@ -284,15 +257,8 @@
         </pd:inputBindings>
     </pd:activity>
     <pd:transition>
-        <pd:from>addView</pd:from>
+        <pd:from>add new View</pd:from>
         <pd:to>End</pd:to>
-        <pd:lineType>Default</pd:lineType>
-        <pd:lineColor>-16777216</pd:lineColor>
-        <pd:conditionType>always</pd:conditionType>
-    </pd:transition>
-    <pd:transition>
-        <pd:from>new View</pd:from>
-        <pd:to>addView</pd:to>
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>
         <pd:conditionType>always</pd:conditionType>
@@ -306,7 +272,7 @@
     </pd:transition>
     <pd:transition>
         <pd:from>Group</pd:from>
-        <pd:to>new View</pd:to>
+        <pd:to>add new View</pd:to>
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>
         <pd:conditionType>always</pd:conditionType>
@@ -325,7 +291,7 @@
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>
         <pd:conditionType>xpath</pd:conditionType>
-        <pd:xpath>$exists-View/ns1:JavaMethodActivityOutput/MethodReturnValue="false"</pd:xpath>
+        <pd:xpath>$exists-View/ns1:JavaMethodActivityOutput/MethodReturnValue="true"</pd:xpath>
     </pd:transition>
     <pd:transition>
         <pd:from>exists View</pd:from>

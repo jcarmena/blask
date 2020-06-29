@@ -10,9 +10,8 @@ import java.util.StringJoiner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 // ================================
-// View
+// Route
 // ================================
 
 public class Route implements Serializable {
@@ -33,7 +32,6 @@ public class Route implements Serializable {
     private String effectivePattern = null;
     private Pattern compiledEffectiveRegex = null;
     private List<String> reverseTemplate = new ArrayList<String>();
-
 
     public Route() {
     }
@@ -82,7 +80,7 @@ public class Route implements Serializable {
                 paramMatcher.find();
                 String paramName = paramMatcher.group(1).trim();
                 String paramRegex = paramMatcher.group(3);
-                if (paramRegex==null || "".equals(paramRegex)) {
+                if (paramRegex == null || "".equals(paramRegex)) {
                     paramRegex = "[^/]+";
                 }
                 joiner.add(paramRegex);
@@ -160,7 +158,7 @@ public class Route implements Serializable {
 
     public Map<String, String> parseParameters(String url) {
         Map<String, String> result = new HashMap<String, String>();
-        
+
         Matcher m = compiledUrlSplitRegex.matcher(url);
         int i = 0;
         for (ViewParameter p : inputParameters) {
@@ -186,9 +184,9 @@ public class Route implements Serializable {
             return false;
         }
         Route route = (Route) o;
-        return Objects.equals(effectivePattern, route.effectivePattern) && Objects.equals(method, route.method) 
-            && Objects.equals(pattern, route.pattern) && Objects.equals(inputParameters, route.inputParameters) 
-            && Objects.equals(viewId, route.viewId);
+        return Objects.equals(effectivePattern, route.effectivePattern) && Objects.equals(method, route.method)
+                && Objects.equals(pattern, route.pattern) && Objects.equals(inputParameters, route.inputParameters)
+                && Objects.equals(viewId, route.viewId);
     }
 
     @Override
@@ -198,13 +196,9 @@ public class Route implements Serializable {
 
     @Override
     public String toString() {
-        return "{" +
-            " effectivePattern='" + getEffectivePattern() + "'" +
-            ", method='" + getMethod() + "'" +
-            ", pattern='" + getPattern() + "'" +
-            ", viewId='" + getViewId() + "'" +
-            ", parameters='" + getInputParameters() + "'" +
-            "}";
+        return "{" + " effectivePattern='" + getEffectivePattern() + "'" + ", method='" + getMethod() + "'"
+                + ", pattern='" + getPattern() + "'" + ", viewId='" + getViewId() + "'" + ", parameters='"
+                + getInputParameters() + "'" + "}";
     }
 
 }

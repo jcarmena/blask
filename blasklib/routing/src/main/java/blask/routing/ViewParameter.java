@@ -3,8 +3,8 @@ package blask.routing;
 import java.io.Serializable;
 
 // ================================
-    // ViewParameter
-    // ================================
+// ViewParameter
+// ================================
 
 public class ViewParameter implements Serializable {
 

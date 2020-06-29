@@ -1,5 +1,5 @@
 #
-#Thu Jun 25 17:30:19 CEST 2020
+#Mon Jun 29 20:51:02 CEST 2020
 BindingFixerDialog.categoryColumn=50
 BindingFixerDialog.fixColumn=50
 BindingFixerDialog.showWarnings=true
@@ -51,8 +51,14 @@ designer.console.window.window.location.h=1765
 designer.console.window.window.location.w=3200
 designer.console.window.window.location.x=0
 designer.console.window.window.location.y=35
-filealias.pref.0=com.jvier.blask\:routing\:1.0.0-SNAPSHOT\:jar\=/home/javier/lab/blask/bw/blask-bw/target/test/lib/routing-1.0.0-SNAPSHOT.jar
-filealias.pref.1=com.jvier.blask\:routing\:${project.version}\:jar\=/home/javier/lab/blask/bw/blask-bw/target/test/lib/routing-1.0.0-SNAPSHOT.jar
+filealias.pref.0=com.jvier.blask\:templating\:1.0.0-SNAPSHOT\:jar\=/home/javier/lab/blask/bw/blask-bw/target/test/lib/templating-1.0.0-SNAPSHOT.jar
+filealias.pref.1=org.slf4j\:slf4j-api\:1.7.25\:jar\=/home/javier/lab/blask/bw/blask-bw/target/test/lib/slf4j-api-1.7.25.jar
+filealias.pref.2=org.freemarker\:freemarker\:2.3.30\:jar\=/home/javier/lab/blask/bw/blask-bw/target/test/lib/freemarker-2.3.30.jar
+filealias.pref.3=org.unbescape\:unbescape\:1.1.6.RELEASE\:jar\=/home/javier/lab/blask/bw/blask-bw/target/test/lib/unbescape-1.1.6.RELEASE.jar
+filealias.pref.4=io.pebbletemplates\:pebble\:3.1.4\:jar\=/home/javier/lab/blask/bw/blask-bw/target/test/lib/pebble-3.1.4.jar
+filealias.pref.5=com.jvier.blask\:routing\:1.0.0-SNAPSHOT\:jar\=/home/javier/lab/blask/bw/blask-bw/target/test/lib/routing-1.0.0-SNAPSHOT.jar
+filealias.pref.6=com.jvier.blask\:routing\:${project.version}\:jar\=/home/javier/lab/blask/bw/blask-bw/target/test/lib/routing-1.0.0-SNAPSHOT.jar
+filealias.pref.7=com.jvier.blask\:templating\:${project.version}\:jar\=/home/javier/lab/blask/bw/blask-bw/target/test/lib/templating-1.0.0-SNAPSHOT.jar
 fs.vfilestore.last.dir.pref=/home/javier/lab/blask/bw/blask-bw/src/main/tibco/blask-bw/
 graph.height.pref=1177
 graph.link.mode.pref=0

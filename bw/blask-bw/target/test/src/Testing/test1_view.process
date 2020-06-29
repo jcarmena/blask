@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://www.tibco.com/pe/DeployedVarsType" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <pd:name>Testing/test1_view.process</pd:name>
     <pd:startName>Start</pd:startName>
-    <pd:startType/>
     <pd:startX>150</pd:startX>
     <pd:startY>64</pd:startY>
     <pd:returnBindings>
@@ -34,6 +33,19 @@
                 <error>
                     <xsl:value-of select="&quot;&quot;"/>
                 </error>
+                <context>
+                    <item>
+                        <type>
+                            <xsl:value-of select="$_globalVariables/ns:GlobalVariables/Blask/Util/DataTypes/String"/>
+                        </type>
+                        <name>
+                            <xsl:value-of select="&quot;name&quot;"/>
+                        </name>
+                        <value xsi:type="xsd:string">
+                            <xsl:value-of select="&quot;javier&quot;"/>
+                        </value>
+                    </item>
+                </context>
             </input>
         </pd:inputBindings>
     </pd:activity>

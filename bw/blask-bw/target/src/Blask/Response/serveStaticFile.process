@@ -2,6 +2,15 @@
 <pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/pe/WriteToLogActivitySchema" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/file" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" xmlns:ns2="http://www.tibco.com/namespaces/tnt/plugins/file/v2" xmlns:ns1="http://www.tibco.com/pe/DeployedVarsType">
     <pd:name>Blask/Response/serveStaticFile.process</pd:name>
     <pd:startName>Start</pd:startName>
+    <pd:startType>
+        <xsd:element name="root">
+            <xsd:complexType>
+                <xsd:sequence>
+                    <xsd:element name="filePath" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+    </pd:startType>
     <pd:startX>137</pd:startX>
     <pd:startY>112</pd:startY>
     <pd:returnBindings/>
@@ -86,12 +95,14 @@
             </ns2:ReadActivityInputClass>
         </pd:inputBindings>
     </pd:activity>
-    <pd:activity name="Get Static filepaths">
+    <pd:activity name="Get App Context">
         <pd:type>com.tibco.pe.core.GetSharedVariableActivity</pd:type>
         <pd:resourceType>ae.activities.getSharedVariable</pd:resourceType>
         <pd:x>427</pd:x>
         <pd:y>119</pd:y>
-        <config/>
+        <config>
+            <variableConfig>/Blask/appContext.sharedvariable</variableConfig>
+        </config>
         <pd:inputBindings/>
     </pd:activity>
     <pd:activity name="Map Filepath">
@@ -106,7 +117,7 @@
         </config>
         <pd:inputBindings>
             <filePath>
-                <xsl:value-of select="concat($Get-Static-filepaths/routes/route[key=$Get-Request-Context/requestContext/routeKey]/folderPath, &#xA;&quot;/&quot;,&#xA;$Get-Request-Context/requestContext/parameter[name=$_globalVariables/ns1:GlobalVariables/Blask/Routing/staticResourceParameterName]/value)"/>
+                <xsl:value-of select="concat($Get-App-Context/appContext/staticPath, &#xA;$Start/root/filePath)"/>
             </filePath>
         </pd:inputBindings>
     </pd:activity>
@@ -136,7 +147,7 @@
     </pd:transition>
     <pd:transition>
         <pd:from>Get Request Context</pd:from>
-        <pd:to>Get Static filepaths</pd:to>
+        <pd:to>Get App Context</pd:to>
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>
         <pd:conditionType>always</pd:conditionType>
@@ -163,7 +174,7 @@
         <pd:conditionType>always</pd:conditionType>
     </pd:transition>
     <pd:transition>
-        <pd:from>Get Static filepaths</pd:from>
+        <pd:from>Get App Context</pd:from>
         <pd:to>Map Filepath</pd:to>
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>

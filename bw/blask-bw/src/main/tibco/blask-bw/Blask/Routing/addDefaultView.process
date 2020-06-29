@@ -44,37 +44,7 @@
                 <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
                 <className>blask.routing.Router</className>
                 <methodName>setDefaultView</methodName>
-                <methodReturn>blask.routing.Router</methodReturn>
-                <methodParameter>blask.routing.View</methodParameter>
-            </MethodInfo>
-        </config>
-        <pd:inputBindings>
-            <ns:JavaMethodActivityInput>
-                <MethodParameters>
-                    <Parameter1>
-                        <xsl:value-of select="$new-View/ns1:JavaMethodActivityOutput/MethodReturnValue"/>
-                    </Parameter1>
-                </MethodParameters>
-            </ns:JavaMethodActivityInput>
-        </pd:inputBindings>
-    </pd:activity>
-    <pd:activity name="new View">
-        <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
-        <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
-        <pd:x>448</pd:x>
-        <pd:y>93</pd:y>
-        <config>
-            <ConstructDeclaredClass>true</ConstructDeclaredClass>
-            <CacheConstructedClass>false</CacheConstructedClass>
-            <InvokeCleanupMethod>false</InvokeCleanupMethod>
-            <MethodInfo>
-                <classLocation>/home/javier/lab/blask/bw/blask-bw/target/test/lib/routing-1.0.0-SNAPSHOT.jar</classLocation>
-                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
-                <className>blask.routing.View</className>
-                <isConstructor>true</isConstructor>
-                <methodParameter>java.lang.String</methodParameter>
-                <methodParameter>java.lang.String</methodParameter>
-                <methodParameter>java.lang.String</methodParameter>
+                <methodReturn>blask.routing.View</methodReturn>
                 <methodParameter>boolean</methodParameter>
                 <methodParameter>java.lang.String</methodParameter>
                 <methodParameter>java.util.Map</methodParameter>
@@ -84,23 +54,14 @@
             <ns:JavaMethodActivityInput>
                 <MethodParameters>
                     <Parameter1>
-                        <xsl:value-of select="&quot;&quot;"/>
+                        <xsl:value-of select="$Start/root/isStatic"/>
                     </Parameter1>
                     <Parameter2>
-                        <xsl:value-of select="&quot;&quot;"/>
+                        <xsl:value-of select="$Start/root/target"/>
                     </Parameter2>
                     <Parameter3>
-                        <xsl:value-of select="&quot;&quot;"/>
-                    </Parameter3>
-                    <Parameter4>
-                        <xsl:value-of select="$Start/root/isStatic"/>
-                    </Parameter4>
-                    <Parameter5>
-                        <xsl:value-of select="$Start/root/target"/>
-                    </Parameter5>
-                    <Parameter6>
                         <xsl:value-of select="$createHashMap/newHashMap"/>
-                    </Parameter6>
+                    </Parameter3>
                 </MethodParameters>
             </ns:JavaMethodActivityInput>
         </pd:inputBindings>
@@ -111,7 +72,7 @@
         <pd:x>246</pd:x>
         <pd:y>137</pd:y>
         <config>
-            <processName>/Blask/Util/HashMap/new.process</processName>
+            <processName>/Blask/Util/HashMap/newHashMap.process</processName>
         </config>
         <pd:inputBindings/>
     </pd:activity>
@@ -189,13 +150,6 @@
         <pd:conditionType>always</pd:conditionType>
     </pd:transition>
     <pd:transition>
-        <pd:from>new View</pd:from>
-        <pd:to>setDefaultView</pd:to>
-        <pd:lineType>Default</pd:lineType>
-        <pd:lineColor>-16777216</pd:lineColor>
-        <pd:conditionType>always</pd:conditionType>
-    </pd:transition>
-    <pd:transition>
         <pd:from>createHashMap</pd:from>
         <pd:to>Group</pd:to>
         <pd:lineType>Default</pd:lineType>
@@ -204,7 +158,7 @@
     </pd:transition>
     <pd:transition>
         <pd:from>Group</pd:from>
-        <pd:to>new View</pd:to>
+        <pd:to>setDefaultView</pd:to>
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>
         <pd:conditionType>always</pd:conditionType>

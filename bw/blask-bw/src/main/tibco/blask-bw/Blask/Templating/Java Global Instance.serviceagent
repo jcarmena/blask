@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BWSharedResource>
+    <name>Java Global Instance</name>
+    <resourceType>ae.shared.JavaGlobalServiceAgent</resourceType>
+    <config>
+        <InvokeCleanupMethod>false</InvokeCleanupMethod>
+        <class>com.tibco.plugin.java.JavaGlobalServiceAgent</class>
+        <ConstructorInfo>
+            <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
+        </ConstructorInfo>
+        <ConstructorParameters/>
+    </config>
+</BWSharedResource>

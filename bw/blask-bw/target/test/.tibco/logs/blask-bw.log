@@ -180,3 +180,573 @@ com.tibco.xml.validation.exception.MissingDeclarationException: no declaration f
         </templates>
     </configuration>
 </Data> 
+2020 Jun 25 18:05:33:095 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 27 21:32:03:433 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:32:03:435 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:32:03:438 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 27 21:32:03:439 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 27 21:32:03:439 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 27 21:32:03:674 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 27 21:32:04:177 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 27 21:32:04:883 GMT +0200 BW.blask-bw Error [] - Job-1000 Error in [Blask/Routing/addRoute.process/Generate Error]
+Duplicated view ID: getTest1
+	at com.tibco.pe.core.GenerateErrorActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+called by: [Testing/test1.process/configure>Blask/configure.process/Add Routes>Blask/Routing/addRoutes.process/Add Process Routes/add Route] 
+2020 Jun 27 21:32:24:655 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 27 21:32:47:878 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:32:47:879 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:32:47:879 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 27 21:32:47:879 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 27 21:32:47:880 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 27 21:32:48:172 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 27 21:32:48:399 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 27 21:32:48:840 GMT +0200 BW.blask-bw Error [] - Job-2000 Error in [Blask/Routing/addRoute.process/Generate Error]
+Duplicated view ID: getTest1
+	at com.tibco.pe.core.GenerateErrorActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+called by: [Testing/test1.process/configure>Blask/configure.process/Add Routes>Blask/Routing/addRoutes.process/Add Process Routes/add Route] 
+2020 Jun 27 21:35:15:140 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 27 21:35:22:580 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:35:22:580 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:35:22:581 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 27 21:35:22:581 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 27 21:35:22:581 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 27 21:35:22:802 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 27 21:35:22:943 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 27 21:35:23:485 GMT +0200 BW.blask-bw Error [BW_Plugin] BW-JAVA-100021 Job-3000 Error in [Blask/Routing/addDefaultView.process/new View]
+The constructor for the Java class [blask.routing.View] raised exception [java.lang.IllegalArgumentException].  java.lang.IllegalArgumentException: URI pattern cannot be empty nor null
+	at com.tibco.plugin.java.JavaMethodActivity.for(Unknown Source)
+	at com.tibco.plugin.java.JavaMethodActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+called by: [Testing/test1.process/configure>Blask/configure.process/Add Routes>Blask/Routing/addRoutes.process/add Default View] 
+2020 Jun 27 21:35:50:282 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 27 21:36:35:744 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:36:35:745 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:36:35:745 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 27 21:36:35:745 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 27 21:36:35:746 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 27 21:36:35:945 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 27 21:36:36:102 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 27 21:36:36:618 GMT +0200 BW.blask-bw Error [BW-Core] BWENGINE-100030 Job-4000 Error in [Blask/Routing/addDefaultView.process/setDefaultView]
+Input data invalid
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+caused by: org.xml.sax.SAXException: validation error: data "" is not a valid boolean.  A valid example is "true, false, 1 (true) and 0 (false)".   ({com.tibco.xml.validation}SIMPLE_E_INVALID_VALUE_FOR_TYPE) at /{www.tibco.com/plugin/java/JavaMethodActivityInput}JavaMethodActivityInput[1]/MethodParameters[1]/Parameter1[1]
+com.tibco.xml.validation.exception.ValueParseException: data "" is not a valid boolean.  A valid example is "true, false, 1 (true) and 0 (false)".
+	at com.tibco.xml.validation.state.glue.LegacySimpleValidator.string(LegacySimpleValidator.java:67)
+	at com.tibco.xml.validation.state.driver.ValidationJazz.d(ValidationJazz.java:1149)
+	at com.tibco.xml.validation.state.driver.ValidationJazz.endElement(ValidationJazz.java:498)
+	at com.tibco.xml.validation.state.glue.XmlContentValidationDriver.endElement(XmlContentValidationDriver.java:126)
+	at com.tibco.xml.transform.impl.expr.aD.a(XslConditioningFilter3.java:635)
+	at com.tibco.xml.transform.impl.expr.aD.endElement(XslConditioningFilter3.java:325)
+	at com.tibco.xml.transform.impl.expr.Q.execute(TmLiteralResultElementExpr.java:146)
+	at com.tibco.xml.transform.impl.expr.aF.execute(XslContentExpr.java:136)
+	at com.tibco.xml.transform.impl.expr.Q.execute(TmLiteralResultElementExpr.java:141)
+	at com.tibco.xml.transform.impl.expr.Q.execute(TmLiteralResultElementExpr.java:141)
+	at com.tibco.xml.transform.impl.expr.f.a(DefaultTemplateExpr.java:143)
+	at com.tibco.xml.transform.impl.expr.e.a(DefaultModuleTransformExpr.java:289)
+	at com.tibco.xml.transform.impl.expr.e.a(DefaultModuleTransformExpr.java:173)
+	at com.tibco.xml.transform.trax.h.transform(TmTransformerImpl.java:318)
+	at com.tibco.xml.xdata.bind.OnceOnlyBinding.stream(Unknown Source)
+	at com.tibco.xml.xdata.bind.ReusableBinding.a(Unknown Source)
+	at com.tibco.xml.xdata.bind.ReusableBinding.getXiNode(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+validation error: unexpected end of content; expected Parameter2   ({com.tibco.xml.validation}COMPLEX_E_UNEXPECTED_END_OF_CONTENT) at /{www.tibco.com/plugin/java/JavaMethodActivityInput}JavaMethodActivityInput[1]/MethodParameters[1]
+com.tibco.xml.validation.exception.UnexpectedEndException: unexpected end of content; expected Parameter2
+	at com.tibco.xml.validation.state.a.a.a(CMElementValidationState.java:500)
+	at com.tibco.xml.validation.state.a.a.b(CMElementValidationState.java:372)
+	at com.tibco.xml.validation.state.a.a.a(CMElementValidationState.java:142)
+	at com.tibco.xml.validation.state.driver.ValidationJazz.endElement(ValidationJazz.java:511)
+	at com.tibco.xml.validation.state.glue.XmlContentValidationDriver.endElement(XmlContentValidationDriver.java:126)
+	at com.tibco.xml.transform.impl.expr.aD.endElement(XslConditioningFilter3.java:329)
+	at com.tibco.xml.transform.impl.expr.Q.execute(TmLiteralResultElementExpr.java:146)
+	at com.tibco.xml.transform.impl.expr.Q.execute(TmLiteralResultElementExpr.java:141)
+	at com.tibco.xml.transform.impl.expr.f.a(DefaultTemplateExpr.java:143)
+	at com.tibco.xml.transform.impl.expr.e.a(DefaultModuleTransformExpr.java:289)
+	at com.tibco.xml.transform.impl.expr.e.a(DefaultModuleTransformExpr.java:173)
+	at com.tibco.xml.transform.trax.h.transform(TmTransformerImpl.java:318)
+	at com.tibco.xml.xdata.bind.OnceOnlyBinding.stream(Unknown Source)
+	at com.tibco.xml.xdata.bind.ReusableBinding.a(Unknown Source)
+	at com.tibco.xml.xdata.bind.ReusableBinding.getXiNode(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+
+com.tibco.xml.xquery.ExprException: variable reference with expanded-QName 'new-View' is not in scope.
+com.tibco.xml.xquery.ExprException: variable reference with expanded-QName 'new-View' is not in scope.
+	at com.tibco.xml.xpath.expr.r.execute(DefaultVariableReferenceByNameExpr.java:71)
+	at com.tibco.xml.xpath.expr.V.execute(OpRelativePathExpr.java:34)
+	at com.tibco.xml.xpath.expr.V.execute(OpRelativePathExpr.java:34)
+	at com.tibco.xml.xpath.expr.XmlSequenceExpr.typedValue(XmlSequenceExpr.java:23)
+	at com.tibco.xml.transform.impl.expr.aw.execute(TmValueOfLegacyExpr.java:34)
+	at com.tibco.xml.transform.impl.expr.Q.execute(TmLiteralResultElementExpr.java:141)
+	at com.tibco.xml.transform.impl.expr.aF.execute(XslContentExpr.java:136)
+	at com.tibco.xml.transform.impl.expr.Q.execute(TmLiteralResultElementExpr.java:141)
+	at com.tibco.xml.transform.impl.expr.Q.execute(TmLiteralResultElementExpr.java:141)
+	at com.tibco.xml.transform.impl.expr.f.a(DefaultTemplateExpr.java:143)
+	at com.tibco.xml.transform.impl.expr.e.a(DefaultModuleTransformExpr.java:289)
+	at com.tibco.xml.transform.impl.expr.e.a(DefaultModuleTransformExpr.java:173)
+	at com.tibco.xml.transform.trax.h.transform(TmTransformerImpl.java:318)
+	at com.tibco.xml.xdata.bind.OnceOnlyBinding.stream(Unknown Source)
+	at com.tibco.xml.xdata.bind.ReusableBinding.a(Unknown Source)
+	at com.tibco.xml.xdata.bind.ReusableBinding.getXiNode(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+
+	at com.tibco.xml.xdata.bind.BindingRemarkHandler.assertNoErrors(Unknown Source)
+	at com.tibco.xml.xdata.bind.OnceOnlyBinding.assertNoErrors(Unknown Source)
+	at com.tibco.xml.xdata.bind.ReusableBinding.assertNoErrors(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+called by: [Testing/test1.process/configure>Blask/configure.process/Add Routes>Blask/Routing/addRoutes.process/add Default View] 
+2020 Jun 27 21:36:54:896 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 27 21:37:01:304 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:37:01:304 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:37:01:305 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 27 21:37:01:305 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 27 21:37:01:305 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 27 21:37:01:528 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 27 21:37:01:660 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 27 21:37:01:757 GMT +0200 BW.blask-bw Error [BW_Plugin] BW-JAVA-100037 Job-5000 Error in [Blask/Templating/initializeEngine.process/Java Method]
+The method [blask.templating.TemplateEngine.initialize] raised exception [java.lang.UnsupportedOperationException].  java.lang.UnsupportedOperationException: thymeleaf engine not supported
+	at com.tibco.plugin.java.JavaMethodActivity.for(Unknown Source)
+	at com.tibco.plugin.java.JavaMethodActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+called by: [Testing/test1.process/configure>Blask/configure.process/Initialize Templating Engine] 
+2020 Jun 27 21:39:16:546 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 27 21:39:18:744 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:39:18:744 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:39:18:745 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 27 21:39:18:745 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 27 21:39:18:745 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 27 21:39:18:963 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 27 21:39:19:118 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 27 21:39:19:600 GMT +0200 BW.blask-bw Error [BW_Plugin] BW-JAVA-100037 Job-6000 Error in [Blask/Templating/initializeEngine.process/Java Method]
+The method [blask.templating.TemplateEngine.initialize] raised exception [java.lang.NoClassDefFoundError].  java.lang.NoClassDefFoundError: com/mitchellbosecke/pebble/loader/Loader
+	at com.tibco.plugin.java.JavaMethodActivity.for(Unknown Source)
+	at com.tibco.plugin.java.JavaMethodActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+called by: [Testing/test1.process/configure>Blask/configure.process/Initialize Templating Engine] 
+2020 Jun 27 21:40:25:339 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 27 21:41:36:885 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:41:36:885 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:41:36:885 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 27 21:41:36:886 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 27 21:41:36:886 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 27 21:41:37:092 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 27 21:41:37:220 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 27 21:41:37:714 GMT +0200 BW.blask-bw Error [BW_Plugin] BW-JAVA-100037 Job-7000 Error in [Blask/Templating/initializeEngine.process/Java Method]
+The method [blask.templating.TemplateEngine.initialize] raised exception [java.lang.NoClassDefFoundError].  java.lang.NoClassDefFoundError: org/unbescape/html/HtmlEscape
+	at com.tibco.plugin.java.JavaMethodActivity.for(Unknown Source)
+	at com.tibco.plugin.java.JavaMethodActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+called by: [Testing/test1.process/configure>Blask/configure.process/Initialize Templating Engine] 
+2020 Jun 27 21:41:54:172 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 27 21:42:04:262 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:42:04:262 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:42:04:262 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 27 21:42:04:263 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 27 21:42:04:263 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 27 21:42:04:463 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 27 21:42:04:583 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 27 21:42:17:109 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 27 21:42:27:999 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:42:27:999 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:42:27:999 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 27 21:42:28:000 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 27 21:42:28:000 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 27 21:42:28:201 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 27 21:42:28:354 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 27 21:42:28:709 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 27 21:42:34:991 GMT +0200 BW.blask-bw Error [BW-Core] BWENGINE-100035 Job-9001 Error in [Testing/test1_static_view.process/Start]
+error on exit from activity, no matching transition
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+ 
+2020 Jun 27 21:42:41:670 GMT +0200 BW.blask-bw Error [BW_Plugin] BW-JAVA-100037 Job-9002 Error in [Blask/Templating/renderTemplate.process/Render Template]
+The method [blask.templating.TemplateEngine.renderTemplate] raised exception [com.mitchellbosecke.pebble.error.LoaderException].  com.mitchellbosecke.pebble.error.LoaderException: Could not find template "template1" (?:?)
+	at com.tibco.plugin.java.JavaMethodActivity.for(Unknown Source)
+	at com.tibco.plugin.java.JavaMethodActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+called by: [Testing/test1_view.process/renderTemplate] 
+2020 Jun 27 21:45:29:792 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 27 21:45:31:859 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:45:31:860 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 21:45:31:861 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 27 21:45:31:863 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 27 21:45:31:863 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 27 21:45:32:102 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 27 21:45:32:141 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 27 21:45:32:429 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 27 21:46:44:230 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 21:46:44] GET /test1 HTTP/1.1 - 200 
+2020 Jun 27 21:46:44:466 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 21:46:44] GET /js/plugins.js HTTP/1.1 - 500 
+2020 Jun 27 21:46:44:473 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 21:46:44] GET /css/main.css HTTP/1.1 - 500 
+2020 Jun 27 21:46:44:478 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 21:46:44] GET /js/vendor/modernizr-3.6.0.min.js HTTP/1.1 - 500 
+2020 Jun 27 21:46:44:480 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 21:46:44] GET /js/main.js HTTP/1.1 - 500 
+2020 Jun 27 21:46:44:480 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 21:46:44] GET /css/normalize.css HTTP/1.1 - 500 
+2020 Jun 27 21:46:44:558 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 21:46:44] GET /js/plugins.js HTTP/1.1 - 500 
+2020 Jun 27 21:46:44:603 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 21:46:44] GET /js/main.js HTTP/1.1 - 500 
+2020 Jun 27 21:46:44:666 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 21:46:44] GET /icon.png HTTP/1.1 - 500 
+2020 Jun 27 21:46:44:669 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 21:46:44] GET /favicon.ico HTTP/1.1 - 500 
+2020 Jun 27 22:13:12:866 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:13:12] GET /test1 HTTP/1.1 - 200 
+2020 Jun 27 22:13:13:048 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:13:13] GET /js/plugins.js HTTP/1.1 - 500 
+2020 Jun 27 22:13:13:052 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:13:13] GET /js/main.js HTTP/1.1 - 500 
+2020 Jun 27 22:13:13:057 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:13:13] GET /css/main.css HTTP/1.1 - 500 
+2020 Jun 27 22:13:13:060 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:13:13] GET /js/vendor/modernizr-3.6.0.min.js HTTP/1.1 - 500 
+2020 Jun 27 22:13:13:062 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:13:13] GET /css/normalize.css HTTP/1.1 - 500 
+2020 Jun 27 22:13:13:204 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:13:13] GET /js/plugins.js HTTP/1.1 - 500 
+2020 Jun 27 22:13:13:287 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:13:13] GET /js/main.js HTTP/1.1 - 500 
+2020 Jun 27 22:13:13:332 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:13:13] GET /favicon.ico HTTP/1.1 - 500 
+2020 Jun 27 22:13:13:332 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:13:13] GET /icon.png HTTP/1.1 - 500 
+2020 Jun 27 22:15:51:313 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 27 22:15:52:901 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 22:15:52:902 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 22:15:52:902 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 27 22:15:52:903 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 27 22:15:52:904 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 27 22:15:53:087 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 27 22:15:53:161 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 27 22:15:53:377 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 27 22:15:57:062 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:15:57] GET /test1 HTTP/1.1 - 200 
+2020 Jun 27 22:15:57:232 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:15:57] GET /css/main.css HTTP/1.1 - 404 
+2020 Jun 27 22:15:57:242 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:15:57] GET /js/vendor/modernizr-3.6.0.min.js HTTP/1.1 - 404 
+2020 Jun 27 22:15:57:248 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:15:57] GET /js/main.js HTTP/1.1 - 404 
+2020 Jun 27 22:15:57:256 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:15:57] GET /css/normalize.css HTTP/1.1 - 404 
+2020 Jun 27 22:15:57:257 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:15:57] GET /js/plugins.js HTTP/1.1 - 404 
+2020 Jun 27 22:15:57:366 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:15:57] GET /js/plugins.js HTTP/1.1 - 404 
+2020 Jun 27 22:15:57:390 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:15:57] GET /js/main.js HTTP/1.1 - 404 
+2020 Jun 27 22:16:07:148 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:16:07] GET /test1s HTTP/1.1 - 404 
+2020 Jun 27 22:17:04:436 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 27 22:17:06:125 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 22:17:06:125 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 22:17:06:125 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 27 22:17:06:125 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 27 22:17:06:126 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 27 22:17:06:321 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 27 22:17:06:389 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 27 22:17:06:646 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 27 22:18:16:143 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 27 22:23:19:350 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 22:23:19:350 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 22:23:19:350 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 27 22:23:19:351 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 27 22:23:19:351 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 27 22:23:19:538 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 27 22:23:19:599 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 27 22:23:19:795 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 27 22:23:24:818 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:23:24] GET /test1s HTTP/1.1 - 404 
+2020 Jun 27 22:23:51:875 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 27 22:23:55:133 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 22:23:55:133 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 27 22:23:55:133 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 27 22:23:55:134 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 27 22:23:55:134 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 27 22:23:55:318 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 27 22:23:55:388 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 27 22:23:55:604 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 27 22:23:58:033 GMT +0200 BW.blask-bw Info [BW-User] - 127.0.0.1 - [27/06/2020 22:23:58] GET /test1s HTTP/1.1 - 404 
+2020 Jun 28 00:26:50:463 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 28 00:26:57:041 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 00:26:57:043 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 00:26:57:044 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 28 00:26:57:045 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 28 00:26:57:046 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 28 00:26:57:747 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 28 00:26:57:973 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 28 00:26:58:656 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 28 00:27:18:971 GMT +0200 BW.blask-bw Info [BW-User] - 0:0:0:0:0:0:0:1 - [28/06/2020 00:27:18] GET /test1s HTTP/1.1 - 404 
+2020 Jun 28 00:27:37:231 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 28 00:38:14:417 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 00:38:14:418 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 00:38:14:419 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 28 00:38:14:420 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 28 00:38:14:421 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 28 00:38:15:136 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 28 00:38:15:473 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 28 00:38:16:134 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 28 00:38:33:920 GMT +0200 BW.blask-bw Info [BW-User] - 0:0:0:0:0:0:0:1 - [28/06/2020 00:38:33] GET /greet/javier HTTP/1.1 - 200 
+2020 Jun 28 00:38:44:493 GMT +0200 BW.blask-bw Info [BW-User] - 0:0:0:0:0:0:0:1 - [28/06/2020 00:38:44] GET /greet/alberto HTTP/1.1 - 200 
+2020 Jun 28 00:39:36:123 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 28 00:40:22:221 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 00:40:22:222 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 00:40:22:223 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 28 00:40:22:223 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 28 00:40:22:224 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 28 00:40:22:908 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 28 00:40:23:133 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 28 00:40:23:850 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 28 00:40:30:689 GMT +0200 BW.blask-bw Info [BW-User] - 0:0:0:0:0:0:0:1 - [28/06/2020 00:40:30] GET /greet/alberto HTTP/1.1 - 200 
+2020 Jun 28 00:40:32:804 GMT +0200 BW.blask-bw Info [BW-User] - 0:0:0:0:0:0:0:1 - [28/06/2020 00:40:32] GET /greet/alberto HTTP/1.1 - 200 
+2020 Jun 28 00:42:15:420 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 28 00:42:19:230 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 00:42:19:231 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 00:42:19:232 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 28 00:42:19:233 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 28 00:42:19:234 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 28 00:42:19:895 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 28 00:42:20:119 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 28 00:42:20:731 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 28 00:42:44:033 GMT +0200 BW.blask-bw Info [BW-User] - 0:0:0:0:0:0:0:1 - [28/06/2020 00:42:44] GET /greet/alberto HTTP/1.1 - 200 
+2020 Jun 28 00:48:18:512 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 28 00:48:28:110 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 00:48:28:111 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 00:48:28:112 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 28 00:48:28:112 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 28 00:48:28:113 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 28 00:48:28:799 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 28 00:48:29:041 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 28 00:48:29:762 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 28 00:49:00:480 GMT +0200 BW.blask-bw Info [BW-User] - 0:0:0:0:0:0:0:1 - [28/06/2020 00:49:00] GET /static/illustration1png HTTP/1.1 - 404 
+2020 Jun 28 00:49:05:052 GMT +0200 BW.blask-bw Info [BW-User] - 0:0:0:0:0:0:0:1 - [28/06/2020 00:49:05] GET /static/illustration1.png HTTP/1.1 - 404 
+2020 Jun 28 00:49:36:971 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 28 00:49:40:851 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 00:49:40:852 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 00:49:40:852 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 28 00:49:40:853 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 28 00:49:40:853 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 28 00:49:41:536 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 28 00:49:41:776 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 28 00:49:42:447 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 28 00:49:58:966 GMT +0200 BW.blask-bw Info [BW-User] - 0:0:0:0:0:0:0:1 - [28/06/2020 00:49:58] GET /static/illustration1.png HTTP/1.1 - 404 
+2020 Jun 28 00:50:37:768 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 28 10:29:40:559 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 10:29:40:560 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 10:29:40:561 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 28 10:29:40:562 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 28 10:29:40:562 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 28 10:29:41:699 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 28 10:29:41:797 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 28 10:29:42:292 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 28 10:29:56:812 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 28 10:29:59:723 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 10:29:59:724 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 28 10:29:59:725 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 28 10:29:59:726 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 28 10:29:59:727 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 28 10:30:00:536 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 28 10:30:00:637 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 28 10:30:01:111 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 28 10:32:52:157 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 29 20:50:19:143 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 29 20:50:19:144 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 29 20:50:19:148 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 29 20:50:19:148 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 29 20:50:19:149 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 29 20:50:19:421 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 29 20:50:19:766 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 29 20:50:21:018 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 29 20:50:22:458 GMT +0200 BW.blask-bw Error [BW_Plugin] BW-JAVA-100037 Job-23000 Error in [Blask/Templating/initializeEngine.process/Java Method]
+The method [blask.templating.TemplateEngine.initialize] raised exception [java.lang.UnsupportedOperationException].  java.lang.UnsupportedOperationException: freemarker engine not supported
+	at com.tibco.plugin.java.JavaMethodActivity.for(Unknown Source)
+	at com.tibco.plugin.java.JavaMethodActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+called by: [Testing/test1.process/configure>Blask/configure.process/Initialize Templating Engine] 
+2020 Jun 29 20:50:53:911 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 29 20:51:27:908 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 29 20:51:27:909 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 29 20:51:27:912 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 29 20:51:27:912 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 29 20:51:27:913 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 29 20:51:28:149 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 29 20:51:28:470 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 29 20:51:29:378 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 29 20:51:30:722 GMT +0200 BW.blask-bw Error [BW_Plugin] BW-JAVA-100037 Job-24000 Error in [Blask/Templating/initializeEngine.process/Java Method]
+The method [blask.templating.TemplateEngine.initialize] raised exception [java.lang.NoClassDefFoundError].  java.lang.NoClassDefFoundError: freemarker/template/Configuration
+	at com.tibco.plugin.java.JavaMethodActivity.for(Unknown Source)
+	at com.tibco.plugin.java.JavaMethodActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+called by: [Testing/test1.process/configure>Blask/configure.process/Initialize Templating Engine] 
+2020 Jun 29 21:05:21:764 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 29 21:05:41:218 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 29 21:05:41:218 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 29 21:05:41:219 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 29 21:05:41:219 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 29 21:05:41:219 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 29 21:05:41:565 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 29 21:05:41:617 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 29 21:05:41:995 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 29 21:05:54:382 GMT +0200 BW.blask-bw Error [BW-Core] BWENGINE-100067 Job-25001 Error in [Blask/dispatchRequest.process/renderTemplate]
+Call process input failed validation
+	at com.tibco.pe.core.CallProcessActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+caused by: org.xml.sax.SAXException: validation error: unexpected end of content; expected template   ({com.tibco.xml.validation}COMPLEX_E_UNEXPECTED_END_OF_CONTENT) at /input[1]
+com.tibco.xml.validation.exception.UnexpectedEndException: unexpected end of content; expected template
+	at com.tibco.xml.validation.state.a.a.a(CMElementValidationState.java:500)
+	at com.tibco.xml.validation.state.a.a.b(CMElementValidationState.java:372)
+	at com.tibco.xml.validation.state.a.a.a(CMElementValidationState.java:142)
+	at com.tibco.xml.validation.state.driver.ValidationJazz.endElement(ValidationJazz.java:511)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:97)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:129)
+	at com.tibco.xml.xdata.bind.BindingRunner.validate(Unknown Source)
+	at com.tibco.pe.core.CallProcessActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+
+	at com.tibco.xml.xdata.bind.BindingRemarkHandler.assertNoErrors(Unknown Source)
+	at com.tibco.xml.xdata.bind.BindingRunner.validate(Unknown Source)
+	at com.tibco.pe.core.CallProcessActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+called by: [Blask/Dev/devServer.process/Dispatch Request]
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Data>
+    <input/>
+</Data> 
+2020 Jun 29 21:05:54:389 GMT +0200 BW.blask-bw Error [BW-Core] BWENGINE-100001 null
+java.lang.NullPointerException
+	at com.tibco.sdk.tools.MFileSink.write(MFileSink.java:324)
+	at com.tibco.sdk.tools.MSink.write(MSink.java:46)
+	at com.tibco.sdk.tools.MRole.if(MRole.java:83)
+	at com.tibco.sdk.tools.MTrace.a(MTrace.java:863)
+	at com.tibco.sdk.tools.MTrace.customTrace(MTrace.java:832)
+	at com.tibco.share.util.Trace.trace(Unknown Source)
+	at com.tibco.pe.core.JobPool.logException(Unknown Source)
+	at com.tibco.pe.core.JobPool.handleException(Unknown Source)
+	at com.tibco.pe.core.JobPool.removeJob(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+ 
+2020 Jun 29 21:05:55:159 GMT +0200 BW.blask-bw Error [BW-Core] BWENGINE-100067 Job-25002 Error in [Blask/dispatchRequest.process/renderTemplate]
+Call process input failed validation
+	at com.tibco.pe.core.CallProcessActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+caused by: org.xml.sax.SAXException: validation error: unexpected end of content; expected template   ({com.tibco.xml.validation}COMPLEX_E_UNEXPECTED_END_OF_CONTENT) at /input[1]
+com.tibco.xml.validation.exception.UnexpectedEndException: unexpected end of content; expected template
+	at com.tibco.xml.validation.state.a.a.a(CMElementValidationState.java:500)
+	at com.tibco.xml.validation.state.a.a.b(CMElementValidationState.java:372)
+	at com.tibco.xml.validation.state.a.a.a(CMElementValidationState.java:142)
+	at com.tibco.xml.validation.state.driver.ValidationJazz.endElement(ValidationJazz.java:511)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:97)
+	at com.tibco.xml.validation.state.glue.XmlTreeNodeValidationDriver.xmlTreeNode(XmlTreeNodeValidationDriver.java:129)
+	at com.tibco.xml.xdata.bind.BindingRunner.validate(Unknown Source)
+	at com.tibco.pe.core.CallProcessActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+
+	at com.tibco.xml.xdata.bind.BindingRemarkHandler.assertNoErrors(Unknown Source)
+	at com.tibco.xml.xdata.bind.BindingRunner.validate(Unknown Source)
+	at com.tibco.pe.core.CallProcessActivity.eval(Unknown Source)
+	at com.tibco.pe.plugin.Activity.eval(Unknown Source)
+	at com.tibco.pe.core.TaskImpl.eval(Unknown Source)
+	at com.tibco.pe.core.Job.a(Unknown Source)
+	at com.tibco.pe.core.Job.k(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+called by: [Blask/Dev/devServer.process/Dispatch Request]
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Data>
+    <input/>
+</Data> 
+2020 Jun 29 21:05:55:161 GMT +0200 BW.blask-bw Error [BW-Core] BWENGINE-100001 null
+java.lang.NullPointerException
+	at com.tibco.sdk.tools.MFileSink.write(MFileSink.java:324)
+	at com.tibco.sdk.tools.MSink.write(MSink.java:46)
+	at com.tibco.sdk.tools.MRole.if(MRole.java:83)
+	at com.tibco.sdk.tools.MTrace.a(MTrace.java:863)
+	at com.tibco.sdk.tools.MTrace.customTrace(MTrace.java:832)
+	at com.tibco.share.util.Trace.trace(Unknown Source)
+	at com.tibco.pe.core.JobPool.logException(Unknown Source)
+	at com.tibco.pe.core.JobPool.handleException(Unknown Source)
+	at com.tibco.pe.core.JobPool.removeJob(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.a(Unknown Source)
+	at com.tibco.pe.core.JobDispatcher$JobCourier.run(Unknown Source)
+ 
+2020 Jun 29 21:11:12:677 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 
+2020 Jun 29 21:14:49:817 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300001 Process Engine version 5.13.0, build V24, 2015-8-11 
+2020 Jun 29 21:14:49:818 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300009 BW Plugins: version 5.13.0, build V24, 2015-8-11 
+2020 Jun 29 21:14:49:818 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300010 XML Support: TIBCOXML Version 5.60.0.003 
+2020 Jun 29 21:14:49:818 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300011 Java version: Java HotSpot(TM) 64-Bit Server VM 25.51-b03 
+2020 Jun 29 21:14:49:819 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300012 OS version: amd64 Linux 5.6.15-300.fc32.x86_64 
+2020 Jun 29 21:14:50:027 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300013 Tibrv string encoding: UTF-8 
+2020 Jun 29 21:14:50:073 GMT +0200 BW.blask-bw Info [BW_Plugin] BW-HTTP-100500 Using the following HTTP minProcessors/maxProcessors [host=localhost  port=8889]: 10/75 
+2020 Jun 29 21:14:50:463 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300002 Engine blask-bw started 
+2020 Jun 29 21:14:55:122 GMT +0200 BW.blask-bw Info [BW-User] - 0:0:0:0:0:0:0:1 - [29/06/2020 21:14:55] GET /static/illustration1.png HTTP/1.1 - 404 
+2020 Jun 29 22:43:31:321 GMT +0200 BW.blask-bw Info [BW-Core] BWENGINE-300006 Engine blask-bw terminating 

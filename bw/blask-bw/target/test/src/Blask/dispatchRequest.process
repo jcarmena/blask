@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.w3.org/1999/xhtml" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://www.tibco.com/pe/EngineTypes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions">
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.w3.org/1999/xhtml" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://www.tibco.com/pe/EngineTypes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" xmlns:ns1="http://jvier.com/Blask/Schemas/Routes.xsd">
     <xsd:import namespace="http://www.w3.org/1999/xhtml" schemaLocation="/Blask/Schemas/xhtml5_with_microdata.xsd"/>
     <pd:name>Blask/dispatchRequest.process</pd:name>
     <pd:startName>Start</pd:startName>
@@ -46,8 +46,8 @@
         </response>
     </pd:returnBindings>
     <pd:endName>End</pd:endName>
-    <pd:endX>1008</pd:endX>
-    <pd:endY>154</pd:endY>
+    <pd:endX>1321</pd:endX>
+    <pd:endY>153</pd:endY>
     <pd:errorSchemas/>
     <pd:processVariables/>
     <pd:targetNamespace>http://xmlns.example.com/1522539614554</pd:targetNamespace>
@@ -73,11 +73,11 @@
     <pd:activity name="Call view">
         <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
         <pd:resourceType>ae.process.subprocess</pd:resourceType>
-        <pd:x>746</pd:x>
-        <pd:y>153</pd:y>
+        <pd:x>829</pd:x>
+        <pd:y>101</pd:y>
         <config>
             <processName>/Blask/Routing/defaultView.process</processName>
-            <processNameXPath>$route/result/process</processNameXPath>
+            <processNameXPath>$route/result/ns1:route/ns1:target</processNameXPath>
         </config>
         <pd:inputBindings>
             <input/>
@@ -99,7 +99,7 @@
                 <command>
                     <xsl:value-of select="$Start/request/command"/>
                 </command>
-                <xsl:for-each select="$route/result/parameter">
+                <xsl:for-each select="$route/result/urlParameter">
                     <parameter>
                         <name>
                             <xsl:value-of select="name"/>
@@ -119,11 +119,9 @@
                         </value>
                     </args>
                 </xsl:for-each>
-                <xsl:if test="$route/result/key">
-                    <routeKey>
-                        <xsl:value-of select="$route/result/key"/>
-                    </routeKey>
-                </xsl:if>
+                <routeKey>
+                    <xsl:value-of select="$route/result/ns1:route/ns1:viewId"/>
+                </routeKey>
             </requestContext>
         </pd:inputBindings>
     </pd:activity>
@@ -154,8 +152,8 @@
     <pd:activity name="Catch">
         <pd:type>com.tibco.pe.core.CatchActivity</pd:type>
         <pd:resourceType>ae.activities.catch</pd:resourceType>
-        <pd:x>737</pd:x>
-        <pd:y>443</pd:y>
+        <pd:x>383</pd:x>
+        <pd:y>506</pd:y>
         <pd:handler>true</pd:handler>
         <config>
             <catchAll>true</catchAll>
@@ -191,8 +189,8 @@
     <pd:activity name="createErrorResponse">
         <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
         <pd:resourceType>ae.process.subprocess</pd:resourceType>
-        <pd:x>915</pd:x>
-        <pd:y>443</pd:y>
+        <pd:x>1171</pd:x>
+        <pd:y>385</pd:y>
         <config>
             <processName>/Blask/Response/createErrorResponse.process</processName>
         </config>
@@ -225,6 +223,62 @@
             </input>
         </pd:inputBindings>
     </pd:activity>
+    <pd:activity name="serveStaticFile">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>823</pd:x>
+        <pd:y>203</pd:y>
+        <config>
+            <processName>/Blask/Response/serveStaticFile.process</processName>
+        </config>
+        <pd:inputBindings>
+            <root/>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Null-1">
+        <pd:type>com.tibco.plugin.timer.NullActivity</pd:type>
+        <pd:resourceType>ae.activities.null</pd:resourceType>
+        <pd:x>694</pd:x>
+        <pd:y>152</pd:y>
+        <config/>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:activity name="renderTemplate">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>756</pd:x>
+        <pd:y>557</pd:y>
+        <config>
+            <processName>/Blask/Templating/renderTemplate.process</processName>
+        </config>
+        <pd:inputBindings>
+            <input/>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="makeResponse">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>1244</pd:x>
+        <pd:y>543</pd:y>
+        <config>
+            <processName>/Blask/Response/makeResponse.process</processName>
+        </config>
+        <pd:inputBindings>
+            <response>
+                <content>
+                    <contentType>
+                        <xsl:value-of xmlns:xsl="http://www.w3.org/1999/XSL/Transform" select="&quot;text/html&quot;"/>
+                    </contentType>
+                    <content>
+                        <xsl:value-of xmlns:xsl="http://www.w3.org/1999/XSL/Transform" select="$renderTemplate/output/renderedTemplate"/>
+                    </content>
+                </content>
+                <statusCode>
+                    <xsl:value-of xmlns:xsl="http://www.w3.org/1999/XSL/Transform" select="200"/>
+                </statusCode>
+            </response>
+        </pd:inputBindings>
+    </pd:activity>
     <pd:transition>
         <pd:from>Start</pd:from>
         <pd:to>Get App Context</pd:to>
@@ -248,12 +302,12 @@
     </pd:transition>
     <pd:transition>
         <pd:from>Set Request Context</pd:from>
-        <pd:to>Call view</pd:to>
+        <pd:to>Null-1</pd:to>
         <pd:xpathDescription>Route OK</pd:xpathDescription>
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>
         <pd:conditionType>xpath</pd:conditionType>
-        <pd:xpath>exists($route/result/process)</pd:xpath>
+        <pd:xpath>$route/result/matched="true"</pd:xpath>
     </pd:transition>
     <pd:transition>
         <pd:from>Set Request Context</pd:from>
@@ -274,7 +328,7 @@
         <pd:to>createErrorResponse</pd:to>
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>
-        <pd:conditionType>always</pd:conditionType>
+        <pd:conditionType>otherwise</pd:conditionType>
     </pd:transition>
     <pd:transition>
         <pd:from>Null</pd:from>
@@ -299,6 +353,50 @@
     </pd:transition>
     <pd:transition>
         <pd:from>createErrorResponse</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Null-1</pd:from>
+        <pd:to>Call view</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>otherwise</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Null-1</pd:from>
+        <pd:to>serveStaticFile</pd:to>
+        <pd:xpathDescription>is Static</pd:xpathDescription>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>xpath</pd:conditionType>
+        <pd:xpath>$route/result/ns1:route/ns1:isStaticTarget="true"</pd:xpath>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>serveStaticFile</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Catch</pd:from>
+        <pd:to>renderTemplate</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>renderTemplate</pd:from>
+        <pd:to>makeResponse</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>makeResponse</pd:from>
         <pd:to>End</pd:to>
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>

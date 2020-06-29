@@ -36,11 +36,11 @@ public class RouteTests {
     assertEquals("/hola/<param1>", r1.getPattern());
     assertEquals("hola/[^/]+", r1.getEffectivePattern());
     assertEquals("hola_xx", r1.getViewId());
-    assertTrue(r1.getInputParameters().size()==1);
+    assertTrue(r1.getInputParameters().size() == 1);
     ViewParameter vp = r1.getInputParameters().get(0);
     assertEquals("param1", vp.getName());
     assertEquals("[^/]+", vp.getRegex());
-    assertTrue(r1.getReverseParameters().size()==1);
+    assertTrue(r1.getReverseParameters().size() == 1);
     ViewParameter vpr = r1.getReverseParameters().get(0);
     assertEquals("param1", vpr.getName());
     assertEquals("[^/]+", vpr.getRegex());
@@ -50,7 +50,7 @@ public class RouteTests {
     Matcher m2 = p.matcher("hola/javier/com");
     assertFalse(m2.matches());
     Map<String, String> args = r1.parseParameters("/hola/javier");
-    assertTrue(args.size()==1);
+    assertTrue(args.size() == 1);
     assertEquals(args.get("param1"), "javier");
   }
 
@@ -61,11 +61,11 @@ public class RouteTests {
     assertEquals("/hola/<p1:[a-zA-Z0-9]+>", r1.getPattern());
     assertEquals("hola/[a-zA-Z0-9]+", r1.getEffectivePattern());
     assertEquals("hola_xxxx", r1.getViewId());
-    assertTrue(r1.getInputParameters().size()==1);
+    assertTrue(r1.getInputParameters().size() == 1);
     ViewParameter vp = r1.getInputParameters().get(0);
     assertEquals("p1", vp.getName());
     assertEquals("[a-zA-Z0-9]+", vp.getRegex());
-    assertTrue(r1.getReverseParameters().size()==1);
+    assertTrue(r1.getReverseParameters().size() == 1);
     ViewParameter vpr = r1.getInputParameters().get(0);
     assertEquals("p1", vpr.getName());
     assertEquals("[a-zA-Z0-9]+", vpr.getRegex());
@@ -84,7 +84,7 @@ public class RouteTests {
     assertEquals("hola/[a-zA-Z0-9]+", r1.getEffectivePattern());
     assertEquals("hola_regex", r1.getViewId());
     assertTrue(r1.getInputParameters().isEmpty());
-    assertTrue(r1.getReverseParameters().size()==1);
+    assertTrue(r1.getReverseParameters().size() == 1);
     ViewParameter vp = r1.getReverseParameters().get(0);
     assertEquals("nombre", vp.getName());
     assertEquals("[a-zA-Z0-9]+", vp.getRegex());
@@ -93,7 +93,7 @@ public class RouteTests {
     assertTrue(m.matches());
     Matcher m2 = p.matcher("hola/jaVIER35/fail");
     assertFalse(m2.matches());
-    assertEquals("hola/javier", r1.getReversePath(new String[]{"javier"}));
+    assertEquals("hola/javier", r1.getReversePath(new String[] { "javier" }));
     Map<String, String> params = new HashMap<String, String>();
     params.put("nombre", "javier");
     assertEquals("hola/javier", r1.getReversePath(params));
@@ -108,12 +108,12 @@ public class RouteTests {
     assertEquals("p/items/[a-zA-Z0-9_:+\\]]+/[0-9>:\\]]+/save/all", r1.getEffectivePattern());
     assertEquals("hola_fulltest", r1.getViewId());
     // input parameters
-    assertTrue(r1.getInputParameters().size()==1);
+    assertTrue(r1.getInputParameters().size() == 1);
     ViewParameter vpi = r1.getInputParameters().get(0);
     assertEquals("number", vpi.getName());
     assertEquals("[0-9>:\\]]+", vpi.getRegex());
     // reverse parameters
-    assertTrue(r1.getReverseParameters().size()==2);
+    assertTrue(r1.getReverseParameters().size() == 2);
     ViewParameter vpr = r1.getReverseParameters().get(0);
     assertEquals("id", vpr.getName());
     assertEquals("[a-zA-Z0-9_:+\\]]+", vpr.getRegex());
@@ -127,14 +127,14 @@ public class RouteTests {
     Matcher m2 = p.matcher("p/items/box_94/96a001/save/all");
     assertFalse(m2.matches());
     // reverse
-    assertEquals("p/items/box_23/2218/save/all", r1.getReversePath(new String[]{"box_23", "2218"}));
+    assertEquals("p/items/box_23/2218/save/all", r1.getReversePath(new String[] { "box_23", "2218" }));
     Map<String, String> params = new HashMap<String, String>();
     params.put("id", "box_20");
     params.put("number", "2210");
     assertEquals("p/items/box_20/2210/save/all", r1.getReversePath(params));
     // parse parameters
     Map<String, String> args = r1.parseParameters("/p/items/box_31/821/save/all");
-    assertTrue(args.size()==1);
+    assertTrue(args.size() == 1);
     assertEquals(args.get("number"), "821");
   }
 }

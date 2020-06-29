@@ -21,6 +21,7 @@
                             </xsd:sequence>
                         </xsd:complexType>
                     </xsd:element>
+                    <xsd:element name="staticPath" type="xsd:string"/>
                 </xsd:sequence>
             </xsd:complexType>
         </xsd:element>
@@ -44,45 +45,63 @@
         </config>
         <pd:inputBindings>
             <routes>
-                <xsl:for-each select="$Start/configuration/routes/route">
-                    <xsl:for-each select="method">
-                        <route>
-                            <method>
-                                <xsl:value-of select="."/>
-                            </method>
-                            <pattern>
-                                <xsl:value-of select="../uriPattern"/>
-                            </pattern>
-                            <key>
-                                <xsl:value-of select="../key"/>
-                            </key>
-                            <process>
-                                <xsl:value-of select="../process"/>
-                            </process>
-                        </route>
-                    </xsl:for-each>
-                </xsl:for-each>
-                <xsl:for-each select="$Start/configuration/routes/static">
-                    <static>
-                        <path>
-                            <xsl:value-of select="uriPattern"/>
-                        </path>
+                <xsl:for-each select="$Start/configuration/pfx3:processRoute">
+                    <route>
+                        <uriPattern>
+                            <xsl:value-of select="pfx3:uriPattern"/>
+                        </uriPattern>
+                        <method>
+                            <xsl:value-of select="pfx3:method"/>
+                        </method>
                         <key>
-                            <xsl:value-of select="key"/>
+                            <xsl:value-of select="pfx3:key"/>
                         </key>
-                        <folderPath>
-                            <xsl:value-of select="filesystemPath"/>
-                        </folderPath>
+                        <process>
+                            <xsl:value-of select="pfx3:process"/>
+                        </process>
+                        <xsl:if test="pfx3:cacheTimeoutSeconds">
+                            <cacheTimeoutSeconds>
+                                <xsl:value-of select="pfx3:cacheTimeoutSeconds"/>
+                            </cacheTimeoutSeconds>
+                        </xsl:if>
+                        <xsl:if test="pfx3:loginRequired">
+                            <loginRequired>
+                                <xsl:value-of select="pfx3:loginRequired"/>
+                            </loginRequired>
+                        </xsl:if>
+                    </route>
+                </xsl:for-each>
+                <xsl:for-each select="$Start/configuration/pfx3:staticRoute">
+                    <static>
+                        <uriPattern>
+                            <xsl:value-of select="pfx3:uriPattern"/>
+                        </uriPattern>
+                        <key>
+                            <xsl:value-of select="pfx3:key"/>
+                        </key>
+                        <filesystemPath>
+                            <xsl:value-of select="pfx3:filesystemPath"/>
+                        </filesystemPath>
+                        <xsl:if test="pfx3:cacheTimeoutSeconds">
+                            <cacheTimeoutSeconds>
+                                <xsl:value-of select="pfx3:cacheTimeoutSeconds"/>
+                            </cacheTimeoutSeconds>
+                        </xsl:if>
+                        <xsl:if test="pfx3:loginRequired">
+                            <loginRequired>
+                                <xsl:value-of select="pfx3:loginRequired"/>
+                            </loginRequired>
+                        </xsl:if>
                     </static>
                 </xsl:for-each>
-                <defaultRoute>
-                    <key>
-                        <xsl:value-of select="$Start/configuration/routes/notFound/key"/>
-                    </key>
-                    <process>
-                        <xsl:value-of select="$Start/configuration/routes/notFound/process"/>
-                    </process>
-                </defaultRoute>
+                <notFound>
+                    <isStatic>
+                        <xsl:value-of select="$Start/configuration/pfx3:defaultRoute/pfx3:isStatic"/>
+                    </isStatic>
+                    <target>
+                        <xsl:value-of select="$Start/configuration/pfx3:defaultRoute/pfx3:target"/>
+                    </target>
+                </notFound>
             </routes>
         </pd:inputBindings>
     </pd:activity>
@@ -148,6 +167,9 @@
                         </serverName>
                     </xsl:otherwise>
                 </xsl:choose>
+                <staticPath>
+                    <xsl:value-of select="$Start/configuration/staticPath"/>
+                </staticPath>
             </appContext>
         </pd:inputBindings>
     </pd:activity>

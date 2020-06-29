@@ -1,5 +1,5 @@
-#
-#Thu Jun 25 17:27:21 CEST 2020
+#TIBCO Designer Preferences
+#Thu Jun 25 18:05:38 CEST 2020
 BindingFixerDialog.categoryColumn=50
 BindingFixerDialog.fixColumn=50
 BindingFixerDialog.showWarnings=true
@@ -24,15 +24,16 @@ ae.pm.four.panes.tools.on.top.dividers.0=397
 ae.pm.four.panes.tools.on.top.dividers.1=521
 ae.pm.four.panes.tools.on.top.dividers.2=487
 ae.pmi.use.switch.panes=true
-ae.recent.projects.0=projectName\=blask-bw&rootDirectory\=/home/javier/lab/blask/bw/blask-bw/src/main/tibco/blask-bw/
-ae.recent.projects.1=projectName\=bw&rootDirectory\=/home/javier/lab/blask/bw
-ae.recent.projects.2=projectName\=vela-esb-etl&rootDirectory\=/home/javier/lab/dia/dia_etl/bw/etl_18_03_19/src/main/esb/vela-esb-etl
-ae.recent.projects.3=projectName\=bwengine&rootDirectory\=/home/javier/lab/tibcobwtests/bwengine
+ae.recent.projects.0=projectName\=blask-bw-test&rootDirectory\=/home/javier/lab/blask/bw/blask-bw-test/src/main/tibco/blask-bw-test
+ae.recent.projects.1=projectName\=blask-bw&rootDirectory\=/home/javier/lab/blask/bw/blask-bw/src/main/tibco/blask-bw/
+ae.recent.projects.2=projectName\=bw&rootDirectory\=/home/javier/lab/blask/bw
+ae.recent.projects.3=projectName\=vela-esb-etl&rootDirectory\=/home/javier/lab/dia/dia_etl/bw/etl_18_03_19/src/main/esb/vela-esb-etl
+ae.recent.projects.4=projectName\=bwengine&rootDirectory\=/home/javier/lab/tibcobwtests/bwengine
 ae.show_tip_of_day=false
 ae.two.column.pm.dividers.0=301
 ae.two.column.pm.dividers.1=918
 ae.undo.stack.size.pref=0
-application.height=1053
+application.height=1020
 application.width=1920
 application.x=0
 application.y=27
@@ -54,7 +55,7 @@ designer.console.window.window.location.y=35
 filealias.pref.0=com.jvier.blask\:blask-bw\:1.0.0-SNAPSHOT\:projlib\=/home/javier/lab/blask/bw/blask-bw-test/target/test/lib/blask-bw-1.0.0-SNAPSHOT.projlib
 filealias.pref.1=com.jvier.blask\:routing\:1.0.0-SNAPSHOT\:jar\=/home/javier/lab/blask/bw/blask-bw-test/target/test/lib/routing-1.0.0-SNAPSHOT.jar
 filealias.pref.2=com.jvier.blask\:routing\:${project.version}\:jar\=/home/javier/lab/blask/bw/blask-bw-test/target/test/lib/routing-1.0.0-SNAPSHOT.jar
-fs.vfilestore.last.dir.pref=/home/javier/lab/blask/bw/blask-bw/src/main/tibco/blask-bw/
+fs.vfilestore.last.dir.pref=/home/javier/lab/blask/bw/blask-bw-test/src/main/tibco/blask-bw-test
 graph.height.pref=1177
 graph.link.mode.pref=0
 graph.width.pref=2892
@@ -158,11 +159,12 @@ last.loaded.palette.form.flow.resource.0=ae.palette.GeneralPalette
 last.loaded.palette.service.resource.0=service.palette
 last.loaded.palette.wsdlresource.operation.0=wsdlresource.palette
 last.loaded.palette.wsdlresource.porttypeAndMessage.0=wsdlresource.palette
-last.project=projectName\=blask-bw&rootDirectory\=/home/javier/lab/blask/bw/blask-bw/src/main/tibco/blask-bw/
-last.selected.resource.0=<blask-bw\:/Blask/BlaskLibraries.aliaslib>
-last.selected.resource.1=<bw\:/Blask/BlaskLibraries.aliaslib>
-last.selected.resource.2=<vela-esb-etl\:/Trans/TransCN/.folder>
-last.selected.resource.3=<bwengine\:/.folder>
+last.project=projectName\=blask-bw-test&rootDirectory\=/home/javier/lab/blask/bw/blask-bw-test/src/main/tibco/blask-bw-test
+last.selected.resource.0=<blask-bw-test\:/Testing/test1_view.process>
+last.selected.resource.1=<blask-bw\:/Blask/BlaskLibraries.aliaslib>
+last.selected.resource.2=<bw\:/Blask/BlaskLibraries.aliaslib>
+last.selected.resource.3=<vela-esb-etl\:/Trans/TransCN/.folder>
+last.selected.resource.4=<bwengine\:/.folder>
 max.log.size.preference=1
 palette.catmode.pref=false
 palette.state.Routing=true

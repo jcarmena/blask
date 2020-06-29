@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-
 // ================================
 // View
 // ================================
@@ -20,12 +19,11 @@ public class View implements Serializable {
     private Route route = null;
     private Map<String, Object> options = new HashMap<String, Object>();
 
-
     public View() {
     }
 
     public View(String method, String uriPattern, String id, boolean isStatic, String target) {
-        if (method!=null && uriPattern!=null) {
+        if (method != null && uriPattern != null) {
             this.route = new Route(method, uriPattern, id);
         }
         this.setId(id);
@@ -33,8 +31,9 @@ public class View implements Serializable {
         this.setTarget(target);
     }
 
-    public View(String method, String uriPattern, String id, boolean isStatic, String target, Map<String, Object> options) {
-        if (method!=null && uriPattern!=null) {
+    public View(String method, String uriPattern, String id, boolean isStatic, String target,
+            Map<String, Object> options) {
+        if (method != null && uriPattern != null) {
             this.route = new Route(method, uriPattern, id);
         }
         this.setId(id);
@@ -88,7 +87,6 @@ public class View implements Serializable {
         return this;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -107,12 +105,8 @@ public class View implements Serializable {
 
     @Override
     public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", isStatic='" + isStatic() + "'" +
-            ", target='" + getTarget() + "'" +
-            "}";
+        return "{" + " id='" + getId() + "'" + ", isStatic='" + isStatic() + "'" + ", target='" + getTarget() + "'"
+                + "}";
     }
-
 
 }

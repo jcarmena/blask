@@ -1,0 +1,1 @@
+- controlar los path cuando es recurso estatico para que no salga de la ruta de ficheros estaticos (../../etc/passwords)

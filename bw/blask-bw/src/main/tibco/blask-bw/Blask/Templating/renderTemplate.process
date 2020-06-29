@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="www.tibco.com/plugin/java/xmlSchema/blask.templating.TemplateContext" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="www.tibco.com/plugin/java/JavaMethodActivityInput" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="www.tibco.com/plugin/java/XmlToJavaActivityInput" xmlns:ns1="www.tibco.com/plugin/java/XmlToJavaActivityOutput" xmlns:ns3="www.tibco.com/plugin/java/JavaMethodActivityOutput">
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="www.tibco.com/plugin/java/xmlSchema/blask.templating.TemplateContext" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:pfx2="http://www.tibco.com/pe/DeployedVarsType" xmlns:ns="www.tibco.com/plugin/java/JavaMethodActivityInput" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="www.tibco.com/plugin/java/XmlToJavaActivityInput" xmlns:ns1="www.tibco.com/plugin/java/XmlToJavaActivityOutput" xmlns:ns3="www.tibco.com/plugin/java/JavaMethodActivityOutput">
     <pd:name>Blask/Templating/renderTemplate.process</pd:name>
     <pd:startName>Start</pd:startName>
     <pd:startType>
@@ -8,6 +8,21 @@
                 <xsd:sequence>
                     <xsd:element name="template" type="xsd:string"/>
                     <xsd:element name="error" type="xsd:string"/>
+                    <xsd:element name="context" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="item" minOccurs="0" maxOccurs="unbounded">
+                                    <xsd:complexType>
+                                        <xsd:sequence>
+                                            <xsd:element name="type" type="xsd:string"/>
+                                            <xsd:element name="name" type="xsd:string"/>
+                                            <xsd:element name="value" type="xsd:anyType"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
                 </xsd:sequence>
             </xsd:complexType>
         </xsd:element>
@@ -31,16 +46,16 @@
             </xsd:complexType>
         </xsd:element>
     </pd:endType>
-    <pd:endX>450</pd:endX>
-    <pd:endY>64</pd:endY>
+    <pd:endX>1191</pd:endX>
+    <pd:endY>91</pd:endY>
     <pd:errorSchemas/>
     <pd:processVariables/>
     <pd:targetNamespace>http://xmlns.example.com/1522416535520</pd:targetNamespace>
     <pd:activity name="Render Template">
         <pd:type>com.tibco.plugin.java.JavaMethodActivity</pd:type>
         <pd:resourceType>ae.activities.JavaMethodActivity</pd:resourceType>
-        <pd:x>383</pd:x>
-        <pd:y>226</pd:y>
+        <pd:x>951</pd:x>
+        <pd:y>229</pd:y>
         <config>
             <ConstructDeclaredClass>false</ConstructDeclaredClass>
             <CacheConstructedClass>false</CacheConstructedClass>
@@ -52,7 +67,7 @@
                 <methodName>renderTemplate</methodName>
                 <methodReturn>java.lang.String</methodReturn>
                 <methodParameter>java.lang.String</methodParameter>
-                <methodParameter>java.lang.Object</methodParameter>
+                <methodParameter>java.util.Map</methodParameter>
             </MethodInfo>
         </config>
         <pd:inputBindings>
@@ -62,35 +77,200 @@
                         <xsl:value-of select="$Start/input/template"/>
                     </Parameter1>
                     <Parameter2>
-                        <xsl:value-of select="$Create-Context/ns1:XmlToJavaActivityOutput/ns1:blask.templating.TemplateContext"/>
+                        <xsl:value-of select="$newHashMap/newHashMap"/>
                     </Parameter2>
                 </MethodParameters>
             </ns:JavaMethodActivityInput>
         </pd:inputBindings>
     </pd:activity>
-    <pd:activity name="Create Context">
-        <pd:type>com.tibco.plugin.java.XmlToJavaActivity</pd:type>
-        <pd:resourceType>ae.activities.XmlToJavaActivity</pd:resourceType>
-        <pd:x>254</pd:x>
-        <pd:y>223</pd:y>
+    <pd:activity name="newHashMap">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>323</pd:x>
+        <pd:y>216</pd:y>
         <config>
-            <Repeatable>false</Repeatable>
-            <UseJavaSchema>false</UseJavaSchema>
-            <SelectorClassName>
-                <classLocation>/home/javier/IdeaProjects/blask/out/artifacts/blask_jar/blask.jar</classLocation>
-                <classPath>/Blask/BlaskLibraries.aliaslib</classPath>
-                <className>blask.templating.TemplateContext</className>
-            </SelectorClassName>
+            <processName>/Blask/Util/HashMap/newHashMap.process</processName>
         </config>
-        <pd:inputBindings>
-            <ns2:XmlToJavaActivityInput>
-                <pfx:TemplateContext/>
-            </ns2:XmlToJavaActivityInput>
-        </pd:inputBindings>
+        <pd:inputBindings/>
     </pd:activity>
+    <pd:group name="Group">
+        <pd:type>com.tibco.pe.core.LoopGroup</pd:type>
+        <pd:resourceType>ae.process.group</pd:resourceType>
+        <pd:x>450</pd:x>
+        <pd:y>9</pd:y>
+        <pd:width>369</pd:width>
+        <pd:height>630</pd:height>
+        <pd:collapsedWidth>57</pd:collapsedWidth>
+        <pd:collapsedHeight>70</pd:collapsedHeight>
+        <pd:groupVariables/>
+        <pd:joinToggle>inherit</pd:joinToggle>
+        <config>
+            <pd:groupType>inputLoop</pd:groupType>
+            <pd:serializable>false</pd:serializable>
+            <pd:over>$Start/input/context/item</pd:over>
+            <pd:iterationElementSlot>item</pd:iterationElementSlot>
+            <pd:indexSlot>i</pd:indexSlot>
+            <pd:activityOutputName/>
+            <pd:accumulateOutput>false</pd:accumulateOutput>
+        </config>
+        <pd:inputBindings/>
+        <pd:expanded>true</pd:expanded>
+        <pd:transition>
+            <pd:from>start</pd:from>
+            <pd:to>putString</pd:to>
+            <pd:xpathDescription>String</pd:xpathDescription>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>xpath</pd:conditionType>
+            <pd:xpath>$item/item/type=$_globalVariables/pfx2:GlobalVariables/Blask/Util/DataTypes/String</pd:xpath>
+        </pd:transition>
+        <pd:transition>
+            <pd:from>start</pd:from>
+            <pd:to>put</pd:to>
+            <pd:xpathDescription>Java Object</pd:xpathDescription>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>xpath</pd:conditionType>
+            <pd:xpath>$item/item/type=$_globalVariables/pfx2:GlobalVariables/Blask/Util/DataTypes/JavaObject</pd:xpath>
+        </pd:transition>
+        <pd:transition>
+            <pd:from>start</pd:from>
+            <pd:to>putInt</pd:to>
+            <pd:xpathDescription>Integer</pd:xpathDescription>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>xpath</pd:conditionType>
+            <pd:xpath>$item/item/type=$_globalVariables/pfx2:GlobalVariables/Blask/Util/DataTypes/Integer</pd:xpath>
+        </pd:transition>
+        <pd:transition>
+            <pd:from>start</pd:from>
+            <pd:to>putBool</pd:to>
+            <pd:xpathDescription>Bool</pd:xpathDescription>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>xpath</pd:conditionType>
+            <pd:xpath>$item/item/type=$_globalVariables/pfx2:GlobalVariables/Blask/Util/DataTypes/Boolean</pd:xpath>
+        </pd:transition>
+        <pd:transition>
+            <pd:from>putString</pd:from>
+            <pd:to>end</pd:to>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>always</pd:conditionType>
+        </pd:transition>
+        <pd:transition>
+            <pd:from>putBool</pd:from>
+            <pd:to>end</pd:to>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>always</pd:conditionType>
+        </pd:transition>
+        <pd:transition>
+            <pd:from>putInt</pd:from>
+            <pd:to>end</pd:to>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>always</pd:conditionType>
+        </pd:transition>
+        <pd:transition>
+            <pd:from>put</pd:from>
+            <pd:to>end</pd:to>
+            <pd:lineType>Default</pd:lineType>
+            <pd:lineColor>-16777216</pd:lineColor>
+            <pd:conditionType>always</pd:conditionType>
+        </pd:transition>
+        <pd:activity name="putInt">
+            <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+            <pd:resourceType>ae.process.subprocess</pd:resourceType>
+            <pd:x>634</pd:x>
+            <pd:y>92</pd:y>
+            <config>
+                <processName>/Blask/Util/HashMap/putInt.process</processName>
+            </config>
+            <pd:inputBindings>
+                <group>
+                    <hashMap>
+                        <xsl:value-of select="$newHashMap/newHashMap"/>
+                    </hashMap>
+                    <key>
+                        <xsl:value-of select="$item/item/name"/>
+                    </key>
+                    <value>
+                        <xsl:value-of select="$item/item/value"/>
+                    </value>
+                </group>
+            </pd:inputBindings>
+        </pd:activity>
+        <pd:activity name="putString">
+            <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+            <pd:resourceType>ae.process.subprocess</pd:resourceType>
+            <pd:x>636</pd:x>
+            <pd:y>203</pd:y>
+            <config>
+                <processName>/Blask/Util/HashMap/putString.process</processName>
+            </config>
+            <pd:inputBindings>
+                <group>
+                    <hashMap>
+                        <xsl:value-of select="$newHashMap/newHashMap"/>
+                    </hashMap>
+                    <key>
+                        <xsl:value-of select="$item/item/name"/>
+                    </key>
+                    <value>
+                        <xsl:value-of select="$item/item/value"/>
+                    </value>
+                </group>
+            </pd:inputBindings>
+        </pd:activity>
+        <pd:activity name="putBool">
+            <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+            <pd:resourceType>ae.process.subprocess</pd:resourceType>
+            <pd:x>634</pd:x>
+            <pd:y>293</pd:y>
+            <config>
+                <processName>/Blask/Util/HashMap/putBool.process</processName>
+            </config>
+            <pd:inputBindings>
+                <group>
+                    <hashMap>
+                        <xsl:value-of select="$newHashMap/newHashMap"/>
+                    </hashMap>
+                    <key>
+                        <xsl:value-of select="$item/item/name"/>
+                    </key>
+                    <value>
+                        <xsl:value-of select="$item/item/value"/>
+                    </value>
+                </group>
+            </pd:inputBindings>
+        </pd:activity>
+        <pd:activity name="put">
+            <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+            <pd:resourceType>ae.process.subprocess</pd:resourceType>
+            <pd:x>637</pd:x>
+            <pd:y>406</pd:y>
+            <config>
+                <processName>/Blask/Util/HashMap/put.process</processName>
+            </config>
+            <pd:inputBindings>
+                <group>
+                    <hashMap>
+                        <xsl:value-of select="$newHashMap/newHashMap"/>
+                    </hashMap>
+                    <key>
+                        <xsl:value-of select="$item/item/name"/>
+                    </key>
+                    <value>
+                        <xsl:value-of select="$item/item/value"/>
+                    </value>
+                </group>
+            </pd:inputBindings>
+        </pd:activity>
+    </pd:group>
     <pd:transition>
         <pd:from>Start</pd:from>
-        <pd:to>Create Context</pd:to>
+        <pd:to>newHashMap</pd:to>
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>
         <pd:conditionType>always</pd:conditionType>
@@ -103,7 +283,14 @@
         <pd:conditionType>always</pd:conditionType>
     </pd:transition>
     <pd:transition>
-        <pd:from>Create Context</pd:from>
+        <pd:from>newHashMap</pd:from>
+        <pd:to>Group</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Group</pd:from>
         <pd:to>Render Template</pd:to>
         <pd:lineType>Default</pd:lineType>
         <pd:lineColor>-16777216</pd:lineColor>
